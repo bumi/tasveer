@@ -59,6 +59,8 @@
 		B2954BB7227C987300B8D37C /* AllCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BB6227C987200B8D37C /* AllCollectionCell.swift */; };
 		B2954BB9227C993200B8D37C /* AllCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2954BB8227C993200B8D37C /* AllCollectionCell.xib */; };
 		B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */; };
+		B2954BC0227C9E2A00B8D37C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BBF227C9E2A00B8D37C /* User.swift */; };
+		B2954BC2227C9F6100B8D37C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BC1227C9F6100B8D37C /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +118,8 @@
 		B2954BB6227C987200B8D37C /* AllCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionCell.swift; sourceTree = "<group>"; };
 		B2954BB8227C993200B8D37C /* AllCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllCollectionCell.xib; sourceTree = "<group>"; };
 		B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+identificators.swift"; sourceTree = "<group>"; };
+		B2954BBF227C9E2A00B8D37C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B2954BC1227C9F6100B8D37C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +180,7 @@
 		B2954B4F227C48A000B8D37C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B2954BBD227C9DF900B8D37C /* CoreData */,
 				B2954BB3227C95F000B8D37C /* DataSource */,
 				B2954B69227C926100B8D37C /* Operations */,
 				B2954B62227C8B4C00B8D37C /* Extension */,
@@ -343,6 +348,23 @@
 				B2954BB8227C993200B8D37C /* AllCollectionCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B2954BBD227C9DF900B8D37C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B2954BBE227C9E0E00B8D37C /* Entities */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B2954BBE227C9E0E00B8D37C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B2954BBF227C9E2A00B8D37C /* User.swift */,
+				B2954BC1227C9F6100B8D37C /* Group.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
@@ -513,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2954BC2227C9F6100B8D37C /* Group.swift in Sources */,
 				B2954B9A227C926100B8D37C /* NegatedCondition.swift in Sources */,
 				B2954B9B227C926100B8D37C /* PassbookCondition.swift in Sources */,
 				B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */,
@@ -533,6 +556,7 @@
 				B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */,
 				B2954BA1227C926100B8D37C /* LocationCondition.swift in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
+				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
 				B2954B5F227C895200B8D37C /* GroupResponse.swift in Sources */,
 				B2954BA5227C926100B8D37C /* OperationErrors.swift in Sources */,
 				B2954B90227C926100B8D37C /* OperationQueue.swift in Sources */,
