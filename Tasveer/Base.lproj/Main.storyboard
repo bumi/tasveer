@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1161" y="-59"/>
         </scene>
-        <!--View Controller-->
+        <!--Collections-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tasveer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AllCollectionsViewController" customModule="Tasveer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ed2-me-IKW"/>
+                    <navigationItem key="navigationItem" title="Collections" id="Ed2-me-IKW"/>
+                    <connections>
+                        <outlet property="tableView" destination="BFP-a5-6cZ" id="1gx-Vn-cet"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
