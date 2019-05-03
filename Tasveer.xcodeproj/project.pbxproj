@@ -23,6 +23,38 @@
 		B2954B61227C89ED00B8D37C /* MembershipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B60227C89ED00B8D37C /* MembershipResponse.swift */; };
 		B2954B64227C8B6C00B8D37C /* DataRequest+NetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B63227C8B6C00B8D37C /* DataRequest+NetResponse.swift */; };
 		B2954B68227C8D1E00B8D37C /* DateFormatter+appStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B67227C8D1D00B8D37C /* DateFormatter+appStyle.swift */; };
+		B2954B8F227C926100B8D37C /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B6B227C926100B8D37C /* ExclusivityController.swift */; };
+		B2954B90227C926100B8D37C /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B6C227C926100B8D37C /* OperationQueue.swift */; };
+		B2954B91227C926100B8D37C /* LocationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B6E227C926100B8D37C /* LocationOperation.swift */; };
+		B2954B92227C926100B8D37C /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B6F227C926100B8D37C /* GroupOperation.swift */; };
+		B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B70227C926100B8D37C /* BlockOperation.swift */; };
+		B2954B94227C926100B8D37C /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B71227C926100B8D37C /* URLSessionTaskOperation.swift */; };
+		B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B72227C926100B8D37C /* DelayOperation.swift */; };
+		B2954B96227C926100B8D37C /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B73227C926100B8D37C /* Operation.swift */; };
+		B2954B97227C926100B8D37C /* RemoteNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B75227C926100B8D37C /* RemoteNotificationCondition.swift */; };
+		B2954B98227C926100B8D37C /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B76227C926100B8D37C /* ReachabilityCondition.swift */; };
+		B2954B99227C926100B8D37C /* PhotosCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B77227C926100B8D37C /* PhotosCondition.swift */; };
+		B2954B9A227C926100B8D37C /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B78227C926100B8D37C /* NegatedCondition.swift */; };
+		B2954B9B227C926100B8D37C /* PassbookCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B79227C926100B8D37C /* PassbookCondition.swift */; };
+		B2954B9C227C926100B8D37C /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B7A227C926100B8D37C /* NoCancelledDependencies.swift */; };
+		B2954B9D227C926100B8D37C /* UserNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B7B227C926100B8D37C /* UserNotificationCondition.swift */; };
+		B2954B9E227C926100B8D37C /* CloudCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B7C227C926100B8D37C /* CloudCondition.swift */; };
+		B2954B9F227C926100B8D37C /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B7D227C926100B8D37C /* SilentCondition.swift */; };
+		B2954BA0227C926100B8D37C /* HealthCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B7E227C926100B8D37C /* HealthCondition.swift */; };
+		B2954BA1227C926100B8D37C /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B7F227C926100B8D37C /* LocationCondition.swift */; };
+		B2954BA2227C926100B8D37C /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B80227C926100B8D37C /* MutuallyExclusive.swift */; };
+		B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B81227C926100B8D37C /* OperationCondition.swift */; };
+		B2954BA4227C926100B8D37C /* CalendarCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B82227C926100B8D37C /* CalendarCondition.swift */; };
+		B2954BA5227C926100B8D37C /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B83227C926100B8D37C /* OperationErrors.swift */; };
+		B2954BA6227C926100B8D37C /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B85227C926100B8D37C /* NSLock+Operations.swift */; };
+		B2954BA7227C926100B8D37C /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B86227C926100B8D37C /* Dictionary+Operations.swift */; };
+		B2954BA8227C926100B8D37C /* CKContainer+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B87227C926100B8D37C /* CKContainer+Operations.swift */; };
+		B2954BA9227C926100B8D37C /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B88227C926100B8D37C /* NSOperation+Operations.swift */; };
+		B2954BAA227C926100B8D37C /* UIUserNotifications+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B89227C926100B8D37C /* UIUserNotifications+Operations.swift */; };
+		B2954BAB227C926100B8D37C /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B8B227C926100B8D37C /* OperationObserver.swift */; };
+		B2954BAC227C926100B8D37C /* BackgroundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B8C227C926100B8D37C /* BackgroundObserver.swift */; };
+		B2954BAD227C926100B8D37C /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B8D227C926100B8D37C /* BlockObserver.swift */; };
+		B2954BAE227C926100B8D37C /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B8E227C926100B8D37C /* TimeoutObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +76,38 @@
 		B2954B60227C89ED00B8D37C /* MembershipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipResponse.swift; sourceTree = "<group>"; };
 		B2954B63227C8B6C00B8D37C /* DataRequest+NetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+NetResponse.swift"; sourceTree = "<group>"; };
 		B2954B67227C8D1D00B8D37C /* DateFormatter+appStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+appStyle.swift"; sourceTree = "<group>"; };
+		B2954B6B227C926100B8D37C /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
+		B2954B6C227C926100B8D37C /* OperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationQueue.swift; sourceTree = "<group>"; };
+		B2954B6E227C926100B8D37C /* LocationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationOperation.swift; sourceTree = "<group>"; };
+		B2954B6F227C926100B8D37C /* GroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupOperation.swift; sourceTree = "<group>"; };
+		B2954B70227C926100B8D37C /* BlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockOperation.swift; sourceTree = "<group>"; };
+		B2954B71227C926100B8D37C /* URLSessionTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskOperation.swift; sourceTree = "<group>"; };
+		B2954B72227C926100B8D37C /* DelayOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayOperation.swift; sourceTree = "<group>"; };
+		B2954B73227C926100B8D37C /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		B2954B75227C926100B8D37C /* RemoteNotificationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationCondition.swift; sourceTree = "<group>"; };
+		B2954B76227C926100B8D37C /* ReachabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityCondition.swift; sourceTree = "<group>"; };
+		B2954B77227C926100B8D37C /* PhotosCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCondition.swift; sourceTree = "<group>"; };
+		B2954B78227C926100B8D37C /* NegatedCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegatedCondition.swift; sourceTree = "<group>"; };
+		B2954B79227C926100B8D37C /* PassbookCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassbookCondition.swift; sourceTree = "<group>"; };
+		B2954B7A227C926100B8D37C /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
+		B2954B7B227C926100B8D37C /* UserNotificationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationCondition.swift; sourceTree = "<group>"; };
+		B2954B7C227C926100B8D37C /* CloudCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudCondition.swift; sourceTree = "<group>"; };
+		B2954B7D227C926100B8D37C /* SilentCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilentCondition.swift; sourceTree = "<group>"; };
+		B2954B7E227C926100B8D37C /* HealthCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCondition.swift; sourceTree = "<group>"; };
+		B2954B7F227C926100B8D37C /* LocationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCondition.swift; sourceTree = "<group>"; };
+		B2954B80227C926100B8D37C /* MutuallyExclusive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutuallyExclusive.swift; sourceTree = "<group>"; };
+		B2954B81227C926100B8D37C /* OperationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCondition.swift; sourceTree = "<group>"; };
+		B2954B82227C926100B8D37C /* CalendarCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCondition.swift; sourceTree = "<group>"; };
+		B2954B83227C926100B8D37C /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
+		B2954B85227C926100B8D37C /* NSLock+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+Operations.swift"; sourceTree = "<group>"; };
+		B2954B86227C926100B8D37C /* Dictionary+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Operations.swift"; sourceTree = "<group>"; };
+		B2954B87227C926100B8D37C /* CKContainer+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CKContainer+Operations.swift"; sourceTree = "<group>"; };
+		B2954B88227C926100B8D37C /* NSOperation+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOperation+Operations.swift"; sourceTree = "<group>"; };
+		B2954B89227C926100B8D37C /* UIUserNotifications+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIUserNotifications+Operations.swift"; sourceTree = "<group>"; };
+		B2954B8B227C926100B8D37C /* OperationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationObserver.swift; sourceTree = "<group>"; };
+		B2954B8C227C926100B8D37C /* BackgroundObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundObserver.swift; sourceTree = "<group>"; };
+		B2954B8D227C926100B8D37C /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
+		B2954B8E227C926100B8D37C /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +168,7 @@
 		B2954B4F227C48A000B8D37C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B2954B69227C926100B8D37C /* Operations */,
 				B2954B62227C8B4C00B8D37C /* Extension */,
 				B2954B56227C7D4900B8D37C /* Error */,
 				B2954B53227C49F700B8D37C /* Networking */,
@@ -155,6 +220,85 @@
 				B2954B67227C8D1D00B8D37C /* DateFormatter+appStyle.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B2954B69227C926100B8D37C /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B2954B6A227C926100B8D37C /* OperationQueues */,
+				B2954B6D227C926100B8D37C /* Operations */,
+				B2954B74227C926100B8D37C /* Conditions */,
+				B2954B84227C926100B8D37C /* Convenience Extensions */,
+				B2954B8A227C926100B8D37C /* Observers */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		B2954B6A227C926100B8D37C /* OperationQueues */ = {
+			isa = PBXGroup;
+			children = (
+				B2954B6B227C926100B8D37C /* ExclusivityController.swift */,
+				B2954B6C227C926100B8D37C /* OperationQueue.swift */,
+			);
+			path = OperationQueues;
+			sourceTree = "<group>";
+		};
+		B2954B6D227C926100B8D37C /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B2954B6E227C926100B8D37C /* LocationOperation.swift */,
+				B2954B6F227C926100B8D37C /* GroupOperation.swift */,
+				B2954B70227C926100B8D37C /* BlockOperation.swift */,
+				B2954B71227C926100B8D37C /* URLSessionTaskOperation.swift */,
+				B2954B72227C926100B8D37C /* DelayOperation.swift */,
+				B2954B73227C926100B8D37C /* Operation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		B2954B74227C926100B8D37C /* Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				B2954B75227C926100B8D37C /* RemoteNotificationCondition.swift */,
+				B2954B76227C926100B8D37C /* ReachabilityCondition.swift */,
+				B2954B77227C926100B8D37C /* PhotosCondition.swift */,
+				B2954B78227C926100B8D37C /* NegatedCondition.swift */,
+				B2954B79227C926100B8D37C /* PassbookCondition.swift */,
+				B2954B7A227C926100B8D37C /* NoCancelledDependencies.swift */,
+				B2954B7B227C926100B8D37C /* UserNotificationCondition.swift */,
+				B2954B7C227C926100B8D37C /* CloudCondition.swift */,
+				B2954B7D227C926100B8D37C /* SilentCondition.swift */,
+				B2954B7E227C926100B8D37C /* HealthCondition.swift */,
+				B2954B7F227C926100B8D37C /* LocationCondition.swift */,
+				B2954B80227C926100B8D37C /* MutuallyExclusive.swift */,
+				B2954B81227C926100B8D37C /* OperationCondition.swift */,
+				B2954B82227C926100B8D37C /* CalendarCondition.swift */,
+				B2954B83227C926100B8D37C /* OperationErrors.swift */,
+			);
+			path = Conditions;
+			sourceTree = "<group>";
+		};
+		B2954B84227C926100B8D37C /* Convenience Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B2954B85227C926100B8D37C /* NSLock+Operations.swift */,
+				B2954B86227C926100B8D37C /* Dictionary+Operations.swift */,
+				B2954B87227C926100B8D37C /* CKContainer+Operations.swift */,
+				B2954B88227C926100B8D37C /* NSOperation+Operations.swift */,
+				B2954B89227C926100B8D37C /* UIUserNotifications+Operations.swift */,
+			);
+			path = "Convenience Extensions";
+			sourceTree = "<group>";
+		};
+		B2954B8A227C926100B8D37C /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				B2954B8B227C926100B8D37C /* OperationObserver.swift */,
+				B2954B8C227C926100B8D37C /* BackgroundObserver.swift */,
+				B2954B8D227C926100B8D37C /* BlockObserver.swift */,
+				B2954B8E227C926100B8D37C /* TimeoutObserver.swift */,
+			);
+			path = Observers;
 			sourceTree = "<group>";
 		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
@@ -312,16 +456,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2954B9A227C926100B8D37C /* NegatedCondition.swift in Sources */,
+				B2954B9B227C926100B8D37C /* PassbookCondition.swift in Sources */,
+				B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */,
+				B2954BA6227C926100B8D37C /* NSLock+Operations.swift in Sources */,
+				B2954B8F227C926100B8D37C /* ExclusivityController.swift in Sources */,
+				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
+				B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */,
+				B2954B9E227C926100B8D37C /* CloudCondition.swift in Sources */,
+				B2954B99227C926100B8D37C /* PhotosCondition.swift in Sources */,
+				B2954BA2227C926100B8D37C /* MutuallyExclusive.swift in Sources */,
+				B2954B96227C926100B8D37C /* Operation.swift in Sources */,
 				B2954B61227C89ED00B8D37C /* MembershipResponse.swift in Sources */,
+				B2954BAD227C926100B8D37C /* BlockObserver.swift in Sources */,
+				B2954BA0227C926100B8D37C /* HealthCondition.swift in Sources */,
 				B2954B52227C48BA00B8D37C /* FabricsManager.swift in Sources */,
 				B2954B64227C8B6C00B8D37C /* DataRequest+NetResponse.swift in Sources */,
 				B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */,
+				B2954BA1227C926100B8D37C /* LocationCondition.swift in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
 				B2954B5F227C895200B8D37C /* GroupResponse.swift in Sources */,
+				B2954BA5227C926100B8D37C /* OperationErrors.swift in Sources */,
+				B2954B90227C926100B8D37C /* OperationQueue.swift in Sources */,
+				B2954BA4227C926100B8D37C /* CalendarCondition.swift in Sources */,
 				B2954B5D227C86A600B8D37C /* UserResponse.swift in Sources */,
+				B2954B98227C926100B8D37C /* ReachabilityCondition.swift in Sources */,
 				B2954B68227C8D1E00B8D37C /* DateFormatter+appStyle.swift in Sources */,
+				B2954B9C227C926100B8D37C /* NoCancelledDependencies.swift in Sources */,
+				B2954BAE227C926100B8D37C /* TimeoutObserver.swift in Sources */,
+				B2954B91227C926100B8D37C /* LocationOperation.swift in Sources */,
+				B2954B9D227C926100B8D37C /* UserNotificationCondition.swift in Sources */,
+				B2954BAB227C926100B8D37C /* OperationObserver.swift in Sources */,
+				B2954BA7227C926100B8D37C /* Dictionary+Operations.swift in Sources */,
+				B2954BA8227C926100B8D37C /* CKContainer+Operations.swift in Sources */,
+				B2954BA9227C926100B8D37C /* NSOperation+Operations.swift in Sources */,
 				B2954B3C227C405700B8D37C /* ViewController.swift in Sources */,
+				B2954BAC227C926100B8D37C /* BackgroundObserver.swift in Sources */,
+				B2954B94227C926100B8D37C /* URLSessionTaskOperation.swift in Sources */,
 				B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */,
+				B2954B97227C926100B8D37C /* RemoteNotificationCondition.swift in Sources */,
+				B2954B9F227C926100B8D37C /* SilentCondition.swift in Sources */,
+				B2954B92227C926100B8D37C /* GroupOperation.swift in Sources */,
+				B2954BAA227C926100B8D37C /* UIUserNotifications+Operations.swift in Sources */,
 				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,
 				B2954B5A227C815D00B8D37C /* API.swift in Sources */,
 			);
