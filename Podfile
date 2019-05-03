@@ -10,6 +10,9 @@ target 'Tasveer' do
   pod 'Fabric'
   pod 'Crashlytics'
 
+  # Material components
+  pod 'MaterialComponents'
+  
   # Progress HUD
   pod 'MBProgressHUD'
 
