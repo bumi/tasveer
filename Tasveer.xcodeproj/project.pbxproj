@@ -18,6 +18,9 @@
 		B2954B55227C4A2A00B8D37C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B54227C4A2A00B8D37C /* Router.swift */; };
 		B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B57227C7D6000B8D37C /* RouterErrors.swift */; };
 		B2954B5A227C815D00B8D37C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B59227C815D00B8D37C /* API.swift */; };
+		B2954B5D227C86A600B8D37C /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B5C227C86A600B8D37C /* UserResponse.swift */; };
+		B2954B5F227C895200B8D37C /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B5E227C895200B8D37C /* GroupResponse.swift */; };
+		B2954B61227C89ED00B8D37C /* MembershipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B60227C89ED00B8D37C /* MembershipResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		B2954B54227C4A2A00B8D37C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B2954B57227C7D6000B8D37C /* RouterErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterErrors.swift; sourceTree = "<group>"; };
 		B2954B59227C815D00B8D37C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		B2954B5C227C86A600B8D37C /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		B2954B5E227C895200B8D37C /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResponse.swift; sourceTree = "<group>"; };
+		B2954B60227C89ED00B8D37C /* MembershipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipResponse.swift; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +118,7 @@
 		B2954B53227C49F700B8D37C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B2954B5B227C869000B8D37C /* DTO */,
 				B2954B54227C4A2A00B8D37C /* Router.swift */,
 				B2954B59227C815D00B8D37C /* API.swift */,
 			);
@@ -124,6 +131,16 @@
 				B2954B57227C7D6000B8D37C /* RouterErrors.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		B2954B5B227C869000B8D37C /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				B2954B5C227C86A600B8D37C /* UserResponse.swift */,
+				B2954B5E227C895200B8D37C /* GroupResponse.swift */,
+				B2954B60227C89ED00B8D37C /* MembershipResponse.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
@@ -281,9 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2954B61227C89ED00B8D37C /* MembershipResponse.swift in Sources */,
 				B2954B52227C48BA00B8D37C /* FabricsManager.swift in Sources */,
 				B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
+				B2954B5F227C895200B8D37C /* GroupResponse.swift in Sources */,
+				B2954B5D227C86A600B8D37C /* UserResponse.swift in Sources */,
 				B2954B3C227C405700B8D37C /* ViewController.swift in Sources */,
 				B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */,
 				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,
