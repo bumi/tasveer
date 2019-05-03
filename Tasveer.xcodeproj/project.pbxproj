@@ -56,6 +56,9 @@
 		B2954BAE227C926100B8D37C /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B8E227C926100B8D37C /* TimeoutObserver.swift */; };
 		B2954BB2227C95C600B8D37C /* AllCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */; };
 		B2954BB5227C960300B8D37C /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BB4227C960300B8D37C /* TableViewDataSource.swift */; };
+		B2954BB7227C987300B8D37C /* AllCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BB6227C987200B8D37C /* AllCollectionCell.swift */; };
+		B2954BB9227C993200B8D37C /* AllCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2954BB8227C993200B8D37C /* AllCollectionCell.xib */; };
+		B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +113,9 @@
 		B2954B8E227C926100B8D37C /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
 		B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionsViewController.swift; sourceTree = "<group>"; };
 		B2954BB4227C960300B8D37C /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		B2954BB6227C987200B8D37C /* AllCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionCell.swift; sourceTree = "<group>"; };
+		B2954BB8227C993200B8D37C /* AllCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllCollectionCell.xib; sourceTree = "<group>"; };
+		B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+identificators.swift"; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +227,7 @@
 			children = (
 				B2954B63227C8B6C00B8D37C /* DataRequest+NetResponse.swift */,
 				B2954B67227C8D1D00B8D37C /* DateFormatter+appStyle.swift */,
+				B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -315,6 +322,7 @@
 		B2954BB0227C95B500B8D37C /* AllCollections */ = {
 			isa = PBXGroup;
 			children = (
+				B2954BBA227C9B0B00B8D37C /* Cell */,
 				B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */,
 			);
 			path = AllCollections;
@@ -326,6 +334,15 @@
 				B2954BB4227C960300B8D37C /* TableViewDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		B2954BBA227C9B0B00B8D37C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B2954BB6227C987200B8D37C /* AllCollectionCell.swift */,
+				B2954BB8227C993200B8D37C /* AllCollectionCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
@@ -401,6 +418,7 @@
 				B2954B47227C405800B8D37C /* LaunchScreen.storyboard in Resources */,
 				B2954B44227C405800B8D37C /* Assets.xcassets in Resources */,
 				B2954B3F227C405700B8D37C /* Main.storyboard in Resources */,
+				B2954BB9227C993200B8D37C /* AllCollectionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +524,7 @@
 				B2954B99227C926100B8D37C /* PhotosCondition.swift in Sources */,
 				B2954BA2227C926100B8D37C /* MutuallyExclusive.swift in Sources */,
 				B2954B96227C926100B8D37C /* Operation.swift in Sources */,
+				B2954BB7227C987300B8D37C /* AllCollectionCell.swift in Sources */,
 				B2954B61227C89ED00B8D37C /* MembershipResponse.swift in Sources */,
 				B2954BAD227C926100B8D37C /* BlockObserver.swift in Sources */,
 				B2954BA0227C926100B8D37C /* HealthCondition.swift in Sources */,
@@ -538,6 +557,7 @@
 				B2954B9F227C926100B8D37C /* SilentCondition.swift in Sources */,
 				B2954B92227C926100B8D37C /* GroupOperation.swift in Sources */,
 				B2954BAA227C926100B8D37C /* UIUserNotifications+Operations.swift in Sources */,
+				B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */,
 				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,
 				B2954B5A227C815D00B8D37C /* API.swift in Sources */,
 			);

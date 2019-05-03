@@ -18,7 +18,7 @@ final class AllCollectionsViewController: UIViewController {
 }
 
 extension AllCollectionsViewController: TableViewDataSourceDelegate {
-    func configure(_ cell: AllCollectionsViewController.Cell, for object: AllCollectionsViewController.Object) {
+    func configure(_ cell: AllCollectionCell, for object: AllCollectionsViewController.Object) {
         
     }
     
