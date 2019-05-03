@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2EE8026DD1CDCAD57918D0B2 /* Pods_Tasveer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
-		B2954B3C227C405700B8D37C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B3B227C405700B8D37C /* ViewController.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
 		B2954B44227C405800B8D37C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2954B43227C405800B8D37C /* Assets.xcassets */; };
@@ -55,13 +54,14 @@
 		B2954BAC227C926100B8D37C /* BackgroundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B8C227C926100B8D37C /* BackgroundObserver.swift */; };
 		B2954BAD227C926100B8D37C /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B8D227C926100B8D37C /* BlockObserver.swift */; };
 		B2954BAE227C926100B8D37C /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B8E227C926100B8D37C /* TimeoutObserver.swift */; };
+		B2954BB2227C95C600B8D37C /* AllCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */; };
+		B2954BB5227C960300B8D37C /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BB4227C960300B8D37C /* TableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.release.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.release.xcconfig"; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B2954B3B227C405700B8D37C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2954B41227C405700B8D37C /* Tasveer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tasveer.xcdatamodel; sourceTree = "<group>"; };
 		B2954B43227C405800B8D37C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +108,8 @@
 		B2954B8C227C926100B8D37C /* BackgroundObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundObserver.swift; sourceTree = "<group>"; };
 		B2954B8D227C926100B8D37C /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
 		B2954B8E227C926100B8D37C /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
+		B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionsViewController.swift; sourceTree = "<group>"; };
+		B2954BB4227C960300B8D37C /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,9 +155,9 @@
 		B2954B38227C405700B8D37C /* Tasveer */ = {
 			isa = PBXGroup;
 			children = (
+				B2954BAF227C95AF00B8D37C /* Scenes */,
 				B2954B4F227C48A000B8D37C /* Helpers */,
 				B2954B39227C405700B8D37C /* AppDelegate.swift */,
-				B2954B3B227C405700B8D37C /* ViewController.swift */,
 				B2954B3D227C405700B8D37C /* Main.storyboard */,
 				B2954B43227C405800B8D37C /* Assets.xcassets */,
 				B2954B45227C405800B8D37C /* LaunchScreen.storyboard */,
@@ -168,6 +170,7 @@
 		B2954B4F227C48A000B8D37C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B2954BB3227C95F000B8D37C /* DataSource */,
 				B2954B69227C926100B8D37C /* Operations */,
 				B2954B62227C8B4C00B8D37C /* Extension */,
 				B2954B56227C7D4900B8D37C /* Error */,
@@ -301,6 +304,30 @@
 			path = Observers;
 			sourceTree = "<group>";
 		};
+		B2954BAF227C95AF00B8D37C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B2954BB0227C95B500B8D37C /* AllCollections */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B2954BB0227C95B500B8D37C /* AllCollections */ = {
+			isa = PBXGroup;
+			children = (
+				B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */,
+			);
+			path = AllCollections;
+			sourceTree = "<group>";
+		};
+		B2954BB3227C95F000B8D37C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				B2954BB4227C960300B8D37C /* TableViewDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +457,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Tasveer/Pods-Tasveer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -440,6 +473,12 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -490,10 +529,11 @@
 				B2954BA7227C926100B8D37C /* Dictionary+Operations.swift in Sources */,
 				B2954BA8227C926100B8D37C /* CKContainer+Operations.swift in Sources */,
 				B2954BA9227C926100B8D37C /* NSOperation+Operations.swift in Sources */,
-				B2954B3C227C405700B8D37C /* ViewController.swift in Sources */,
 				B2954BAC227C926100B8D37C /* BackgroundObserver.swift in Sources */,
 				B2954B94227C926100B8D37C /* URLSessionTaskOperation.swift in Sources */,
 				B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */,
+				B2954BB5227C960300B8D37C /* TableViewDataSource.swift in Sources */,
+				B2954BB2227C95C600B8D37C /* AllCollectionsViewController.swift in Sources */,
 				B2954B97227C926100B8D37C /* RemoteNotificationCondition.swift in Sources */,
 				B2954B9F227C926100B8D37C /* SilentCondition.swift in Sources */,
 				B2954B92227C926100B8D37C /* GroupOperation.swift in Sources */,
