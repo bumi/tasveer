@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EE8026DD1CDCAD57918D0B2 /* Pods_Tasveer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3C227C405700B8D37C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B3B227C405700B8D37C /* ViewController.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.release.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.release.xcconfig"; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3B227C405700B8D37C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		B2954B43227C405800B8D37C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2954B46227C405800B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2954B48227C405800B8D37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE8026DD1CDCAD57918D0B2 /* Pods_Tasveer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A5B783D104170B5131F987D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B2954B2D227C405700B8D37C = {
 			isa = PBXGroup;
 			children = (
 				B2954B38227C405700B8D37C /* Tasveer */,
 				B2954B37227C405700B8D37C /* Products */,
+				CDDA481C3F0A6E50D2F053B7 /* Pods */,
+				8A5B783D104170B5131F987D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = Tasveer;
 			sourceTree = "<group>";
 		};
+		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */,
+				A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2954B4B227C405800B8D37C /* Build configuration list for PBXNativeTarget "Tasveer" */;
 			buildPhases = (
+				8D014EA621EA87A368673C52 /* [CP] Check Pods Manifest.lock */,
 				B2954B32227C405700B8D37C /* Sources */,
 				B2954B33227C405700B8D37C /* Frameworks */,
 				B2954B34227C405700B8D37C /* Resources */,
+				C242D325383CB1E109749A12 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,61 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8D014EA621EA87A368673C52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tasveer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C242D325383CB1E109749A12 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tasveer/Pods-Tasveer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tasveer/Pods-Tasveer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B2954B32227C405700B8D37C /* Sources */ = {
@@ -284,6 +366,7 @@
 		};
 		B2954B4C227C405800B8D37C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +385,7 @@
 		};
 		B2954B4D227C405800B8D37C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
