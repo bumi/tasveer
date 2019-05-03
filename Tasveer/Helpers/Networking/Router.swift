@@ -57,18 +57,18 @@ enum Router: BaseRouter {
     static var authToken: String?
     
     enum User {
-        case create
+        case create(Parameters)
         case user(identifier: String)
     }
     
     enum Group {
-        case create
+        case create(Parameters)
         case group(identifier: String)
     }
     
     case users(User)
     case groups(Group)
-    case memberships
+    case memberships(Parameters)
     
     var method: Alamofire.HTTPMethod {
         switch self {
@@ -109,18 +109,18 @@ enum Router: BaseRouter {
         let jsonEncoding = JSONEncoding.default
         
         switch self {
-        case .users(.create):
-            return try jsonEncoding.encode(urlRequest)
+        case .users(.create(let params)):
+            return try jsonEncoding.encode(urlRequest, with: params)
         case .users(.user):
             return try jsonEncoding.encode(urlRequest)
             
-        case .groups(.create):
-            return try jsonEncoding.encode(urlRequest)
+        case .groups(.create(let params)):
+            return try jsonEncoding.encode(urlRequest, with: params)
         case .groups(.group):
             return try jsonEncoding.encode(urlRequest)
             
-        case .memberships:
-            return try jsonEncoding.encode(urlRequest)
+        case .memberships(let params):
+            return try jsonEncoding.encode(urlRequest, with: params)
         }
     }
 }
