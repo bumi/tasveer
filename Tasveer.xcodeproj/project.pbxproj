@@ -16,6 +16,8 @@
 		B2954B47227C405800B8D37C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B45227C405800B8D37C /* LaunchScreen.storyboard */; };
 		B2954B52227C48BA00B8D37C /* FabricsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B51227C48BA00B8D37C /* FabricsManager.swift */; };
 		B2954B55227C4A2A00B8D37C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B54227C4A2A00B8D37C /* Router.swift */; };
+		B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B57227C7D6000B8D37C /* RouterErrors.swift */; };
+		B2954B5A227C815D00B8D37C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B59227C815D00B8D37C /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		B2954B48227C405800B8D37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2954B51227C48BA00B8D37C /* FabricsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricsManager.swift; sourceTree = "<group>"; };
 		B2954B54227C4A2A00B8D37C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B2954B57227C7D6000B8D37C /* RouterErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterErrors.swift; sourceTree = "<group>"; };
+		B2954B59227C815D00B8D37C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +94,7 @@
 		B2954B4F227C48A000B8D37C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B2954B56227C7D4900B8D37C /* Error */,
 				B2954B53227C49F700B8D37C /* Networking */,
 				B2954B50227C48AA00B8D37C /* Manager */,
 			);
@@ -108,8 +113,17 @@
 			isa = PBXGroup;
 			children = (
 				B2954B54227C4A2A00B8D37C /* Router.swift */,
+				B2954B59227C815D00B8D37C /* API.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		B2954B56227C7D4900B8D37C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				B2954B57227C7D6000B8D37C /* RouterErrors.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
@@ -272,6 +286,8 @@
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
 				B2954B3C227C405700B8D37C /* ViewController.swift in Sources */,
 				B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */,
+				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,
+				B2954B5A227C815D00B8D37C /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
