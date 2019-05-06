@@ -23,6 +23,7 @@
 		B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */; };
 		B21CC4402280303E00114ACC /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43F2280303E00114ACC /* FiltersViewController.swift */; };
 		B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4412280346900114ACC /* AppDelegateManager.swift */; };
+		B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -95,6 +96,7 @@
 		B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFiltersSceneOperation.swift; sourceTree = "<group>"; };
 		B21CC43F2280303E00114ACC /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		B21CC4412280346900114ACC /* AppDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateManager.swift; sourceTree = "<group>"; };
+		B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCollectionDetailSceneOperation.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -219,6 +221,14 @@
 				B21CC43F2280303E00114ACC /* FiltersViewController.swift */,
 			);
 			path = Filters;
+			sourceTree = "<group>";
+		};
+		B21CC443228034EC00114ACC /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		B2954B2D227C405700B8D37C = {
@@ -408,6 +418,7 @@
 		B2954BB0227C95B500B8D37C /* AllCollections */ = {
 			isa = PBXGroup;
 			children = (
+				B21CC443228034EC00114ACC /* Operations */,
 				B21CC43822802B1600114ACC /* DetailCollection */,
 				B2954BBA227C9B0B00B8D37C /* Cell */,
 				B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */,
@@ -640,6 +651,7 @@
 				B21CC42F228012EC00114ACC /* ModelVersion.swift in Sources */,
 				B2954B96227C926100B8D37C /* Operation.swift in Sources */,
 				B2954BB7227C987300B8D37C /* AllCollectionCell.swift in Sources */,
+				B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */,
 				B2954B61227C89ED00B8D37C /* MembershipResponse.swift in Sources */,
 				B2954BAD227C926100B8D37C /* BlockObserver.swift in Sources */,
 				B2954BA0227C926100B8D37C /* HealthCondition.swift in Sources */,
