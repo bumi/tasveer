@@ -28,6 +28,7 @@ final class OpenFiltersSceneOperation: Operation {
             guard let nextScene = self.vc else { return }
             
             AppDelegateManager.currentNavigationController?.pushViewController(nextScene, animated: true)
+            self.finish()
         }
     }
 }

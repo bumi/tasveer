@@ -59,7 +59,8 @@ final class AllCollectionsViewController: UIViewController {
     }
     
     @objc private func showCreateNewGroup() {
-        
+        let openScene = OpenCollectionDetailSceneOperation(withGroup: nil)
+        queue.addOperation(openScene)
     }
 }
 

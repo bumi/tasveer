@@ -9,6 +9,10 @@
 import UIKit
 
 final class CollectionDetailViewController: UIViewController {
+    var group: Group?
+    
+    private let queue = OperationQueue()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +25,7 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     @objc private func openFilterScene() {
-        
+        let openScene = OpenFiltersSceneOperation(withGroup: group)
+        queue.addOperation(openScene)
     }
 }
