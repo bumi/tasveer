@@ -22,6 +22,7 @@
 		B21CC43A22802B2F00114ACC /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43922802B2F00114ACC /* CollectionDetailViewController.swift */; };
 		B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */; };
 		B21CC4402280303E00114ACC /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43F2280303E00114ACC /* FiltersViewController.swift */; };
+		B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4412280346900114ACC /* AppDelegateManager.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -93,6 +94,7 @@
 		B21CC43922802B2F00114ACC /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFiltersSceneOperation.swift; sourceTree = "<group>"; };
 		B21CC43F2280303E00114ACC /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		B21CC4412280346900114ACC /* AppDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateManager.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				B2954B51227C48BA00B8D37C /* FabricsManager.swift */,
 				B21CC4302280147C00114ACC /* PersistentStoreManager.swift */,
 				B21CC4322280175E00114ACC /* AppManager.swift */,
+				B21CC4412280346900114ACC /* AppDelegateManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 			files = (
 				B21CC4312280147C00114ACC /* PersistentStoreManager.swift in Sources */,
 				B2954BC2227C9F6100B8D37C /* Group.swift in Sources */,
+				B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */,
 				B2954B9A227C926100B8D37C /* NegatedCondition.swift in Sources */,
 				B2954B9B227C926100B8D37C /* PassbookCondition.swift in Sources */,
 				B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */,
