@@ -10,4 +10,15 @@ import UIKit
 
 final class FiltersViewController: UIViewController {
     var group: Group?
+    
+    @IBOutlet fileprivate weak var albumName: UILabel!
+    @IBOutlet fileprivate weak var favoriteSwitch: UISwitch!
+    @IBOutlet fileprivate weak var fromTimeframe: UILabel!
+    @IBOutlet fileprivate weak var toTimeframe: UILabel!
+    @IBOutlet fileprivate weak var saveButton: UIButton!
+    
+    @IBAction fileprivate func save(_ sender: UIButton!) {
+        
+    }
+    
 }
