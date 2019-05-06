@@ -18,6 +18,7 @@
 		B21CC4312280147C00114ACC /* PersistentStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4302280147C00114ACC /* PersistentStoreManager.swift */; };
 		B21CC4332280175E00114ACC /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4322280175E00114ACC /* AppManager.swift */; };
 		B21CC43522801A3F00114ACC /* NSManagedObjectContext+cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */; };
+		B21CC4372280214D00114ACC /* Collections.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21CC4362280214D00114ACC /* Collections.storyboard */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -85,6 +86,7 @@
 		B21CC4302280147C00114ACC /* PersistentStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStoreManager.swift; sourceTree = "<group>"; };
 		B21CC4322280175E00114ACC /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+cache.swift"; sourceTree = "<group>"; };
+		B21CC4362280214D00114ACC /* Collections.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Collections.storyboard; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			children = (
 				B2954BBA227C9B0B00B8D37C /* Cell */,
 				B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */,
+				B21CC4362280214D00114ACC /* Collections.storyboard */,
 			);
 			path = AllCollections;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 			files = (
 				B2954B47227C405800B8D37C /* LaunchScreen.storyboard in Resources */,
 				B2954B44227C405800B8D37C /* Assets.xcassets in Resources */,
+				B21CC4372280214D00114ACC /* Collections.storyboard in Resources */,
 				B2954B3F227C405700B8D37C /* Main.storyboard in Resources */,
 				B2954BB9227C993200B8D37C /* AllCollectionCell.xib in Resources */,
 			);
