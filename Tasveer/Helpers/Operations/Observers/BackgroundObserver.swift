@@ -1,6 +1,6 @@
 //
 //  BackgroundObserver.swift
-//  BoweryRes
+//  Tasveer
 //
 //  Created by Haik Ampardjian on 3/28/19.
 //  Copyright © 2019 Haik Ampardjian. All rights reserved.
