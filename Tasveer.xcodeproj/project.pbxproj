@@ -16,6 +16,7 @@
 		B21CC42E228012EC00114ACC /* ModelVersions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC429228012EC00114ACC /* ModelVersions.swift */; };
 		B21CC42F228012EC00114ACC /* ModelVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC42A228012EC00114ACC /* ModelVersion.swift */; };
 		B21CC4312280147C00114ACC /* PersistentStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4302280147C00114ACC /* PersistentStoreManager.swift */; };
+		B21CC4332280175E00114ACC /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4322280175E00114ACC /* AppManager.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -81,6 +82,7 @@
 		B21CC429228012EC00114ACC /* ModelVersions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelVersions.swift; sourceTree = "<group>"; };
 		B21CC42A228012EC00114ACC /* ModelVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelVersion.swift; sourceTree = "<group>"; };
 		B21CC4302280147C00114ACC /* PersistentStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStoreManager.swift; sourceTree = "<group>"; };
+		B21CC4322280175E00114ACC /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				B2954B51227C48BA00B8D37C /* FabricsManager.swift */,
 				B21CC4302280147C00114ACC /* PersistentStoreManager.swift */,
+				B21CC4322280175E00114ACC /* AppManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				B2954BA1227C926100B8D37C /* LocationCondition.swift in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
 				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
+				B21CC4332280175E00114ACC /* AppManager.swift in Sources */,
 				B2954B5F227C895200B8D37C /* GroupResponse.swift in Sources */,
 				B2954BA5227C926100B8D37C /* OperationErrors.swift in Sources */,
 				B21CC423228012C300114ACC /* CoreDataContextObserver.swift in Sources */,
