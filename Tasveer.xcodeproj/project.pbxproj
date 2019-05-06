@@ -20,6 +20,8 @@
 		B21CC43522801A3F00114ACC /* NSManagedObjectContext+cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */; };
 		B21CC4372280214D00114ACC /* Collections.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21CC4362280214D00114ACC /* Collections.storyboard */; };
 		B21CC43A22802B2F00114ACC /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43922802B2F00114ACC /* CollectionDetailViewController.swift */; };
+		B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */; };
+		B21CC4402280303E00114ACC /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43F2280303E00114ACC /* FiltersViewController.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -89,6 +91,8 @@
 		B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+cache.swift"; sourceTree = "<group>"; };
 		B21CC4362280214D00114ACC /* Collections.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Collections.storyboard; sourceTree = "<group>"; };
 		B21CC43922802B2F00114ACC /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
+		B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFiltersSceneOperation.swift; sourceTree = "<group>"; };
+		B21CC43F2280303E00114ACC /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 		B21CC43822802B1600114ACC /* DetailCollection */ = {
 			isa = PBXGroup;
 			children = (
+				B21CC43E2280303000114ACC /* Filters */,
 				B21CC43B22802CD200114ACC /* Operations */,
 				B21CC43922802B2F00114ACC /* CollectionDetailViewController.swift */,
 			);
@@ -201,8 +206,17 @@
 		B21CC43B22802CD200114ACC /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		B21CC43E2280303000114ACC /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				B21CC43F2280303E00114ACC /* FiltersViewController.swift */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		B2954B2D227C405700B8D37C = {
@@ -612,6 +626,8 @@
 				B21CC42C228012EC00114ACC /* NSPersistenStoreCoordinator+Extensions.swift in Sources */,
 				B2954BA6227C926100B8D37C /* NSLock+Operations.swift in Sources */,
 				B2954B8F227C926100B8D37C /* ExclusivityController.swift in Sources */,
+				B21CC4402280303E00114ACC /* FiltersViewController.swift in Sources */,
+				B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */,
 				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
 				B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */,
 				B2954B9E227C926100B8D37C /* CloudCondition.swift in Sources */,
