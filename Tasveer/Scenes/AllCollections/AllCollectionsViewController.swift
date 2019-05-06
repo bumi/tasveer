@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import MaterialComponents
 
 final class AllCollectionsViewController: UIViewController {
@@ -31,7 +32,16 @@ final class AllCollectionsViewController: UIViewController {
         
         tableView.register(AllCollectionCell.nib, forCellReuseIdentifier: AllCollectionCell.cellId)
         
-        // FIXME: setup datasource
+        guard let moc = PersistentStoreManager.shared.moc
+            else { return }
+        let request = Group.sortedFetchRequest
+        request.fetchBatchSize = 20
+        request.returnsObjectsAsFaults = false
+        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        dataSource = TableViewDataSource.init(tableView: tableView,
+                                              cellIdentifier: AllCollectionCell.cellId,
+                                              fetchedResultsController: frc,
+                                              delegate: self)
     }
     
     private func setupFloatingButton() {
@@ -53,12 +63,28 @@ final class AllCollectionsViewController: UIViewController {
     }
 }
 
+extension AllCollectionsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+}
+
 extension AllCollectionsViewController: TableViewDataSourceDelegate {
     func configure(_ cell: AllCollectionCell, for object: Group) {
-        
+        cell.setup(with: object)
     }
     
     func notifyEmptyData(isEmpty: Bool) {
-        
+        if isEmpty {
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 16.0)
+            label.text = "You have no collections."
+            label.textAlignment = .center
+            tableView.backgroundView = label
+            label.sizeToFit()
+        }
+        else {
+            tableView.backgroundView = nil
+        }
     }
 }

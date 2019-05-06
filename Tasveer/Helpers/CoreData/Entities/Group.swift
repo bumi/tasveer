@@ -15,3 +15,27 @@ final class Group: NSManagedObject {
     
     @NSManaged fileprivate(set) var users: Set<User>
 }
+
+extension Group: Managed {
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: #keyPath(createdAt), ascending: false)]
+    }
+    
+    static func filter(query q: String) -> NSPredicate {
+        return NSPredicate(format: "name contains[c] %@", q)
+    }
+}
+
+extension Group {
+    @discardableResult
+    static func insertNew(into moc: NSManagedObjectContext, fromCollection collection: GroupResponse) -> Group {
+        let newGroup: Group = moc.insertObject()
+        newGroup.identifier = collection.identifier
+        newGroup.name = collection.name
+        newGroup.createdAt = Date()
+        
+        newGroup.users = User.insertNewUsers(into: moc, users: collection.users)
+        
+        return newGroup
+    }
+}

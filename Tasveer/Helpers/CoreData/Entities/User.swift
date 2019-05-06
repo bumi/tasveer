@@ -16,3 +16,27 @@ final class User: NSManagedObject {
     
     @NSManaged fileprivate(set) var group: Group
 }
+
+extension User: Managed {
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return []
+    }
+}
+
+extension User {
+    static func insertNewUsers(into moc: NSManagedObjectContext, users: [UserResponse]) -> Set<User> {
+        var newUsers: Set<User> = []
+        
+        for user in users {
+            let newUser: User = moc.insertObject()
+            newUser.name = user.name
+            newUser.email = user.email
+            newUser.deviceId = user.deviceId
+            newUser.identifier = user.identifier
+            
+            newUsers.insert(newUser)
+        }
+        
+        return newUsers
+    }
+}
