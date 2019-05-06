@@ -24,7 +24,7 @@ final class AppManager {
         
         // Load persistent store first and then show main scene of the app
         PersistentStoreManager.shared.createMoodyContainer { [weak self, weak appDelegate] (_) in
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
+            let vc = UIStoryboard.init(name: "Collections", bundle: Bundle.main).instantiateInitialViewController()
             self?.replace(viewController: vc, inWindow: appDelegate?.window)
         }
     }
