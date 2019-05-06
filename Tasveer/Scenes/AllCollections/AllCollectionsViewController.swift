@@ -63,6 +63,12 @@ final class AllCollectionsViewController: UIViewController {
     }
 }
 
+extension AllCollectionsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+}
+
 extension AllCollectionsViewController: TableViewDataSourceDelegate {
     func configure(_ cell: AllCollectionCell, for object: Group) {
         cell.setup(with: object)
