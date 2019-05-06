@@ -1,6 +1,6 @@
 //
 //  ModelVersions.swift
-//  BoweryRes
+//  Tasveer
 //
 //  Created by Haik Ampardjian on 4/20/19.
 //  Copyright © 2019 Haik Ampardjian. All rights reserved.
@@ -11,15 +11,16 @@ import UIKit
 
 enum Version: String {
     case version1 = "Tasveer"
-    case version2 = "Tasveer v2"
+//    case version2 = "Tasveer v2"
 }
 
 extension Version: ModelVersion {
     static var all: [Version] {
-        return [.version2, .version1]
+//        return [.version2, .version1]
+        return [.version1]
     }
     
-    static var current: Version { return .version2 }
+    static var current: Version { return .version1 }
     
     var name: String { return rawValue }
     var modelBundle: Bundle { return Bundle(for: Tasveer.self) }
@@ -27,7 +28,7 @@ extension Version: ModelVersion {
     
     var successor: Version? {
         switch self {
-        case .version1: return .version2
+//        case .version1: return .version2
         default: return nil
         }
     }
@@ -38,9 +39,9 @@ extension Version: ModelVersion {
             let mapping = try! NSMappingModel.inferredMappingModel(forSourceModel: managedObjectModel(),
                                                                    destinationModel: successor!.managedObjectModel())
             return [mapping]
-        default:
-            guard let mapping = mappingModelToSuccessor() else { return nil }
-            return [mapping]
+//        default:
+//            guard let mapping = mappingModelToSuccessor() else { return nil }
+//            return [mapping]
         }
     }
 }

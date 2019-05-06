@@ -1,6 +1,6 @@
 //
 //  ModelVersion.swift
-//  BoweryRes
+//  Tasveer
 //
 //  Created by Haik Ampardjian on 4/20/19.
 //  Copyright © 2019 Haik Ampardjian. All rights reserved.

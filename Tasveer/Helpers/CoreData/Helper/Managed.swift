@@ -1,6 +1,6 @@
 //
 //  Managed.swift
-//  BoweryRes
+//  Tasveer
 //
 //  Created by Haik Ampardjian on 11/12/18.
 //  Copyright © 2018 Haik Ampardjian. All rights reserved.
