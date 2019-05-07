@@ -11,12 +11,19 @@ import UIKit
 final class CollectionDetailViewController: UIViewController {
     var group: Group?
     
+    @IBOutlet fileprivate weak var segmentPicker: UISegmentedControl!
+    @IBOutlet fileprivate weak var containerView: UIView!
+    
     private let queue = OperationQueue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTopBar()
+    }
+    
+    @IBAction fileprivate func segmentSwitched(_ sender: UISegmentedControl) {
+        
     }
     
     private func setupTopBar() {
