@@ -19,6 +19,7 @@ final class CollectionPeopleViewController: UIViewController {
         super.viewDidLoad()
         
         model = CollectionPeopleModel(withGroup: group)
+        setupTableView()
     }
     
     private func setupTableView() {
