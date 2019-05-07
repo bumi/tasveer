@@ -25,6 +25,7 @@
 		B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4412280346900114ACC /* AppDelegateManager.swift */; };
 		B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */; };
 		B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC446228048AD00114ACC /* UIView+firstResponder.swift */; };
+		B281595B2281928800F09F6F /* FiltersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595A2281928800F09F6F /* FiltersModel.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -99,6 +100,7 @@
 		B21CC4412280346900114ACC /* AppDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateManager.swift; sourceTree = "<group>"; };
 		B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCollectionDetailSceneOperation.swift; sourceTree = "<group>"; };
 		B21CC446228048AD00114ACC /* UIView+firstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+firstResponder.swift"; sourceTree = "<group>"; };
+		B281595A2281928800F09F6F /* FiltersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersModel.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				B21CC43F2280303E00114ACC /* FiltersViewController.swift */,
+				B281595A2281928800F09F6F /* FiltersModel.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				B21CC42E228012EC00114ACC /* ModelVersions.swift in Sources */,
 				B2954BAA227C926100B8D37C /* UIUserNotifications+Operations.swift in Sources */,
 				B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */,
+				B281595B2281928800F09F6F /* FiltersModel.swift in Sources */,
 				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,
 				B2954B5A227C815D00B8D37C /* API.swift in Sources */,
 			);
