@@ -11,4 +11,8 @@ import UIKit
 final class PersonCell: UITableViewCell {
     @IBOutlet fileprivate weak var avatar: UIImageView!
     @IBOutlet fileprivate weak var email: UILabel!
+    
+    func setup(with email: String) {
+        self.email.text = email
+    }
 }

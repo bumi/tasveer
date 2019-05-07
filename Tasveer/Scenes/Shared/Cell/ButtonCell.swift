@@ -15,4 +15,8 @@ final class ButtonCell: UITableViewCell {
     @IBAction fileprivate func buttonDidTap(_ sender: UIButton!) {
         didTap?()
     }
+    
+    func setup(withTitle title: String) {
+        button.setTitle(title, for: .normal)
+    }
 }

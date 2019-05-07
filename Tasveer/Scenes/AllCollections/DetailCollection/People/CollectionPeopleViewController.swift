@@ -22,6 +22,11 @@ final class CollectionPeopleViewController: UIViewController {
     }
     
     private func setupTableView() {
+        tableView.register(PersonCell.nib, forCellReuseIdentifier: PersonCell.cellId)
+        tableView.register(ButtonCell.nib, forCellReuseIdentifier: ButtonCell.cellId)
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 60
     }
 }
 
@@ -44,10 +49,44 @@ extension CollectionPeopleViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>, for: <#T##IndexPath#>)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonCell.cellId, for: indexPath) as? PersonCell
+                else { fatalError() }
+            
+            let viewModel = model.emails[indexPath.row]
+            cell.setup(with: viewModel)
+            
+            return cell
         case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.cellId, for: indexPath) as? ButtonCell
+                else { fatalError() }
+            
+            cell.setup(withTitle: "Invite")
+            cell.didTap = { [weak self] in
+                self?.promptInvite()
+            }
+            
+            return cell
         default:
             fatalError()
         }
+    }
+    
+    private func promptInvite() {
+        let alert = UIAlertController(title: "INVITE", message: "Please enter email of person to invite", preferredStyle: .alert)
+        alert.addTextField { (tf) in
+            tf.placeholder = "Email"
+        }
+        alert.addAction(UIAlertAction(title: "Invite", style: .default, handler: { [weak self, weak alert](_) in
+            if let email = alert?.textFields?.first?.text {
+                self?.invitePerson(withEmail: email)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        navigationController?.present(alert, animated: true, completion: nil)
+    }
+    
+    private func invitePerson(withEmail email: String) {
+        
     }
 }
