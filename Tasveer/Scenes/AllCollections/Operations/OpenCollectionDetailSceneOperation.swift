@@ -25,6 +25,9 @@ final class OpenCollectionDetailSceneOperation: Operation {
             self.vc = UIStoryboard(name: "Collections", bundle: Bundle.main).instantiateViewController(withIdentifier: "CollectionDetailViewController") as? CollectionDetailViewController
             self.vc?.group = self.group
             
+            // TODO: Think about put filter into group
+            self.vc?.filter = GroupFilter(withAlbumName: AlbumName.allPhotos)
+            
             guard let nextScene = self.vc else { return }
             
             AppDelegateManager.currentNavigationController?.pushViewController(nextScene, animated: true)

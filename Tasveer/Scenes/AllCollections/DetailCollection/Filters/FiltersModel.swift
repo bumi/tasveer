@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate let GroupFilterValueIsChangedKey = "GroupFilterValueIsChangedKey"
+let GroupFilterValueIsChangedKey = "GroupFilterValueIsChangedKey"
 
 enum AlbumName: Equatable {
     case allPhotos

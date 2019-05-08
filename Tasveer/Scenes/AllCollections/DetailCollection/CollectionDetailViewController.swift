@@ -15,6 +15,7 @@ enum CollectionDetailType: Int {
 
 final class CollectionDetailViewController: UIViewController {
     var group: Group?
+    var filter: GroupFilter!
     
     @IBOutlet fileprivate weak var segmentPicker: UISegmentedControl!
     @IBOutlet fileprivate weak var containerView: UIView!
@@ -32,9 +33,14 @@ final class CollectionDetailViewController: UIViewController {
         // Initial setup should be for photos
         setupChildViewController(forType: .photos)
         
-        // Test photo fetching
-        let operation = FetchPhotosByFilterOperation()
-        queue.addOperation(operation)
+        filterIsUpdated()
+        
+        // Observe filter updates
+        NotificationCenter.default.addObserver(self, selector: #selector(filterIsUpdated), name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
     }
     
     @IBAction fileprivate func segmentSwitched(_ sender: UISegmentedControl) {
@@ -91,7 +97,12 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     @objc private func openFilterScene() {
-        let openScene = OpenFiltersSceneOperation(withGroup: group)
+        let openScene = OpenFiltersSceneOperation(withGroup: group, filter: filter)
         queue.addOperation(openScene)
+    }
+    
+    @objc private func filterIsUpdated() {
+        let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
+        queue.addOperation(operation)
     }
 }

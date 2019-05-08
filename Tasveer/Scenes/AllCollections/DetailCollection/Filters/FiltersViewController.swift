@@ -10,6 +10,7 @@ import UIKit
 
 final class FiltersViewController: UITableViewController {
     var group: Group?
+    var filter: GroupFilter!
     
     @IBOutlet fileprivate weak var albumName: UITextField!
     @IBOutlet fileprivate weak var favoriteSwitch: UISwitch!
