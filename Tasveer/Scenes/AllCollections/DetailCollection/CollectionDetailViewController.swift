@@ -31,6 +31,10 @@ final class CollectionDetailViewController: UIViewController {
         setupChildViewControllers()
         // Initial setup should be for photos
         setupChildViewController(forType: .photos)
+        
+        // Test photo fetching
+        let operation = FetchPhotosByFilterOperation()
+        queue.addOperation(operation)
     }
     
     @IBAction fileprivate func segmentSwitched(_ sender: UISegmentedControl) {

@@ -34,7 +34,7 @@
 		B281596C2281B48D00F09F6F /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B281596B2281B48D00F09F6F /* ButtonCell.xib */; };
 		B281596E2281B4C900F09F6F /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281596D2281B4C900F09F6F /* ButtonCell.swift */; };
 		B28159712282C93300F09F6F /* PhotoAccessCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159702282C93300F09F6F /* PhotoAccessCondition.swift */; };
-		B28159732282CD2E00F09F6F /* NSError+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159722282CD2E00F09F6F /* NSError+init.swift */; };
+		B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -118,7 +118,7 @@
 		B281596B2281B48D00F09F6F /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		B281596D2281B4C900F09F6F /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		B28159702282C93300F09F6F /* PhotoAccessCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAccessCondition.swift; sourceTree = "<group>"; };
-		B28159722282CD2E00F09F6F /* NSError+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+init.swift"; sourceTree = "<group>"; };
+		B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPhotosByFilterOperation.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */,
+				B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -403,7 +404,6 @@
 				B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */,
 				B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */,
 				B21CC446228048AD00114ACC /* UIView+firstResponder.swift */,
-				B28159722282CD2E00F09F6F /* NSError+init.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -732,6 +732,7 @@
 				B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */,
 				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
 				B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */,
+				B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */,
 				B2954B9E227C926100B8D37C /* CloudCondition.swift in Sources */,
 				B2954B99227C926100B8D37C /* PhotosCondition.swift in Sources */,
 				B2954BA2227C926100B8D37C /* MutuallyExclusive.swift in Sources */,
@@ -741,7 +742,6 @@
 				B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */,
 				B2954B61227C89ED00B8D37C /* MembershipResponse.swift in Sources */,
 				B2954BAD227C926100B8D37C /* BlockObserver.swift in Sources */,
-				B28159732282CD2E00F09F6F /* NSError+init.swift in Sources */,
 				B2954BA0227C926100B8D37C /* HealthCondition.swift in Sources */,
 				B2954B52227C48BA00B8D37C /* FabricsManager.swift in Sources */,
 				B2954B64227C8B6C00B8D37C /* DataRequest+NetResponse.swift in Sources */,
