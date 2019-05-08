@@ -9,9 +9,13 @@
 import Photos
 
 final class FetchPhotosByFilterOperation: Operation {
+    private let groupFilter: GroupFilter
+    
     private let manager = PHImageManager.default()
     
-    override init() {
+    init(withGroupFilter groupFilter: GroupFilter) {
+        self.groupFilter = groupFilter
+        
         super.init()
         
         addCondition(PhotosCondition())
@@ -35,8 +39,11 @@ final class FetchPhotosByFilterOperation: Operation {
     
     private func fetchOptions() -> PHFetchOptions {
         let fetchOption = PHFetchOptions()
-        fetchOption.predicate = NSPredicate(format: "favorite == YES")
         fetchOption.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+        
+        if let predicate = compoundedPredicates() {
+            fetchOption.predicate = predicate
+        }
         
         return fetchOption
     }
@@ -47,5 +54,24 @@ final class FetchPhotosByFilterOperation: Operation {
         requestOptions.isSynchronous = true
         requestOptions.deliveryMode = .highQualityFormat
         return requestOptions
+    }
+    
+    // Compound all predicates
+    private func compoundedPredicates() -> NSPredicate? {
+        var predicates: [NSPredicate] = []
+        
+        if groupFilter.isFavorite {
+            predicates.append(NSPredicate(format: "favorite == YES"))
+        }
+        if let fromTime = groupFilter.fromTimeframe {
+            predicates.append(NSPredicate(format: "creationDate >= %@", fromTime as CVarArg))
+        }
+        if let toTime = groupFilter.toTimeframe {
+            predicates.append(NSPredicate(format: "creationDate <= %@", toTime as CVarArg))
+        }
+        
+        guard !predicates.isEmpty else { return nil }
+        
+        return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
     }
 }
