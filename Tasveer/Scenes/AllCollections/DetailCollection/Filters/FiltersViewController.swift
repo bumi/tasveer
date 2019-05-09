@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import Photos
 
 final class FiltersViewController: UITableViewController {
     var group: Group?
@@ -26,6 +27,8 @@ final class FiltersViewController: UITableViewController {
     
     private let queue = OperationQueue()
     
+    private var pickModel: PickAlbumViewModel?
+    
     // Store album names
     private var albumNames: [String] = []
     
@@ -43,6 +46,7 @@ final class FiltersViewController: UITableViewController {
         
         setupPickers()
         fetchAlbums()
+        setupPickModel()
     }
     
     @IBAction fileprivate func save(_ sender: UIButton!) {
@@ -94,6 +98,12 @@ final class FiltersViewController: UITableViewController {
         queue.addOperation(operation)
     }
     
+    private func setupPickModel() {
+        let userCollection = PHCollectionList.fetchTopLevelUserCollections(with: nil)
+        let smartAlbum = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
+        pickModel = PickAlbumViewModel(userCollection: userCollection, smartAlbum: smartAlbum)
+    }
+    
     @objc private func doneAction(_ sender: UIBarButtonItem) {
         view.firstResponder?.resignFirstResponder()
     }
@@ -109,6 +119,14 @@ final class FiltersViewController: UITableViewController {
             toTimeframe.text = formatter.string(from: sender.date)
         default:
             break
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            let vc = PickAlbumViewController(style: .plain)
+            vc.pickModel = pickModel
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

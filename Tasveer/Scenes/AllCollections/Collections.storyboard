@@ -150,7 +150,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZxF-i6-QKY" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
+                                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZxF-i6-QKY" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
                                                             <rect key="frame" x="99" y="0.0" width="265" height="38"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="38" id="TDN-md-Esa"/>
