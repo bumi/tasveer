@@ -7,21 +7,27 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 final class FiltersViewController: UITableViewController {
     var group: Group?
     var filter: GroupFilter!
     
-    @IBOutlet fileprivate weak var albumName: UITextField!
+    @IBOutlet fileprivate weak var albumName: PickerTextField!
     @IBOutlet fileprivate weak var favoriteSwitch: UISwitch!
-    @IBOutlet fileprivate weak var fromTimeframe: UITextField!
-    @IBOutlet fileprivate weak var toTimeframe: UITextField!
+    @IBOutlet fileprivate weak var fromTimeframe: PickerTextField!
+    @IBOutlet fileprivate weak var toTimeframe: PickerTextField!
     @IBOutlet fileprivate weak var saveButton: UIButton!
     
     private let albumPicker: UIPickerView
     private let fromPicker: UIDatePicker
     private let toPicker: UIDatePicker
     private let pickerToolbar: UIToolbar
+    
+    private let queue = OperationQueue()
+    
+    // Store album names
+    private var albumNames: [String] = []
     
     required init?(coder aDecoder: NSCoder) {
         albumPicker = UIPickerView(frame: CGRect.zero)
@@ -36,6 +42,7 @@ final class FiltersViewController: UITableViewController {
         super.viewDidLoad()
         
         setupPickers()
+        fetchAlbums()
     }
     
     @IBAction fileprivate func save(_ sender: UIButton!) {
@@ -75,6 +82,18 @@ final class FiltersViewController: UITableViewController {
         pickerToolbar.sizeToFit()
     }
     
+    private func fetchAlbums() {
+        MBProgressHUD.showAdded(to: view, animated: true)
+        let operation = FetchAlbumNamesOperation { [weak self] (titles) in
+            self?.albumNames = titles
+            DispatchQueue.main.async {
+                MBProgressHUD.hide(for: self!.view, animated: true)
+            }
+        }
+        
+        queue.addOperation(operation)
+    }
+    
     @objc private func doneAction(_ sender: UIBarButtonItem) {
         view.firstResponder?.resignFirstResponder()
     }
@@ -107,14 +126,14 @@ extension FiltersViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
+        return albumNames.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(format: "%d", (row + 1))
+        return albumNames[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        albumName.text = String(format: "%d", (row + 1))
+        albumName.text = albumNames[row]
     }
 }

@@ -150,7 +150,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZxF-i6-QKY">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZxF-i6-QKY" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
                                                             <rect key="frame" x="99" y="0.0" width="265" height="38"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="38" id="TDN-md-Esa"/>
@@ -177,17 +177,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="ptS-Yl-4lo">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="ptS-Yl-4lo">
                                                     <rect key="frame" x="20" y="11" width="364" height="38"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only Favorites:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBO-wz-0q2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="276" height="38"/>
+                                                            <rect key="frame" x="0.0" y="9" width="276" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="du0-82-XuF">
-                                                            <rect key="frame" x="315" y="0.0" width="51" height="38"/>
+                                                            <rect key="frame" x="315" y="3.5" width="51" height="31"/>
                                                             <connections>
                                                                 <action selector="switchFavorite:" destination="hf3-Fv-UPi" eventType="valueChanged" id="XRP-vP-RdQ"/>
                                                             </connections>
@@ -226,7 +226,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNH-pp-m8G">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNH-pp-m8G" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
                                                             <rect key="frame" x="99" y="0.0" width="265" height="38"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="38" id="iQd-uP-Sac"/>
@@ -265,7 +265,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-WB-kyX">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-WB-kyX" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
                                                             <rect key="frame" x="99" y="0.0" width="265" height="38"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="38" id="FZm-iw-DCL"/>

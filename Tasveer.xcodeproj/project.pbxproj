@@ -25,6 +25,8 @@
 		B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4412280346900114ACC /* AppDelegateManager.swift */; };
 		B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */; };
 		B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC446228048AD00114ACC /* UIView+firstResponder.swift */; };
+		B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */; };
+		B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BE228453FD0079A0B5 /* TextField.swift */; };
 		B281595B2281928800F09F6F /* FiltersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595A2281928800F09F6F /* FiltersModel.swift */; };
 		B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */; };
 		B28159612281A9FC00F09F6F /* CollectionPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */; };
@@ -109,6 +111,8 @@
 		B21CC4412280346900114ACC /* AppDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateManager.swift; sourceTree = "<group>"; };
 		B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCollectionDetailSceneOperation.swift; sourceTree = "<group>"; };
 		B21CC446228048AD00114ACC /* UIView+firstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+firstResponder.swift"; sourceTree = "<group>"; };
+		B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAlbumNamesOperation.swift; sourceTree = "<group>"; };
+		B23FA0BE228453FD0079A0B5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		B281595A2281928800F09F6F /* FiltersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersModel.swift; sourceTree = "<group>"; };
 		B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosViewController.swift; sourceTree = "<group>"; };
 		B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPeopleViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 		B21CC43E2280303000114ACC /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				B23FA0BA22844BD80079A0B5 /* Operations */,
 				B21CC43F2280303E00114ACC /* FiltersViewController.swift */,
 				B281595A2281928800F09F6F /* FiltersModel.swift */,
 			);
@@ -255,6 +260,22 @@
 				B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		B23FA0BA22844BD80079A0B5 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		B23FA0BD228453ED0079A0B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B23FA0BE228453FD0079A0B5 /* TextField.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B281595C2281A97C00F09F6F /* Photos */ = {
@@ -287,6 +308,7 @@
 		B28159692281B47800F09F6F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B23FA0BD228453ED0079A0B5 /* Views */,
 				B281596F2282C91F00F09F6F /* Operation */,
 				B281596A2281B48000F09F6F /* Cell */,
 			);
@@ -724,6 +746,7 @@
 				B28159682281B3EC00F09F6F /* PersonCell.swift in Sources */,
 				B28159632281AA7100F09F6F /* CollectionPeopleModel.swift in Sources */,
 				B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */,
+				B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */,
 				B21CC42C228012EC00114ACC /* NSPersistenStoreCoordinator+Extensions.swift in Sources */,
 				B2954BA6227C926100B8D37C /* NSLock+Operations.swift in Sources */,
 				B2954B8F227C926100B8D37C /* ExclusivityController.swift in Sources */,
@@ -732,6 +755,7 @@
 				B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */,
 				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
 				B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */,
+				B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */,
 				B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */,
 				B2954B9E227C926100B8D37C /* CloudCondition.swift in Sources */,
 				B2954B99227C926100B8D37C /* PhotosCondition.swift in Sources */,
