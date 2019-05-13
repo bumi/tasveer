@@ -226,7 +226,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNH-pp-m8G" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="nNH-pp-m8G" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
                                                             <rect key="frame" x="99" y="0.0" width="265" height="38"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="38" id="iQd-uP-Sac"/>
@@ -265,7 +265,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-WB-kyX" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="None" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-WB-kyX" customClass="PickerTextField" customModule="Tasveer" customModuleProvider="target">
                                                             <rect key="frame" x="99" y="0.0" width="265" height="38"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="38" id="FZm-iw-DCL"/>

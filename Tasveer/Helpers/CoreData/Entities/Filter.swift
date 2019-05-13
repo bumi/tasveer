@@ -17,6 +17,19 @@ final class Filter: NSManagedObject {
     @NSManaged fileprivate(set) var toTime: Date?
     
     @NSManaged fileprivate(set) var group: Group
+    
+    var albumValue: AlbumName {
+        set {
+            albumType = newValue.type
+            albumName = newValue.title
+            albumIdentifier = newValue.identifier
+        }
+        
+        get {
+            let s = AlbumName(withType: albumType, name: albumName, id: albumIdentifier)
+            return s
+        }
+    }
 }
 
 extension Filter: Managed {
