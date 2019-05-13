@@ -25,6 +25,7 @@
 		B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4412280346900114ACC /* AppDelegateManager.swift */; };
 		B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */; };
 		B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC446228048AD00114ACC /* UIView+firstResponder.swift */; };
+		B2361678228999E600B6AC3B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2361677228999E600B6AC3B /* Filter.swift */; };
 		B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */; };
 		B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BE228453FD0079A0B5 /* TextField.swift */; };
 		B23FA0C22284A1B00079A0B5 /* PickAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */; };
@@ -112,6 +113,7 @@
 		B21CC4412280346900114ACC /* AppDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateManager.swift; sourceTree = "<group>"; };
 		B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCollectionDetailSceneOperation.swift; sourceTree = "<group>"; };
 		B21CC446228048AD00114ACC /* UIView+firstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+firstResponder.swift"; sourceTree = "<group>"; };
+		B2361677228999E600B6AC3B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAlbumNamesOperation.swift; sourceTree = "<group>"; };
 		B23FA0BE228453FD0079A0B5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAlbumViewController.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 			children = (
 				B2954BBF227C9E2A00B8D37C /* User.swift */,
 				B2954BC1227C9F6100B8D37C /* Group.swift */,
+				B2361677228999E600B6AC3B /* Filter.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				B2954B64227C8B6C00B8D37C /* DataRequest+NetResponse.swift in Sources */,
 				B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */,
 				B2954BA1227C926100B8D37C /* LocationCondition.swift in Sources */,
+				B2361678228999E600B6AC3B /* Filter.swift in Sources */,
 				B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
 				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
