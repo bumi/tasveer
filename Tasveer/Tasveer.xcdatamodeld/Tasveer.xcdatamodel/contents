@@ -3,6 +3,7 @@
     <entity name="Filter" representedClassName="Filter" syncable="YES">
         <attribute name="albumIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="albumName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="albumType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fromTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="isFavorite" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="toTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -25,6 +26,6 @@
     <elements>
         <element name="Group" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="User" positionX="-54" positionY="-9" width="128" height="120"/>
-        <element name="Filter" positionX="-63" positionY="36" width="128" height="135"/>
+        <element name="Filter" positionX="-63" positionY="36" width="128" height="150"/>
     </elements>
 </model>

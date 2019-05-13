@@ -12,15 +12,15 @@ let GroupFilterValueIsChangedKey = "GroupFilterValueIsChangedKey"
 
 enum AlbumName: Equatable {
     case allPhotos
-    case userAlbum(String)
-    case smartAlbum(String)
+    case userAlbum(String, String)
+    case smartAlbum(String, String)
     
     var title: String {
         switch self {
         case .allPhotos:
             return "All Photos"
-        case .userAlbum(let name),
-             .smartAlbum(let name):
+        case .userAlbum(let name, _),
+             .smartAlbum(let name, _):
             return name
         }
     }

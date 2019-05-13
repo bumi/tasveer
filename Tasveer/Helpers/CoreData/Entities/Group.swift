@@ -36,6 +36,7 @@ extension Group {
         newGroup.createdAt = Date()
         
         newGroup.users = User.insertNewUsers(into: moc, users: collection.users)
+        newGroup.filter = Filter.insertNewFilter(into: moc)
         
         return newGroup
     }

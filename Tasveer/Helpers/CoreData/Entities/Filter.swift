@@ -9,6 +9,7 @@
 import CoreData
 
 final class Filter: NSManagedObject {
+    @NSManaged fileprivate(set) var albumType: String?
     @NSManaged fileprivate(set) var albumName: String?
     @NSManaged fileprivate(set) var albumIdentifier: String?
     @NSManaged fileprivate(set) var isFavorite: Bool
