@@ -11,9 +11,9 @@ import Foundation
 let GroupFilterValueIsChangedKey = "GroupFilterValueIsChangedKey"
 
 enum AlbumName: Equatable {
-    private static let allPhotosType: String = "all_photos"
-    private static let userAlbumType: String = "user_album"
-    private static let smartAlbumType: String = "smart_album"
+    static let allPhotosType: String = "all_photos"
+    static let userAlbumType: String = "user_album"
+    static let smartAlbumType: String = "smart_album"
     
     case allPhotos
     case userAlbum(String, String)

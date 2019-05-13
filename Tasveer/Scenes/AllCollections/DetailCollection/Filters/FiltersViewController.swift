@@ -11,7 +11,15 @@ import MBProgressHUD
 import Photos
 
 final class FiltersViewController: UITableViewController {
-    var group: Group?
+    var group: Group? {
+        didSet {
+            if let newGroup = group {
+                filterModel = FiltersModel(with: newGroup.filter)
+            }
+        }
+    }
+    
+    var filterModel: FiltersModel!
     
     @IBOutlet fileprivate weak var albumName: PickerTextField!
     @IBOutlet fileprivate weak var favoriteSwitch: UISwitch!
@@ -49,12 +57,31 @@ final class FiltersViewController: UITableViewController {
         setupCancel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupUI()
+    }
+    
     @IBAction fileprivate func save(_ sender: UIButton!) {
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction fileprivate func switchFavorite(_ sender: UISwitch) {
         
+    }
+    
+    private func setupUI() {
+        albumName.text = filterModel?.pickedAlbum.title
+        favoriteSwitch.isOn = filterModel.isFavorite
+        
+        if let fromDate = filterModel.fromDate {
+            fromTimeframe.text = DateFormatter.filterStyle.string(from: fromDate)
+        }
+        
+        if let toDate = filterModel.toDate {
+            toTimeframe.text = DateFormatter.filterStyle.string(from: toDate)
+        }
     }
     
     private func setupPickers() {
@@ -114,8 +141,7 @@ final class FiltersViewController: UITableViewController {
     }
     
     @objc private func dateIsPicked(_ sender: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let formatter = DateFormatter.filterStyle
         
         switch sender {
         case fromPicker:
@@ -135,6 +161,7 @@ final class FiltersViewController: UITableViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             let vc = PickAlbumViewController(style: .plain)
             vc.pickModel = pickModel
+            vc.filtersModel = filterModel
             navigationController?.pushViewController(vc, animated: true)
         }
     }

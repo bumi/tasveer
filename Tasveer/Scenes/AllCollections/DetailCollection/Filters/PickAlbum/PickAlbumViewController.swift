@@ -21,6 +21,7 @@ class PickAlbumViewModel {
 
 final class PickAlbumViewController: UITableViewController {
     var pickModel: PickAlbumViewModel!
+    var filtersModel: FiltersModel?
     
     private let pickAlbumCellId = "pickAlbumCellId"
     
@@ -73,5 +74,36 @@ final class PickAlbumViewController: UITableViewController {
         default:
             return nil
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let type: String
+        let name: String?
+        let id: String?
+        
+        switch indexPath.section {
+        case 0:
+            type = AlbumName.allPhotosType
+            name = nil
+            id = nil
+        case 1:
+            type = AlbumName.userAlbumType
+            name = pickModel.userCollection.object(at: indexPath.row).localizedTitle
+            id = pickModel.userCollection.object(at: indexPath.row).localIdentifier
+        case 2:
+            type = AlbumName.smartAlbumType
+            name = pickModel.smartAlbum.object(at: indexPath.row).localizedTitle
+            id = pickModel.smartAlbum.object(at: indexPath.row).localIdentifier
+        default:
+            fatalError()
+        }
+        
+        let albumName = AlbumName(withType: type, name: name, id: id)
+        filtersModel?.pickedAlbum = albumName
+        
+        // Pop back
+        navigationController?.popViewController(animated: true)
     }
 }
