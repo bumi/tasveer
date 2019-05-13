@@ -64,11 +64,12 @@ final class FiltersViewController: UITableViewController {
     }
     
     @IBAction fileprivate func save(_ sender: UIButton!) {
+        filterModel.save(intoFilter: group!.filter)
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction fileprivate func switchFavorite(_ sender: UISwitch) {
-        
+        filterModel.isFavorite = sender.isOn
     }
     
     private func setupUI() {
@@ -146,8 +147,10 @@ final class FiltersViewController: UITableViewController {
         switch sender {
         case fromPicker:
             fromTimeframe.text = formatter.string(from: sender.date)
+            filterModel.fromDate = sender.date
         case toPicker:
             toTimeframe.text = formatter.string(from: sender.date)
+            filterModel.toDate = sender.date
         default:
             break
         }
@@ -189,5 +192,20 @@ extension FiltersViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         albumName.text = albumNames[row]
+    }
+}
+
+extension FiltersViewController: UITextFieldDelegate {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        switch textField {
+        case fromPicker:
+            filterModel.fromDate = nil
+        case toPicker:
+            filterModel.toDate = nil
+        default:
+            break
+        }
+        
+        return true
     }
 }
