@@ -14,6 +14,7 @@ final class Group: NSManagedObject {
     @NSManaged fileprivate(set) var createdAt: Date
     
     @NSManaged fileprivate(set) var users: Set<User>
+    @NSManaged fileprivate(set) var filter: Filter
 }
 
 extension Group: Managed {
