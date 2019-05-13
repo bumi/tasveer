@@ -40,4 +40,16 @@ extension Group {
         
         return newGroup
     }
+    
+    static func insertNew(into moc: NSManagedObjectContext) -> Group {
+        let newGroup: Group = moc.insertObject()
+        newGroup.identifier = ""
+        newGroup.name = ""
+        newGroup.createdAt = Date()
+        
+        newGroup.users = Set<User>()
+        newGroup.filter = Filter.insertNewFilter(into: moc)
+        
+        return newGroup
+    }
 }

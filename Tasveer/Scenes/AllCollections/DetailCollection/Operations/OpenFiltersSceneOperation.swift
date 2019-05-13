@@ -11,9 +11,9 @@ import UIKit
 final class OpenFiltersSceneOperation: Operation {
     private var vc: FiltersViewController?
     private let group: Group?
-    private let filter: GroupFilter
+    private let filter: Filter
     
-    init(withGroup group: Group?, filter: GroupFilter) {
+    init(withGroup group: Group?, filter: Filter) {
         self.group = group
         self.filter = filter
         
@@ -26,7 +26,6 @@ final class OpenFiltersSceneOperation: Operation {
         DispatchQueue.main.async {
             self.vc = UIStoryboard(name: "Collections", bundle: Bundle.main).instantiateViewController(withIdentifier: "FiltersViewController") as? FiltersViewController
             self.vc?.group = self.group
-            self.vc?.filter = self.filter
             
             guard let nextScene = self.vc else { return }
             

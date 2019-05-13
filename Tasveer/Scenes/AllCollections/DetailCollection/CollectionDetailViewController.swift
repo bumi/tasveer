@@ -15,7 +15,6 @@ enum CollectionDetailType: Int {
 
 final class CollectionDetailViewController: UIViewController {
     var group: Group?
-    var filter: GroupFilter!
     
     @IBOutlet fileprivate weak var segmentPicker: UISegmentedControl!
     @IBOutlet fileprivate weak var containerView: UIView!
@@ -28,6 +27,7 @@ final class CollectionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupCollection()
         setupTopBar()
         setupChildViewControllers()
         // Initial setup should be for photos
@@ -48,6 +48,14 @@ final class CollectionDetailViewController: UIViewController {
             else { fatalError() }
         
         setupChildViewController(forType: newType)
+    }
+    
+    private func setupCollection() {
+        if group == nil, let moc = PersistentStoreManager.shared.moc {
+            moc.performChangesAndWait { [unowned self] in
+                self.group = Group.insertNew(into: moc)
+            }
+        }
     }
     
     private func setupTopBar() {
@@ -97,12 +105,12 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     @objc private func openFilterScene() {
-        let openScene = OpenFiltersSceneOperation(withGroup: group, filter: filter)
+        let openScene = OpenFiltersSceneOperation(withGroup: group, filter: group!.filter)
         queue.addOperation(openScene)
     }
     
     @objc private func filterIsUpdated() {
-        let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
+        let operation = FetchPhotosByFilterOperation(withGroupFilter: group!.filter)
         queue.addOperation(operation)
     }
 }

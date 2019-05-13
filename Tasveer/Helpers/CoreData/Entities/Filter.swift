@@ -49,4 +49,11 @@ extension Filter {
         
         return newFilter
     }
+    
+    func update(byFilterModel model: FiltersModel) {
+        albumValue = model.pickedAlbum
+        isFavorite = model.isFavorite
+        fromTime = model.fromDate
+        toTime = model.toDate
+    }
 }

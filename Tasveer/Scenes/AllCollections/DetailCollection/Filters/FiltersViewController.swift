@@ -12,7 +12,6 @@ import Photos
 
 final class FiltersViewController: UITableViewController {
     var group: Group?
-    var filter: GroupFilter!
     
     @IBOutlet fileprivate weak var albumName: PickerTextField!
     @IBOutlet fileprivate weak var favoriteSwitch: UISwitch!
@@ -47,6 +46,7 @@ final class FiltersViewController: UITableViewController {
         setupPickers()
         fetchAlbums()
         setupPickModel()
+        setupCancel()
     }
     
     @IBAction fileprivate func save(_ sender: UIButton!) {
@@ -104,6 +104,11 @@ final class FiltersViewController: UITableViewController {
         pickModel = PickAlbumViewModel(userCollection: userCollection, smartAlbum: smartAlbum)
     }
     
+    private func setupCancel() {
+        let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel(_:)))
+        navigationItem.leftBarButtonItem = cancel
+    }
+    
     @objc private func doneAction(_ sender: UIBarButtonItem) {
         view.firstResponder?.resignFirstResponder()
     }
@@ -120,6 +125,10 @@ final class FiltersViewController: UITableViewController {
         default:
             break
         }
+    }
+    
+    @objc private func cancel(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

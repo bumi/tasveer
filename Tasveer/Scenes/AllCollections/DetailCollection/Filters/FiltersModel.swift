@@ -79,45 +79,26 @@ func ==(lhs: AlbumName, rhs: AlbumName) -> Bool {
     }
 }
 
-final class GroupFilter: NSObject {
-    var albumName: AlbumName {
-        didSet {
-            if albumName != oldValue {
-                NotificationCenter.default.post(name: NSNotification.Name(GroupFilterValueIsChangedKey), object: self)
-            }
-        }
-    }
-    
-    var isFavorite: Bool {
-        didSet {
-            if isFavorite != oldValue {
-                NotificationCenter.default.post(name: NSNotification.Name(GroupFilterValueIsChangedKey), object: self)
-            }
-        }
-    }
-    
-    var fromTimeframe: Date? {
-        didSet {
-            if fromTimeframe != nil, fromTimeframe != oldValue {
-                NotificationCenter.default.post(name: NSNotification.Name(GroupFilterValueIsChangedKey), object: self)
-            }
-        }
-    }
-    
-    var toTimeframe: Date? {
-        didSet {
-            if toTimeframe != nil, toTimeframe != oldValue {
-                NotificationCenter.default.post(name: NSNotification.Name(GroupFilterValueIsChangedKey), object: self)
-            }
-        }
-    }
-    
-    init(withAlbumName albumName: AlbumName, isFavorite: Bool = false) {
-        self.albumName = albumName
-        self.isFavorite = isFavorite
-    }
-}
 
 final class FiltersModel {
+    var pickedAlbum: AlbumName
+    var fromDate: Date?
+    var toDate: Date?
+    var isFavorite: Bool
     
+    init(with filter: Filter) {
+        self.pickedAlbum = filter.albumValue
+        self.isFavorite = filter.isFavorite
+        self.fromDate = filter.fromTime
+        self.toDate = filter.toTime
+    }
+    
+    func save(intoFilter filter: Filter) {
+        guard let moc = PersistentStoreManager.shared.moc
+            else { return }
+        
+        moc.performChangesAndWait { [unowned self] in
+            filter.update(byFilterModel: self)
+        }
+    }
 }

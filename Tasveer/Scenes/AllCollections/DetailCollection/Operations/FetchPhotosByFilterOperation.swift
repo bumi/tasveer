@@ -9,13 +9,13 @@
 import Photos
 
 final class FetchPhotosByFilterOperation: Operation {
-    private let groupFilter: GroupFilter
+    private let groupFilter: Filter
     
     private let manager = PHImageManager.default()
     
     private var fetchResult: PHFetchResult<PHAsset>?
     
-    init(withGroupFilter groupFilter: GroupFilter) {
+    init(withGroupFilter groupFilter: Filter) {
         self.groupFilter = groupFilter
         
         super.init()
@@ -66,10 +66,10 @@ final class FetchPhotosByFilterOperation: Operation {
         if groupFilter.isFavorite {
             predicates.append(NSPredicate(format: "favorite == YES"))
         }
-        if let fromTime = groupFilter.fromTimeframe {
+        if let fromTime = groupFilter.fromTime {
             predicates.append(NSPredicate(format: "creationDate >= %@", fromTime as CVarArg))
         }
-        if let toTime = groupFilter.toTimeframe {
+        if let toTime = groupFilter.toTime {
             predicates.append(NSPredicate(format: "creationDate <= %@", toTime as CVarArg))
         }
         
