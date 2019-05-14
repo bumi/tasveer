@@ -13,7 +13,7 @@ final class FetchPhotosByFilterOperation: Operation {
     
     private let manager = PHImageManager.default()
     
-    private var fetchResult: PHFetchResult<PHAsset>?
+    var fetchResult: PHFetchResult<PHAsset>?
     
     init(withGroupFilter groupFilter: Filter) {
         self.groupFilter = groupFilter
@@ -26,18 +26,23 @@ final class FetchPhotosByFilterOperation: Operation {
     }
     
     override func execute() {
+        let album = groupFilter.albumValue
+        switch album {
+        case .allPhotos:
+            fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions())
+        case .userAlbum(_, let id):
+            if let userCollections = PHCollectionList.fetchCollectionLists(withLocalIdentifiers: [id], options: nil).firstObject,
+                let userCollection = PHCollectionList.fetchCollections(in: userCollections, options: nil).firstObject,
+                let assetCollection = userCollection as? PHAssetCollection {
+                fetchResult = PHAsset.fetchAssets(in: assetCollection, options: fetchOptions())
+            }
+        case .smartAlbum(_, let id):
+            if let smartCollections = PHAssetCollection.fetchAssetCollections(withLocalIdentifiers: [id], options: nil).firstObject {
+                fetchResult = PHAsset.fetchAssets(in: smartCollections, options: fetchOptions())
+            }
+        }
         
-//        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions())
-//
-////        let albums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: PHAssetCollectionSubtype.albumRegular, options: nil)
-//        let albums = PHCollectionList.fetchTopLevelUserCollections(with: nil)
-//        debugPrint(albums.count)
-//        for i in 0..<albums.count {
-//            debugPrint(albums.object(at: i).localizedTitle)
-//        }
-//        manager.requestImage(for: fetchResult.object(at: 0), targetSize: CGSize.zero, contentMode: PHImageContentMode.aspectFill, options: requestOptions()) { (im, err) in
-//            debugPrint("Image is requested")
-//        }
+        finish()
     }
     
     private func fetchOptions() -> PHFetchOptions {

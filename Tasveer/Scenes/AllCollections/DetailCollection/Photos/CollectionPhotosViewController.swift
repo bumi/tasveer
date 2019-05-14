@@ -40,6 +40,8 @@ final class CollectionPhotosViewController: UICollectionViewController {
         super.viewDidLoad()
         
         collectionView.register(GridViewCell.nib, forCellWithReuseIdentifier: GridViewCell.cellId)
+        collectionView.backgroundColor = .clear
+        collectionView.alwaysBounceVertical = true
         
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)

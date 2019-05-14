@@ -40,6 +40,23 @@ final class CollectionDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(filterIsUpdated), name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let filter = group?.filter {
+            let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
+            operation.addCompletionBlock { [weak self] in
+                DispatchQueue.main.async {
+                    if let fetchResult = operation.fetchResult {
+                        self?.photos.fetchResult = fetchResult
+                    }
+                }
+            }
+            
+            queue.addOperation(operation)
+        }
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
     }
@@ -69,10 +86,6 @@ final class CollectionDetailViewController: UIViewController {
             else { return }
         
         let photos = CollectionPhotosViewController.init(collectionViewLayout: UICollectionViewFlowLayout())
-        let allPhotosOptions = PHFetchOptions()
-        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-        let allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
-        photos.fetchResult = allPhotos
         
         people.group = group
         
