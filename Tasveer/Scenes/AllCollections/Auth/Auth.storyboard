@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Auth View Controller-->
         <scene sceneID="K6R-bg-Ofl">
             <objects>
-                <viewController id="P5b-Bg-fWX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" id="P5b-Bg-fWX" customClass="AuthViewController" customModule="Tasveer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ho4-0y-EFq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

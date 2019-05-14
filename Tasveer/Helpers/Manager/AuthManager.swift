@@ -15,13 +15,20 @@ class AuthManager {
     static private let UserDefaultsEmailKey = "UserDefaultsEmailKey"
     static private let UserDefaultsNameKey = "UserDefaultsNameKey"
     
+    var isAuthorized: Bool {
+        guard let _ = ud.value(forKey: AuthManager.UserDefaultsIdentifierKey)
+            else { return false }
+        
+        return true
+    }
+    
+    var token: String? {
+        return ud.string(forKey: AuthManager.UserDefaultsIdentifierKey)
+    }
+    
     private let ud = UserDefaults.standard
     
     private init() {}
-    
-    func authorizeIfNeeded(completionHandler: @escaping () -> Void) {
-        
-    }
     
     func saveUser(user: UserResponse) {
         ud.set(user.identifier, forKey: AuthManager.UserDefaultsIdentifierKey)

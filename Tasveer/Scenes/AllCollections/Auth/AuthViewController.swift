@@ -8,10 +8,23 @@
 
 import UIKit
 
-protocol AuthViewController {
+protocol AuthViewControllerDelegate: class {
     func didLogin()
 }
 
 final class AuthViewController: UIViewController {
+    weak var delegate: AuthViewControllerDelegate?
     
+    private let queue = OperationQueue()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let operation = AuthOperation(withEmail: nil, andName: nil)
+        operation.addCompletionBlock { [weak self] in
+            self?.delegate?.didLogin()
+        }
+        
+        queue.addOperation(operation)
+    }
 }

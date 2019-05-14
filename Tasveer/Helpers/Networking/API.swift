@@ -10,27 +10,7 @@ import Alamofire
 
 struct API {
     static func signUp(_ params: Parameters) -> DataRequest {
-        return Alamofire.request(sessionRouter.signUp(params))
-    }
-    
-    static func createUser(_ params: Parameters) -> DataRequest {
-        return Alamofire.request(router.users(.create(params)))
-    }
-    
-    static func detailUser(deviceId: String) -> DataRequest {
-        return Alamofire.request(router.users(.user(identifier: deviceId)))
-    }
-    
-    static func createGroup(_ params: Parameters) -> DataRequest {
-        return Alamofire.request(router.groups(.create(params)))
-    }
-    
-    static func detailGroup(deviceId: String) -> DataRequest {
-        return Alamofire.request(router.groups(.group(identifier: deviceId)))
-    }
-    
-    static func createMembership(_ params: Parameters) -> DataRequest {
-        return Alamofire.request(router.memberships(params))
+        return Alamofire.request(sessionRouter.signUp(params: params))
     }
 }
 
@@ -49,6 +29,6 @@ private var router: Router.Type {
 }
 
 private var token: String? {
-    let token = "" // FIXME: read from local db
+    let token = AuthManager.shared.token ?? ""
     return token
 }

@@ -36,6 +36,7 @@
 		B2604B7D228B7EB7005CFEDF /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2604B7C228B7EB7005CFEDF /* Auth.storyboard */; };
 		B2604B7F228B7ED7005CFEDF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */; };
 		B2604B81228B7F26005CFEDF /* AuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B80228B7F26005CFEDF /* AuthOperation.swift */; };
+		B2604B85228B8530005CFEDF /* ShowMainSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B84228B8530005CFEDF /* ShowMainSceneOperation.swift */; };
 		B281595B2281928800F09F6F /* FiltersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595A2281928800F09F6F /* FiltersModel.swift */; };
 		B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */; };
 		B28159612281A9FC00F09F6F /* CollectionPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */; };
@@ -131,6 +132,7 @@
 		B2604B7C228B7EB7005CFEDF /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		B2604B80228B7F26005CFEDF /* AuthOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOperation.swift; sourceTree = "<group>"; };
+		B2604B84228B8530005CFEDF /* ShowMainSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMainSceneOperation.swift; sourceTree = "<group>"; };
 		B281595A2281928800F09F6F /* FiltersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersModel.swift; sourceTree = "<group>"; };
 		B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosViewController.swift; sourceTree = "<group>"; };
 		B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPeopleViewController.swift; sourceTree = "<group>"; };
@@ -308,11 +310,20 @@
 		B2604B7B228B7EA4005CFEDF /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				B2604B83228B8515005CFEDF /* Operations */,
 				B2604B7C228B7EB7005CFEDF /* Auth.storyboard */,
 				B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */,
 				B2604B80228B7F26005CFEDF /* AuthOperation.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		B2604B83228B8515005CFEDF /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B2604B84228B8530005CFEDF /* ShowMainSceneOperation.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		B281595C2281A97C00F09F6F /* Photos */ = {
@@ -841,6 +852,7 @@
 				B2954B9C227C926100B8D37C /* NoCancelledDependencies.swift in Sources */,
 				B2954BAE227C926100B8D37C /* TimeoutObserver.swift in Sources */,
 				B2954B91227C926100B8D37C /* LocationOperation.swift in Sources */,
+				B2604B85228B8530005CFEDF /* ShowMainSceneOperation.swift in Sources */,
 				B2954B9D227C926100B8D37C /* UserNotificationCondition.swift in Sources */,
 				B2954BAB227C926100B8D37C /* OperationObserver.swift in Sources */,
 				B21CC43A22802B2F00114ACC /* CollectionDetailViewController.swift in Sources */,
