@@ -32,6 +32,10 @@
 		B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */; };
 		B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BE228453FD0079A0B5 /* TextField.swift */; };
 		B23FA0C22284A1B00079A0B5 /* PickAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */; };
+		B2604B7A228B7B01005CFEDF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B79228B7B01005CFEDF /* AuthManager.swift */; };
+		B2604B7D228B7EB7005CFEDF /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2604B7C228B7EB7005CFEDF /* Auth.storyboard */; };
+		B2604B7F228B7ED7005CFEDF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */; };
+		B2604B81228B7F26005CFEDF /* AuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B80228B7F26005CFEDF /* AuthOperation.swift */; };
 		B281595B2281928800F09F6F /* FiltersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595A2281928800F09F6F /* FiltersModel.swift */; };
 		B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */; };
 		B28159612281A9FC00F09F6F /* CollectionPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */; };
@@ -123,6 +127,10 @@
 		B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAlbumNamesOperation.swift; sourceTree = "<group>"; };
 		B23FA0BE228453FD0079A0B5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAlbumViewController.swift; sourceTree = "<group>"; };
+		B2604B79228B7B01005CFEDF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		B2604B7C228B7EB7005CFEDF /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		B2604B80228B7F26005CFEDF /* AuthOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOperation.swift; sourceTree = "<group>"; };
 		B281595A2281928800F09F6F /* FiltersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersModel.swift; sourceTree = "<group>"; };
 		B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosViewController.swift; sourceTree = "<group>"; };
 		B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPeopleViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +305,16 @@
 			path = PickAlbum;
 			sourceTree = "<group>";
 		};
+		B2604B7B228B7EA4005CFEDF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B2604B7C228B7EB7005CFEDF /* Auth.storyboard */,
+				B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */,
+				B2604B80228B7F26005CFEDF /* AuthOperation.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		B281595C2281A97C00F09F6F /* Photos */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +426,7 @@
 				B21CC4302280147C00114ACC /* PersistentStoreManager.swift */,
 				B21CC4322280175E00114ACC /* AppManager.swift */,
 				B21CC4412280346900114ACC /* AppDelegateManager.swift */,
+				B2604B79228B7B01005CFEDF /* AuthManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -543,6 +562,7 @@
 		B2954BB0227C95B500B8D37C /* AllCollections */ = {
 			isa = PBXGroup;
 			children = (
+				B2604B7B228B7EA4005CFEDF /* Auth */,
 				B21CC443228034EC00114ACC /* Operations */,
 				B21CC43822802B1600114ACC /* DetailCollection */,
 				B2954BBA227C9B0B00B8D37C /* Cell */,
@@ -659,6 +679,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2604B7D228B7EB7005CFEDF /* Auth.storyboard in Resources */,
 				B2954B47227C405800B8D37C /* LaunchScreen.storyboard in Resources */,
 				B2954B44227C405800B8D37C /* Assets.xcassets in Resources */,
 				B236167E2289C2AF00B6AC3B /* GridViewCell.xib in Resources */,
@@ -770,6 +791,7 @@
 				B2954B9B227C926100B8D37C /* PassbookCondition.swift in Sources */,
 				B28159682281B3EC00F09F6F /* PersonCell.swift in Sources */,
 				B28159632281AA7100F09F6F /* CollectionPeopleModel.swift in Sources */,
+				B2604B7A228B7B01005CFEDF /* AuthManager.swift in Sources */,
 				B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */,
 				B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */,
 				B21CC42C228012EC00114ACC /* NSPersistenStoreCoordinator+Extensions.swift in Sources */,
@@ -794,6 +816,7 @@
 				B2954BAD227C926100B8D37C /* BlockObserver.swift in Sources */,
 				B2954BA0227C926100B8D37C /* HealthCondition.swift in Sources */,
 				B236167C2289C29200B6AC3B /* GridViewCell.swift in Sources */,
+				B2604B7F228B7ED7005CFEDF /* AuthViewController.swift in Sources */,
 				B2954B52227C48BA00B8D37C /* FabricsManager.swift in Sources */,
 				B2954B64227C8B6C00B8D37C /* DataRequest+NetResponse.swift in Sources */,
 				B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */,
@@ -804,6 +827,7 @@
 				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
 				B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */,
 				B21CC4332280175E00114ACC /* AppManager.swift in Sources */,
+				B2604B81228B7F26005CFEDF /* AuthOperation.swift in Sources */,
 				B2954B5F227C895200B8D37C /* GroupResponse.swift in Sources */,
 				B2954BA5227C926100B8D37C /* OperationErrors.swift in Sources */,
 				B21CC423228012C300114ACC /* CoreDataContextObserver.swift in Sources */,
