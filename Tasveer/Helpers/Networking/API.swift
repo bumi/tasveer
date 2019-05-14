@@ -34,7 +34,7 @@ struct API {
     }
 }
 
-private let baseURLString = "https://kuvakehys.herokuapp.com/"
+private let baseURLString = "https://kuvakehys-tasveer.herokuapp.com/"
 
 private var sessionRouter: SessionRouter.Type {
     SessionRouter.baseURLString = baseURLString
