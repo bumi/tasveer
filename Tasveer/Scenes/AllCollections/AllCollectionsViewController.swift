@@ -58,14 +58,26 @@ final class AllCollectionsViewController: UIViewController {
         floatingButton?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
     }
     
+    private func showCollection(group: Group?) {
+        let openScene = OpenCollectionDetailSceneOperation(withGroup: group)
+        queue.addOperation(openScene)
+    }
+    
     @objc private func showCreateNewGroup() {
-        
+        showCollection(group: nil)
     }
 }
 
 extension AllCollectionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let group = dataSource?.objectAtIndexPath(indexPath)
+        showCollection(group: group)
     }
 }
 

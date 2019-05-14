@@ -19,6 +19,29 @@
 		B21CC4332280175E00114ACC /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4322280175E00114ACC /* AppManager.swift */; };
 		B21CC43522801A3F00114ACC /* NSManagedObjectContext+cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */; };
 		B21CC4372280214D00114ACC /* Collections.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21CC4362280214D00114ACC /* Collections.storyboard */; };
+		B21CC43A22802B2F00114ACC /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43922802B2F00114ACC /* CollectionDetailViewController.swift */; };
+		B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */; };
+		B21CC4402280303E00114ACC /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC43F2280303E00114ACC /* FiltersViewController.swift */; };
+		B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4412280346900114ACC /* AppDelegateManager.swift */; };
+		B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */; };
+		B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC446228048AD00114ACC /* UIView+firstResponder.swift */; };
+		B2361678228999E600B6AC3B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2361677228999E600B6AC3B /* Filter.swift */; };
+		B236167A2289C1E800B6AC3B /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23616792289C1E800B6AC3B /* AssetViewController.swift */; };
+		B236167C2289C29200B6AC3B /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236167B2289C29200B6AC3B /* GridViewCell.swift */; };
+		B236167E2289C2AF00B6AC3B /* GridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B236167D2289C2AF00B6AC3B /* GridViewCell.xib */; };
+		B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */; };
+		B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BE228453FD0079A0B5 /* TextField.swift */; };
+		B23FA0C22284A1B00079A0B5 /* PickAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */; };
+		B281595B2281928800F09F6F /* FiltersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595A2281928800F09F6F /* FiltersModel.swift */; };
+		B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */; };
+		B28159612281A9FC00F09F6F /* CollectionPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */; };
+		B28159632281AA7100F09F6F /* CollectionPeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159622281AA7100F09F6F /* CollectionPeopleModel.swift */; };
+		B28159662281B37A00F09F6F /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28159652281B37A00F09F6F /* PersonCell.xib */; };
+		B28159682281B3EC00F09F6F /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159672281B3EC00F09F6F /* PersonCell.swift */; };
+		B281596C2281B48D00F09F6F /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B281596B2281B48D00F09F6F /* ButtonCell.xib */; };
+		B281596E2281B4C900F09F6F /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281596D2281B4C900F09F6F /* ButtonCell.swift */; };
+		B28159712282C93300F09F6F /* PhotoAccessCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159702282C93300F09F6F /* PhotoAccessCondition.swift */; };
+		B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -87,6 +110,29 @@
 		B21CC4322280175E00114ACC /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+cache.swift"; sourceTree = "<group>"; };
 		B21CC4362280214D00114ACC /* Collections.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Collections.storyboard; sourceTree = "<group>"; };
+		B21CC43922802B2F00114ACC /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
+		B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFiltersSceneOperation.swift; sourceTree = "<group>"; };
+		B21CC43F2280303E00114ACC /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		B21CC4412280346900114ACC /* AppDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateManager.swift; sourceTree = "<group>"; };
+		B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCollectionDetailSceneOperation.swift; sourceTree = "<group>"; };
+		B21CC446228048AD00114ACC /* UIView+firstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+firstResponder.swift"; sourceTree = "<group>"; };
+		B2361677228999E600B6AC3B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		B23616792289C1E800B6AC3B /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
+		B236167B2289C29200B6AC3B /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
+		B236167D2289C2AF00B6AC3B /* GridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridViewCell.xib; sourceTree = "<group>"; };
+		B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAlbumNamesOperation.swift; sourceTree = "<group>"; };
+		B23FA0BE228453FD0079A0B5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAlbumViewController.swift; sourceTree = "<group>"; };
+		B281595A2281928800F09F6F /* FiltersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersModel.swift; sourceTree = "<group>"; };
+		B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosViewController.swift; sourceTree = "<group>"; };
+		B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPeopleViewController.swift; sourceTree = "<group>"; };
+		B28159622281AA7100F09F6F /* CollectionPeopleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPeopleModel.swift; sourceTree = "<group>"; };
+		B28159652281B37A00F09F6F /* PersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
+		B28159672281B3EC00F09F6F /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		B281596B2281B48D00F09F6F /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		B281596D2281B4C900F09F6F /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		B28159702282C93300F09F6F /* PhotoAccessCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAccessCondition.swift; sourceTree = "<group>"; };
+		B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPhotosByFilterOperation.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -187,6 +233,127 @@
 			path = Versioning;
 			sourceTree = "<group>";
 		};
+		B21CC43822802B1600114ACC /* DetailCollection */ = {
+			isa = PBXGroup;
+			children = (
+				B281595F2281A9E600F09F6F /* People */,
+				B281595C2281A97C00F09F6F /* Photos */,
+				B21CC43E2280303000114ACC /* Filters */,
+				B21CC43B22802CD200114ACC /* Operations */,
+				B21CC43922802B2F00114ACC /* CollectionDetailViewController.swift */,
+			);
+			path = DetailCollection;
+			sourceTree = "<group>";
+		};
+		B21CC43B22802CD200114ACC /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */,
+				B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		B21CC43E2280303000114ACC /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				B23FA0C02284A1930079A0B5 /* PickAlbum */,
+				B23FA0BA22844BD80079A0B5 /* Operations */,
+				B21CC43F2280303E00114ACC /* FiltersViewController.swift */,
+				B281595A2281928800F09F6F /* FiltersModel.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		B21CC443228034EC00114ACC /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		B23FA0BA22844BD80079A0B5 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		B23FA0BD228453ED0079A0B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B23FA0BE228453FD0079A0B5 /* TextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B23FA0C02284A1930079A0B5 /* PickAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */,
+			);
+			path = PickAlbum;
+			sourceTree = "<group>";
+		};
+		B281595C2281A97C00F09F6F /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */,
+				B23616792289C1E800B6AC3B /* AssetViewController.swift */,
+				B236167B2289C29200B6AC3B /* GridViewCell.swift */,
+				B236167D2289C2AF00B6AC3B /* GridViewCell.xib */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		B281595F2281A9E600F09F6F /* People */ = {
+			isa = PBXGroup;
+			children = (
+				B28159642281B33F00F09F6F /* Cell */,
+				B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */,
+				B28159622281AA7100F09F6F /* CollectionPeopleModel.swift */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		B28159642281B33F00F09F6F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B28159652281B37A00F09F6F /* PersonCell.xib */,
+				B28159672281B3EC00F09F6F /* PersonCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B28159692281B47800F09F6F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B23FA0BD228453ED0079A0B5 /* Views */,
+				B281596F2282C91F00F09F6F /* Operation */,
+				B281596A2281B48000F09F6F /* Cell */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B281596A2281B48000F09F6F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B281596B2281B48D00F09F6F /* ButtonCell.xib */,
+				B281596D2281B4C900F09F6F /* ButtonCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B281596F2282C91F00F09F6F /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				B28159702282C93300F09F6F /* PhotoAccessCondition.swift */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
 		B2954B2D227C405700B8D37C = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +407,7 @@
 				B2954B51227C48BA00B8D37C /* FabricsManager.swift */,
 				B21CC4302280147C00114ACC /* PersistentStoreManager.swift */,
 				B21CC4322280175E00114ACC /* AppManager.swift */,
+				B21CC4412280346900114ACC /* AppDelegateManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -279,6 +447,7 @@
 				B2954B67227C8D1D00B8D37C /* DateFormatter+appStyle.swift */,
 				B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */,
 				B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */,
+				B21CC446228048AD00114ACC /* UIView+firstResponder.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -365,6 +534,7 @@
 		B2954BAF227C95AF00B8D37C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B28159692281B47800F09F6F /* Shared */,
 				B2954BB0227C95B500B8D37C /* AllCollections */,
 			);
 			path = Scenes;
@@ -373,6 +543,8 @@
 		B2954BB0227C95B500B8D37C /* AllCollections */ = {
 			isa = PBXGroup;
 			children = (
+				B21CC443228034EC00114ACC /* Operations */,
+				B21CC43822802B1600114ACC /* DetailCollection */,
 				B2954BBA227C9B0B00B8D37C /* Cell */,
 				B2954BB1227C95C600B8D37C /* AllCollectionsViewController.swift */,
 				B21CC4362280214D00114ACC /* Collections.storyboard */,
@@ -412,6 +584,7 @@
 			children = (
 				B2954BBF227C9E2A00B8D37C /* User.swift */,
 				B2954BC1227C9F6100B8D37C /* Group.swift */,
+				B2361677228999E600B6AC3B /* Filter.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -488,7 +661,10 @@
 			files = (
 				B2954B47227C405800B8D37C /* LaunchScreen.storyboard in Resources */,
 				B2954B44227C405800B8D37C /* Assets.xcassets in Resources */,
+				B236167E2289C2AF00B6AC3B /* GridViewCell.xib in Resources */,
+				B28159662281B37A00F09F6F /* PersonCell.xib in Resources */,
 				B21CC4372280214D00114ACC /* Collections.storyboard in Resources */,
+				B281596C2281B48D00F09F6F /* ButtonCell.xib in Resources */,
 				B2954B3F227C405700B8D37C /* Main.storyboard in Resources */,
 				B2954BB9227C993200B8D37C /* AllCollectionCell.xib in Resources */,
 			);
@@ -587,29 +763,46 @@
 			files = (
 				B21CC4312280147C00114ACC /* PersistentStoreManager.swift in Sources */,
 				B2954BC2227C9F6100B8D37C /* Group.swift in Sources */,
+				B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */,
+				B23FA0C22284A1B00079A0B5 /* PickAlbumViewController.swift in Sources */,
+				B28159612281A9FC00F09F6F /* CollectionPeopleViewController.swift in Sources */,
 				B2954B9A227C926100B8D37C /* NegatedCondition.swift in Sources */,
 				B2954B9B227C926100B8D37C /* PassbookCondition.swift in Sources */,
+				B28159682281B3EC00F09F6F /* PersonCell.swift in Sources */,
+				B28159632281AA7100F09F6F /* CollectionPeopleModel.swift in Sources */,
 				B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */,
+				B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */,
 				B21CC42C228012EC00114ACC /* NSPersistenStoreCoordinator+Extensions.swift in Sources */,
 				B2954BA6227C926100B8D37C /* NSLock+Operations.swift in Sources */,
 				B2954B8F227C926100B8D37C /* ExclusivityController.swift in Sources */,
+				B21CC4402280303E00114ACC /* FiltersViewController.swift in Sources */,
+				B281596E2281B4C900F09F6F /* ButtonCell.swift in Sources */,
+				B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */,
 				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
 				B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */,
+				B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */,
+				B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */,
 				B2954B9E227C926100B8D37C /* CloudCondition.swift in Sources */,
 				B2954B99227C926100B8D37C /* PhotosCondition.swift in Sources */,
 				B2954BA2227C926100B8D37C /* MutuallyExclusive.swift in Sources */,
 				B21CC42F228012EC00114ACC /* ModelVersion.swift in Sources */,
+				B236167A2289C1E800B6AC3B /* AssetViewController.swift in Sources */,
 				B2954B96227C926100B8D37C /* Operation.swift in Sources */,
 				B2954BB7227C987300B8D37C /* AllCollectionCell.swift in Sources */,
+				B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */,
 				B2954B61227C89ED00B8D37C /* MembershipResponse.swift in Sources */,
 				B2954BAD227C926100B8D37C /* BlockObserver.swift in Sources */,
 				B2954BA0227C926100B8D37C /* HealthCondition.swift in Sources */,
+				B236167C2289C29200B6AC3B /* GridViewCell.swift in Sources */,
 				B2954B52227C48BA00B8D37C /* FabricsManager.swift in Sources */,
 				B2954B64227C8B6C00B8D37C /* DataRequest+NetResponse.swift in Sources */,
 				B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */,
 				B2954BA1227C926100B8D37C /* LocationCondition.swift in Sources */,
+				B2361678228999E600B6AC3B /* Filter.swift in Sources */,
+				B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
 				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
+				B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */,
 				B21CC4332280175E00114ACC /* AppManager.swift in Sources */,
 				B2954B5F227C895200B8D37C /* GroupResponse.swift in Sources */,
 				B2954BA5227C926100B8D37C /* OperationErrors.swift in Sources */,
@@ -626,10 +819,12 @@
 				B2954B91227C926100B8D37C /* LocationOperation.swift in Sources */,
 				B2954B9D227C926100B8D37C /* UserNotificationCondition.swift in Sources */,
 				B2954BAB227C926100B8D37C /* OperationObserver.swift in Sources */,
+				B21CC43A22802B2F00114ACC /* CollectionDetailViewController.swift in Sources */,
 				B2954BA7227C926100B8D37C /* Dictionary+Operations.swift in Sources */,
 				B2954BA8227C926100B8D37C /* CKContainer+Operations.swift in Sources */,
 				B2954BA9227C926100B8D37C /* NSOperation+Operations.swift in Sources */,
 				B2954BAC227C926100B8D37C /* BackgroundObserver.swift in Sources */,
+				B28159712282C93300F09F6F /* PhotoAccessCondition.swift in Sources */,
 				B2954B94227C926100B8D37C /* URLSessionTaskOperation.swift in Sources */,
 				B21CC42D228012EC00114ACC /* Utilities.swift in Sources */,
 				B21CC424228012C300114ACC /* Managed.swift in Sources */,
@@ -642,6 +837,7 @@
 				B21CC42E228012EC00114ACC /* ModelVersions.swift in Sources */,
 				B2954BAA227C926100B8D37C /* UIUserNotifications+Operations.swift in Sources */,
 				B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */,
+				B281595B2281928800F09F6F /* FiltersModel.swift in Sources */,
 				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,
 				B2954B5A227C815D00B8D37C /* API.swift in Sources */,
 			);

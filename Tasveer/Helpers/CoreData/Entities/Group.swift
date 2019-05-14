@@ -14,6 +14,7 @@ final class Group: NSManagedObject {
     @NSManaged fileprivate(set) var createdAt: Date
     
     @NSManaged fileprivate(set) var users: Set<User>
+    @NSManaged fileprivate(set) var filter: Filter
 }
 
 extension Group: Managed {
@@ -35,6 +36,19 @@ extension Group {
         newGroup.createdAt = Date()
         
         newGroup.users = User.insertNewUsers(into: moc, users: collection.users)
+        newGroup.filter = Filter.insertNewFilter(into: moc)
+        
+        return newGroup
+    }
+    
+    static func insertNew(into moc: NSManagedObjectContext) -> Group {
+        let newGroup: Group = moc.insertObject()
+        newGroup.identifier = ""
+        newGroup.name = ""
+        newGroup.createdAt = Date()
+        
+        newGroup.users = Set<User>()
+        newGroup.filter = Filter.insertNewFilter(into: moc)
         
         return newGroup
     }
