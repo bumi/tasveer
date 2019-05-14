@@ -36,25 +36,10 @@ final class CollectionDetailViewController: UIViewController {
         
         filterIsUpdated()
         
-        // Observe filter updates
-        NotificationCenter.default.addObserver(self, selector: #selector(filterIsUpdated), name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        applyFilter()
         
-        if let filter = group?.filter {
-            let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
-            operation.addCompletionBlock { [weak self] in
-                DispatchQueue.main.async {
-                    if let fetchResult = operation.fetchResult {
-                        self?.photos.fetchResult = fetchResult
-                    }
-                }
-            }
-            
-            queue.addOperation(operation)
-        }
+        // Observe filter updates
+        NotificationCenter.default.addObserver(self, selector: #selector(applyFilter), name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
     }
     
     deinit {
@@ -121,6 +106,21 @@ final class CollectionDetailViewController: UIViewController {
         vc.view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         vc.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         vc.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+    }
+    
+    @objc private func applyFilter() {
+        if let filter = group?.filter {
+            let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
+            operation.addCompletionBlock { [weak self] in
+                DispatchQueue.main.async {
+                    if let fetchResult = operation.fetchResult {
+                        self?.photos.fetchResult = fetchResult
+                    }
+                }
+            }
+            
+            queue.addOperation(operation)
+        }
     }
     
     @objc private func openFilterScene() {
