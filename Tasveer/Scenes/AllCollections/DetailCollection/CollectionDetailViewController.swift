@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 enum CollectionDetailType: Int {
     case photos
@@ -64,9 +65,14 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     private func setupChildViewControllers() {
-        guard let photos = UIStoryboard(name: "Collections", bundle: Bundle.main).instantiateViewController(withIdentifier: "CollectionPhotosViewController") as? CollectionPhotosViewController,
-            let people = UIStoryboard(name: "Collections", bundle: Bundle.main).instantiateViewController(withIdentifier: "CollectionPeopleViewController") as? CollectionPeopleViewController
+        guard let people = UIStoryboard(name: "Collections", bundle: Bundle.main).instantiateViewController(withIdentifier: "CollectionPeopleViewController") as? CollectionPeopleViewController
             else { return }
+        
+        let photos = CollectionPhotosViewController.init(collectionViewLayout: UICollectionViewFlowLayout())
+        let allPhotosOptions = PHFetchOptions()
+        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+        let allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
+        photos.fetchResult = allPhotos
         
         people.group = group
         

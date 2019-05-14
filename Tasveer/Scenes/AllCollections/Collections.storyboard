@@ -71,21 +71,6 @@
             </objects>
             <point key="canvasLocation" x="-1162.3188405797102" y="620.75892857142856"/>
         </scene>
-        <!--Collection Photos View Controller-->
-        <scene sceneID="Qmj-DG-pBF">
-            <objects>
-                <viewController storyboardIdentifier="CollectionPhotosViewController" id="BHW-Hp-VwJ" customClass="CollectionPhotosViewController" customModule="Tasveer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j1Y-jQ-xQe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="1mr-cn-s1p"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J5C-md-gk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1162" y="1306"/>
-        </scene>
         <!--Collection People View Controller-->
         <scene sceneID="1dT-hf-AoX">
             <objects>
