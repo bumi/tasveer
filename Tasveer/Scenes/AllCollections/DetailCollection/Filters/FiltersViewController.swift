@@ -198,9 +198,9 @@ extension FiltersViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 extension FiltersViewController: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         switch textField {
-        case fromPicker:
+        case fromTimeframe:
             filterModel.fromDate = nil
-        case toPicker:
+        case toTimeframe:
             filterModel.toDate = nil
         default:
             break

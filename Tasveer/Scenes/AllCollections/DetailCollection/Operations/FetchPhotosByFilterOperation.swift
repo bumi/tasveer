@@ -30,15 +30,10 @@ final class FetchPhotosByFilterOperation: Operation {
         switch album {
         case .allPhotos:
             fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions())
-        case .userAlbum(_, let id):
-            if let userCollections = PHCollectionList.fetchCollectionLists(withLocalIdentifiers: [id], options: nil).firstObject,
-                let userCollection = PHCollectionList.fetchCollections(in: userCollections, options: nil).firstObject,
-                let assetCollection = userCollection as? PHAssetCollection {
-                fetchResult = PHAsset.fetchAssets(in: assetCollection, options: fetchOptions())
-            }
-        case .smartAlbum(_, let id):
-            if let smartCollections = PHAssetCollection.fetchAssetCollections(withLocalIdentifiers: [id], options: nil).firstObject {
-                fetchResult = PHAsset.fetchAssets(in: smartCollections, options: fetchOptions())
+        case .userAlbum(_, let id),
+             .smartAlbum(_, let id):
+            if let collections = PHAssetCollection.fetchAssetCollections(withLocalIdentifiers: [id], options: nil).firstObject {
+                fetchResult = PHAsset.fetchAssets(in: collections, options: fetchOptions())
             }
         }
         
