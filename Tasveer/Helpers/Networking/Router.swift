@@ -16,7 +16,7 @@ protocol BaseRouter: URLRequestConvertible {
 enum SessionRouter: BaseRouter {
     static var baseURLString: String?
     
-    case signUp(Parameters)
+    case signUp(params: Parameters)
     
     var method: Alamofire.HTTPMethod {
         switch self {
@@ -56,24 +56,46 @@ enum Router: BaseRouter {
         case user(deviceId: String)
     }
     
-    enum Group {
-        case create(Parameters)
-        case group(identifier: String)
+    enum Collection {
+        case create(params: Parameters) // name, description
+        case collection(identifier: String)
+        case all
+        case edit(identifier: String, params: Parameters)
+        case invite(identifier: String, params: Parameters)
+        case photos(identifier: String)
+    }
+    
+    enum Photo {
+        case create(params: Parameters)
+        case createToCollection(collectionId: String, params: Parameters)
+        case edit(identifier: String, params: Parameters)
+        case delete(identifier: String)
+        case appendTo(identifier: String, params: Parameters)
     }
     
     case users(User)
-    case groups(Group)
-    case memberships(Parameters)
+    case collections(Collection)
+    case photos(Photo)
     
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .groups(.create),
-             .memberships:
+        case .collections(.create),
+             .collections(.invite),
+             .photos(.create),
+             .photos(.createToCollection),
+             .photos(.appendTo):
             return .post
         case .users(.me),
              .users(.user),
-             .groups(.group):
+             .collections(.collection),
+             .collections(.all),
+             .collections(.photos):
             return .get
+        case .collections(.edit),
+             .photos(.edit):
+            return .put
+        case .photos(.delete):
+            return .delete
         }
     }
     
@@ -84,13 +106,27 @@ enum Router: BaseRouter {
         case .users(.user(let deviceId)):
             return "users/\(deviceId)"
             
-        case .groups(.create):
-            return "groups"
-        case .groups(.group(let identifier)):
-            return "groups/\(identifier)"
+        case .collections(.create),
+             .collections(.all):
+            return "collections"
+        case .collections(.collection(let identifier)),
+             .collections(.edit(let identifier, _)):
+            return "collections/\(identifier)"
+        case .collections(.invite(let identifier, _)):
+            return "collections/\(identifier)/invitations"
+        case .collections(.photos(let identifier)):
+            return "collections/\(identifier)/photos"
             
-        case .memberships:
-            return "memberships"
+        case .photos(.create):
+            return "photos"
+        case .photos(.createToCollection(let collectionId)):
+            return "collections/\(collectionId)/photos"
+        case .photos(.edit(let identifier, _)):
+            return "photos/\(identifier)"
+        case .photos(.delete(let identifier)):
+            return "photos/\(identifier)"
+        case .photos(.appendTo(let identifier)):
+            return "photos/\(identifier)/collectionships"
         }
     }
     
@@ -110,15 +146,20 @@ enum Router: BaseRouter {
         
         switch self {
         case .users(.me),
-             .users(.user):
+             .users(.user),
+             .collections(.collection),
+             .collections(.all),
+             .collections(.photos),
+             .photos(.delete):
             return try jsonEncoding.encode(urlRequest)
             
-        case .groups(.create(let params)):
-            return try jsonEncoding.encode(urlRequest, with: params)
-        case .groups(.group):
-            return try jsonEncoding.encode(urlRequest)
-            
-        case .memberships(let params):
+        case .collections(.create(let params)),
+             .collections(.edit(_, let params)),
+             .collections(.invite(_, let params)),
+             .photos(.create(let params)),
+             .photos(.createToCollection(_, let params)),
+             .photos(.edit(_, let params)),
+             .photos(.appendTo(_, let params)):
             return try jsonEncoding.encode(urlRequest, with: params)
         }
     }
