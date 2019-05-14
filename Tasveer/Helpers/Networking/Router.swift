@@ -17,12 +17,10 @@ enum SessionRouter: BaseRouter {
     static var baseURLString: String?
     
     case signUp(Parameters)
-    case signIn(Parameters)
     
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signUp,
-             .signIn:
+        case .signUp:
             return .post
         }
     }
@@ -30,9 +28,7 @@ enum SessionRouter: BaseRouter {
     var path: String {
         switch self {
         case .signUp:
-            return "user/signup"
-        case .signIn:
-            return "user/signin"
+            return "users"
         }
     }
     
@@ -45,8 +41,7 @@ enum SessionRouter: BaseRouter {
         
         let jsonEncoding = JSONEncoding.default
         switch self {
-        case .signUp(let params),
-             .signIn(let params):
+        case .signUp(let params):
             return try jsonEncoding.encode(urlRequest, with: params)
         }
     }
@@ -57,8 +52,8 @@ enum Router: BaseRouter {
     static var authToken: String?
     
     enum User {
-        case create(Parameters)
-        case user(identifier: String)
+        case me
+        case user(deviceId: String)
     }
     
     enum Group {
@@ -72,22 +67,22 @@ enum Router: BaseRouter {
     
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .users(.create),
-             .groups(.create),
+        case .groups(.create),
              .memberships:
             return .post
-        case .groups(.group),
-             .users(.user):
+        case .users(.me),
+             .users(.user),
+             .groups(.group):
             return .get
         }
     }
     
     var path: String {
         switch self {
-        case .users(.create):
-            return "users"
-        case .users(.user(let identifier)):
-            return "users/\(identifier)"
+        case .users(.me):
+            return "users/me"
+        case .users(.user(let deviceId)):
+            return "users/\(deviceId)"
             
         case .groups(.create):
             return "groups"
@@ -106,12 +101,16 @@ enum Router: BaseRouter {
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
         
+        if let token = Router.authToken {
+            let bearer = token
+            urlRequest.setValue(bearer, forHTTPHeaderField: "X-API-KEY")
+        }
+        
         let jsonEncoding = JSONEncoding.default
         
         switch self {
-        case .users(.create(let params)):
-            return try jsonEncoding.encode(urlRequest, with: params)
-        case .users(.user):
+        case .users(.me),
+             .users(.user):
             return try jsonEncoding.encode(urlRequest)
             
         case .groups(.create(let params)):
