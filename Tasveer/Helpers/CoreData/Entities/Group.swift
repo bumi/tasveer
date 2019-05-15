@@ -11,6 +11,7 @@ import CoreData
 final class Group: NSManagedObject {
     @NSManaged fileprivate(set) var identifier: String
     @NSManaged fileprivate(set) var name: String
+    @NSManaged fileprivate(set) var descr: String?
     @NSManaged fileprivate(set) var createdAt: Date
     
     @NSManaged fileprivate(set) var users: Set<User>
@@ -29,10 +30,11 @@ extension Group: Managed {
 
 extension Group {
     @discardableResult
-    static func insertNew(into moc: NSManagedObjectContext, fromCollection collection: GroupResponse) -> Group {
+    static func insertNew(into moc: NSManagedObjectContext, fromCollection collection: CollectionResponse) -> Group {
         let newGroup: Group = moc.insertObject()
         newGroup.identifier = collection.identifier
         newGroup.name = collection.name
+        newGroup.descr = collection.description
         newGroup.createdAt = Date()
         
         newGroup.users = User.insertNewUsers(into: moc, users: collection.users)
@@ -45,6 +47,7 @@ extension Group {
         let newGroup: Group = moc.insertObject()
         newGroup.identifier = ""
         newGroup.name = ""
+        newGroup.descr = nil
         newGroup.createdAt = Date()
         
         newGroup.users = Set<User>()
