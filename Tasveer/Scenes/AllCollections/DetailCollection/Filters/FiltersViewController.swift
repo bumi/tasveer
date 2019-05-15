@@ -65,6 +65,7 @@ final class FiltersViewController: UITableViewController {
     
     @IBAction fileprivate func save(_ sender: UIButton!) {
         filterModel.save(intoFilter: group!.filter)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
         navigationController?.popViewController(animated: true)
     }
     

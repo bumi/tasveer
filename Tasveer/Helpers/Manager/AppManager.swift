@@ -11,14 +11,16 @@ import UIKit
 final class AppManager {
     static let shared = AppManager()
     
+    private let queue = OperationQueue()
+    
     private init() {}
     
     func showInitialScene() {
-        // FIXME: Later add `if` statement to show either auth scene or main scene
-        showMainScene()
+        let operation = ShowMainSceneOperation()
+        queue.addOperation(operation)
     }
     
-    private func showMainScene() {
+    func showMainScene() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
             else { return }
         
