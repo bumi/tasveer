@@ -15,7 +15,21 @@
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="filter" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Filter" inverseName="group" inverseEntity="Filter" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="group" inverseEntity="Photo" syncable="YES"/>
         <relationship name="users" toMany="YES" deletionRule="Cascade" destinationEntity="User" inverseName="group" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName=".Photo" syncable="YES">
+        <attribute name="assetIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filePreview" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="fileUrl" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="photos" inverseEntity="Group" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="deviceId" attributeType="String" syncable="YES"/>
@@ -26,7 +40,8 @@
     </entity>
     <elements>
         <element name="Filter" positionX="-63" positionY="36" width="128" height="150"/>
-        <element name="Group" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Group" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="User" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="Photo" positionX="-54" positionY="72" width="128" height="210"/>
     </elements>
 </model>
