@@ -30,6 +30,7 @@
 		B236167C2289C29200B6AC3B /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236167B2289C29200B6AC3B /* GridViewCell.swift */; };
 		B236167E2289C2AF00B6AC3B /* GridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B236167D2289C2AF00B6AC3B /* GridViewCell.xib */; };
 		B237ABD2228C49DA00191FDC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237ABD1228C49DA00191FDC /* Photo.swift */; };
+		B237ABD4228CAC1A00191FDC /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237ABD3228CAC1A00191FDC /* PhotoResponse.swift */; };
 		B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */; };
 		B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BE228453FD0079A0B5 /* TextField.swift */; };
 		B23FA0C22284A1B00079A0B5 /* PickAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */; };
@@ -127,6 +128,7 @@
 		B236167B2289C29200B6AC3B /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		B236167D2289C2AF00B6AC3B /* GridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridViewCell.xib; sourceTree = "<group>"; };
 		B237ABD1228C49DA00191FDC /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		B237ABD3228CAC1A00191FDC /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAlbumNamesOperation.swift; sourceTree = "<group>"; };
 		B23FA0BE228453FD0079A0B5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAlbumViewController.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				B2954B5C227C86A600B8D37C /* UserResponse.swift */,
 				B2954B5E227C895200B8D37C /* CollectionResponse.swift */,
 				B2954B60227C89ED00B8D37C /* MembershipResponse.swift */,
+				B237ABD3228CAC1A00191FDC /* PhotoResponse.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 				B2954B98227C926100B8D37C /* ReachabilityCondition.swift in Sources */,
 				B2954B68227C8D1E00B8D37C /* DateFormatter+appStyle.swift in Sources */,
 				B2954B9C227C926100B8D37C /* NoCancelledDependencies.swift in Sources */,
+				B237ABD4228CAC1A00191FDC /* PhotoResponse.swift in Sources */,
 				B2954BAE227C926100B8D37C /* TimeoutObserver.swift in Sources */,
 				B2954B91227C926100B8D37C /* LocationOperation.swift in Sources */,
 				B2604B85228B8530005CFEDF /* ShowMainSceneOperation.swift in Sources */,
