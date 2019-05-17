@@ -61,6 +61,7 @@ Creates a new collection
 
 * collection[name] (optional)
 * collection[description] (optional)
+* collection[filter] JSON object with the user's filter details
 
 ### GET /collections/[id]
 Returns the collection details
