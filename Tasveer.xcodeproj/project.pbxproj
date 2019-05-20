@@ -39,6 +39,8 @@
 		B2604B7F228B7ED7005CFEDF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */; };
 		B2604B81228B7F26005CFEDF /* AuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B80228B7F26005CFEDF /* AuthOperation.swift */; };
 		B2604B85228B8530005CFEDF /* ShowMainSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B84228B8530005CFEDF /* ShowMainSceneOperation.swift */; };
+		B26D9CA62292D3C7003B1133 /* UploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D9CA52292D3C7003B1133 /* UploadTask.swift */; };
+		B26D9CA82292D430003B1133 /* UploadAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D9CA72292D430003B1133 /* UploadAsset.swift */; };
 		B281595B2281928800F09F6F /* FiltersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595A2281928800F09F6F /* FiltersModel.swift */; };
 		B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */; };
 		B28159612281A9FC00F09F6F /* CollectionPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */; };
@@ -137,6 +139,8 @@
 		B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		B2604B80228B7F26005CFEDF /* AuthOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOperation.swift; sourceTree = "<group>"; };
 		B2604B84228B8530005CFEDF /* ShowMainSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMainSceneOperation.swift; sourceTree = "<group>"; };
+		B26D9CA52292D3C7003B1133 /* UploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTask.swift; sourceTree = "<group>"; };
+		B26D9CA72292D430003B1133 /* UploadAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAsset.swift; sourceTree = "<group>"; };
 		B281595A2281928800F09F6F /* FiltersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersModel.swift; sourceTree = "<group>"; };
 		B281595D2281A99C00F09F6F /* CollectionPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosViewController.swift; sourceTree = "<group>"; };
 		B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPeopleViewController.swift; sourceTree = "<group>"; };
@@ -622,6 +626,8 @@
 				B2954BC1227C9F6100B8D37C /* Group.swift */,
 				B2361677228999E600B6AC3B /* Filter.swift */,
 				B237ABD1228C49DA00191FDC /* Photo.swift */,
+				B26D9CA52292D3C7003B1133 /* UploadTask.swift */,
+				B26D9CA72292D430003B1133 /* UploadAsset.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -820,6 +826,7 @@
 				B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */,
 				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
 				B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */,
+				B26D9CA62292D3C7003B1133 /* UploadTask.swift in Sources */,
 				B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */,
 				B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */,
 				B2954B9E227C926100B8D37C /* CloudCondition.swift in Sources */,
@@ -851,6 +858,7 @@
 				B21CC423228012C300114ACC /* CoreDataContextObserver.swift in Sources */,
 				B21CC43522801A3F00114ACC /* NSManagedObjectContext+cache.swift in Sources */,
 				B2954B90227C926100B8D37C /* OperationQueue.swift in Sources */,
+				B26D9CA82292D430003B1133 /* UploadAsset.swift in Sources */,
 				B2954BA4227C926100B8D37C /* CalendarCondition.swift in Sources */,
 				B2954B5D227C86A600B8D37C /* UserResponse.swift in Sources */,
 				B21CC42B228012EC00114ACC /* Migration.swift in Sources */,

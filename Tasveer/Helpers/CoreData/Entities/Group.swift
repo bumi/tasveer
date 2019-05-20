@@ -14,8 +14,10 @@ final class Group: NSManagedObject {
     @NSManaged fileprivate(set) var descr: String?
     @NSManaged fileprivate(set) var createdAt: Date
     
+    @NSManaged fileprivate(set) var photos: Set<Photo>?
     @NSManaged fileprivate(set) var users: Set<User>
     @NSManaged fileprivate(set) var filter: Filter
+    @NSManaged fileprivate(set) var task: UploadTask?
 }
 
 extension Group: Managed {
@@ -54,5 +56,17 @@ extension Group {
         newGroup.filter = Filter.insertNewFilter(into: moc)
         
         return newGroup
+    }
+    
+    // Create new task for upload
+    func newTask(fromMoc moc: NSManagedObjectContext) {
+        task = UploadTask.insertNewTask(into: moc, for: self)
+    }
+    
+    // Remove current task for upload
+    func removeTask(forMoc moc: NSManagedObjectContext?) {
+        if let task = task {
+            moc?.delete(task)
+        }
     }
 }

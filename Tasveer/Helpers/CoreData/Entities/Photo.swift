@@ -30,6 +30,7 @@ final class Photo: NSManagedObject {
     @NSManaged fileprivate(set) var fileUrl: URL?
     @NSManaged fileprivate(set) var filePreview: URL?
     @NSManaged fileprivate(set) var userId: String?
+    @NSManaged fileprivate(set) var createdAt: Date?
     
     @NSManaged fileprivate(set) var group: Group
     
