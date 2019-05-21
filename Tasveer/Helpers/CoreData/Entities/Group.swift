@@ -58,6 +58,11 @@ extension Group {
         return newGroup
     }
     
+    // Save state of upload when app is terminated
+    func saveState() {
+        task?.pause()
+    }
+    
     // Create new task for upload
     func newTask(fromMoc moc: NSManagedObjectContext) {
         task = UploadTask.insertNewTask(into: moc, for: self)

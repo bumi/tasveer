@@ -104,6 +104,7 @@
 		B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */; };
 		B2954BC0227C9E2A00B8D37C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BBF227C9E2A00B8D37C /* User.swift */; };
 		B2954BC2227C9F6100B8D37C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BC1227C9F6100B8D37C /* Group.swift */; };
+		B2BE421922943C78008DA778 /* UploadWillTerminateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +207,7 @@
 		B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+identificators.swift"; sourceTree = "<group>"; };
 		B2954BBF227C9E2A00B8D37C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B2954BC1227C9F6100B8D37C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadWillTerminateObserver.swift; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -574,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				B28159692281B47800F09F6F /* Shared */,
+				B2604B7B228B7EA4005CFEDF /* Auth */,
 				B2954BB0227C95B500B8D37C /* AllCollections */,
 			);
 			path = Scenes;
@@ -582,7 +585,7 @@
 		B2954BB0227C95B500B8D37C /* AllCollections */ = {
 			isa = PBXGroup;
 			children = (
-				B2604B7B228B7EA4005CFEDF /* Auth */,
+				B2BE421722943C48008DA778 /* UploadOperations */,
 				B21CC443228034EC00114ACC /* Operations */,
 				B21CC43822802B1600114ACC /* DetailCollection */,
 				B2954BBA227C9B0B00B8D37C /* Cell */,
@@ -630,6 +633,14 @@
 				B26D9CA72292D430003B1133 /* UploadAsset.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		B2BE421722943C48008DA778 /* UploadOperations */ = {
+			isa = PBXGroup;
+			children = (
+				B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */,
+			);
+			path = UploadOperations;
 			sourceTree = "<group>";
 		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
@@ -827,6 +838,7 @@
 				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
 				B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */,
 				B26D9CA62292D3C7003B1133 /* UploadTask.swift in Sources */,
+				B2BE421922943C78008DA778 /* UploadWillTerminateObserver.swift in Sources */,
 				B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */,
 				B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */,
 				B2954B9E227C926100B8D37C /* CloudCondition.swift in Sources */,
