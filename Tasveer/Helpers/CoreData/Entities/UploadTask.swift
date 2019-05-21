@@ -39,4 +39,23 @@ extension UploadTask {
         
         return newTask
     }
+    
+    // Pause the task
+    func pause() {
+        self.isPaused = true
+    }
+    
+    // Resume the task
+    func resume() {
+        self.isPaused = false
+    }
+    
+    // Compute the completed units for NSProgress
+    func currentCompletedUnits() -> Int64 {
+        let totalUploadedPaths = (assets ?? [])
+            .filter{ $0.isUploaded }
+            .count
+        
+        return Int64(totalUploadedPaths)
+    }
 }
