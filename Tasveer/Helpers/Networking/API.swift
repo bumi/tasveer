@@ -12,6 +12,17 @@ struct API {
     static func signUp(_ params: Parameters) -> DataRequest {
         return Alamofire.request(sessionRouter.signUp(params: params))
     }
+    
+    static func signIn(deviceId: String, _ params: Parameters) -> DataRequest {
+        return Alamofire.request(router.users(.user(deviceId: deviceId)))
+    }
+}
+
+// Photos
+extension API {
+    static func uploadPhoto(collectionId: String) -> URLRequestConvertible{
+        return router.photos(.createToCollection(collectionId: collectionId))
+    }
 }
 
 private let baseURLString = "https://kuvakehys-tasveer.herokuapp.com/"
@@ -29,6 +40,6 @@ private var router: Router.Type {
 }
 
 private var token: String? {
-    let token = AuthManager.shared.token ?? ""
+    let token = "usr-50f629bf-a0d3-4150-986b-5172114"//AuthManager.shared.token ?? ""
     return token
 }
