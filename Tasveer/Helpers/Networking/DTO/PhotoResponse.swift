@@ -13,10 +13,10 @@ struct PhotoResponse: Codable {
     let caption: String?
     let width: Double?
     let height: Double?
-    let fileUrl: URL?
-    let filePreview: URL?
-    let tagNames: [String]
-    let userId: String?
+    let fileUrl: String?
+    let filePreview: String?
+    let tagNames: [String]?
+    let userId: String
     let collectionIds: [String]
     
     enum CodingKeys: String, CodingKey {
