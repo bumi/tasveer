@@ -8,13 +8,22 @@
 
 import Alamofire
 
+struct ResponseError: Error {
+    let error: Error
+    let statusCode: Int
+    
+    var localizedDescription: String {
+        return error.localizedDescription
+    }
+}
+
 extension DataRequest {
     @discardableResult
-    func responseParsed<Type: Codable>(callback: @escaping (Swift.Result<Type, Error>) -> Void) -> Self {
+    func responseParsed<Type: Codable>(callback: @escaping (Swift.Result<Type, ResponseError>) -> Void) -> Self {
         return self.responseJSON { resp in
             guard let data = resp.data
                 else {
-                    callback(.failure(resp.error!))
+                    callback(.failure(ResponseError(error: resp.error!, statusCode: resp.response?.statusCode ?? 0)))
                     return
             }
             
@@ -26,7 +35,7 @@ extension DataRequest {
                 callback(.success(object))
             }
             catch let error {
-                callback(.failure(error))
+                callback(.failure(ResponseError(error: error, statusCode: resp.response?.statusCode ?? 0)))
             }
         }
     }
