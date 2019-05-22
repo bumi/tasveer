@@ -105,6 +105,7 @@
 		B2954BC0227C9E2A00B8D37C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BBF227C9E2A00B8D37C /* User.swift */; };
 		B2954BC2227C9F6100B8D37C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BC1227C9F6100B8D37C /* Group.swift */; };
 		B2BE421922943C78008DA778 /* UploadWillTerminateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */; };
+		B2BE421B22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE421A22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,6 +209,7 @@
 		B2954BBF227C9E2A00B8D37C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B2954BC1227C9F6100B8D37C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadWillTerminateObserver.swift; sourceTree = "<group>"; };
+		B2BE421A22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageAssetToBackEndOperatoin.swift; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -638,6 +640,7 @@
 		B2BE421722943C48008DA778 /* UploadOperations */ = {
 			isa = PBXGroup;
 			children = (
+				B2BE421A22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift */,
 				B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */,
 			);
 			path = UploadOperations;
@@ -869,6 +872,7 @@
 				B2954BA5227C926100B8D37C /* OperationErrors.swift in Sources */,
 				B21CC423228012C300114ACC /* CoreDataContextObserver.swift in Sources */,
 				B21CC43522801A3F00114ACC /* NSManagedObjectContext+cache.swift in Sources */,
+				B2BE421B22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift in Sources */,
 				B2954B90227C926100B8D37C /* OperationQueue.swift in Sources */,
 				B26D9CA82292D430003B1133 /* UploadAsset.swift in Sources */,
 				B2954BA4227C926100B8D37C /* CalendarCondition.swift in Sources */,
