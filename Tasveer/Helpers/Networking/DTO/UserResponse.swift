@@ -11,7 +11,7 @@ import Foundation
 struct UserResponse: Codable {
     let name: String?
     let email: String?
-    let deviceId: String
+    let deviceId: String?
     let identifier: String
     
     enum CodingKeys: String, CodingKey {
