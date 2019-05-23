@@ -19,7 +19,7 @@ final class FiltersViewController: UITableViewController {
         }
     }
     
-    var filterModel: FiltersModel!
+    var filterModel = FiltersModel()
     
     @IBOutlet fileprivate weak var albumName: PickerTextField!
     @IBOutlet fileprivate weak var favoriteSwitch: UISwitch!
@@ -74,7 +74,7 @@ final class FiltersViewController: UITableViewController {
     }
     
     private func setupUI() {
-        albumName.text = filterModel?.pickedAlbum.title
+        albumName.text = filterModel.pickedAlbum.title
         favoriteSwitch.isOn = filterModel.isFavorite
         
         if let fromDate = filterModel.fromDate {
