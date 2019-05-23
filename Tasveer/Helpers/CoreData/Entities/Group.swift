@@ -32,7 +32,7 @@ extension Group: Managed {
 
 extension Group {
     @discardableResult
-    static func insertNew(into moc: NSManagedObjectContext, fromCollection collection: CollectionResponse) -> Group {
+    static func insertNew(into moc: NSManagedObjectContext, fromCollection collection: CollectionResponse, filter: FiltersModel?) -> Group {
         let newGroup: Group = moc.insertObject()
         newGroup.identifier = collection.identifier
         newGroup.name = collection.name
@@ -40,7 +40,12 @@ extension Group {
         newGroup.createdAt = Date()
         
         newGroup.users = User.insertNewUsers(into: moc, users: collection.users)
-        newGroup.filter = Filter.insertNewFilter(into: moc)
+        
+        if let filter = filter {
+            newGroup.filter = Filter.insertNewFilter(into: moc, fromFilterModel: filter)
+        } else {
+            newGroup.filter = Filter.insertNewFilter(into: moc)
+        }
         
         return newGroup
     }

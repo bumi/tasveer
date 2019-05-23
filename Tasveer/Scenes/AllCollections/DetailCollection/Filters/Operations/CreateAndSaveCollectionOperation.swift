@@ -11,7 +11,7 @@ import Foundation
 final class CreateAndSaveCollectionOperation: GroupOperation {
     
     init(filterModel: FiltersModel, createdCollection: @escaping (Group) -> Void) {
-        let saveOperation = SaveCollectionResponseOperation(createdCollection: createdCollection)
+        let saveOperation = SaveCollectionResponseOperation(filterModel: filterModel, createdCollection: createdCollection)
         let createOperation = CreateNetworkCollectionOperation(withFilterModel: filterModel) { (resp) in
             saveOperation.collection = resp
         }

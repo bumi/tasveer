@@ -11,10 +11,12 @@ import Foundation
 final class SaveCollectionResponseOperation: Operation {
     var collection: CollectionResponse!
     
+    private let filterModel: FiltersModel
     private var group: Group!
     private let createdCollection: (Group) -> Void
     
-    init(createdCollection: @escaping (Group) -> Void) {
+    init(filterModel: FiltersModel, createdCollection: @escaping (Group) -> Void) {
+        self.filterModel = filterModel
         self.createdCollection = createdCollection
         
         super.init()
@@ -27,7 +29,7 @@ final class SaveCollectionResponseOperation: Operation {
             else { finishWithError(NSError(code: .executionFailed)); return }
         
         moc.performChangesAndWait {
-            self.group = Group.insertNew(into: moc, fromCollection: self.collection)
+            self.group = Group.insertNew(into: moc, fromCollection: self.collection, filter: self.filterModel)
         }
         
         // Throw back created collection

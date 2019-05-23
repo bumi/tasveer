@@ -50,6 +50,16 @@ extension Filter {
         return newFilter
     }
     
+    static func insertNewFilter(into moc: NSManagedObjectContext, fromFilterModel filterModel: FiltersModel) -> Filter {
+        let newFilter: Filter = moc.insertObject()
+        newFilter.albumValue = filterModel.pickedAlbum
+        newFilter.isFavorite = filterModel.isFavorite
+        newFilter.fromTime = filterModel.fromDate
+        newFilter.toTime = filterModel.toDate
+        
+        return newFilter
+    }
+    
     func update(byFilterModel model: FiltersModel) {
         albumValue = model.pickedAlbum
         isFavorite = model.isFavorite
