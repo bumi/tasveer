@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import Photos
 
 enum PhotoType: String {
     case local
@@ -60,8 +61,43 @@ extension Photo: Managed {
 }
 
 extension Photo {
-    static func insertNewPhoto(into moc: NSManagedObjectContext) -> Photo {
+    static func insertNewPhoto(into moc: NSManagedObjectContext, fromAsset asset: PHAsset, forCollection collection: Group, userId: String? = AuthManager.shared.token) -> Photo {
         let newPhoto: Photo = moc.insertObject()
+        newPhoto.typeValue = .local
+        newPhoto.statusValue = .none
+        newPhoto.assetIdentifier = asset.localIdentifier
+        newPhoto.userId = userId
+        newPhoto.createdAt = Date()
+        
+        newPhoto.group = collection
+        
+        return newPhoto
+    }
+    
+    static func insertNewPhoto(into moc: NSManagedObjectContext, fromPhotoResponse photo: PhotoResponse, forCollection collection: Group) {
+        let newPhoto: Photo = moc.insertObject()
+        newPhoto.typeValue = .global
+        newPhoto.statusValue = .synced
+        newPhoto.identifier = photo.identifier
+        newPhoto.caption = photo.caption
+        newPhoto.userId = photo.userId
+        newPhoto.createdAt = Date()
+        
+        if let width = photo.width {
+            newPhoto.width = NSNumber(value: width)
+        }
+        
+        if let height = photo.height {
+            newPhoto.height = NSNumber(value: height)
+        }
+        
+        if let fileUrlString = photo.fileUrl, let fileUrl = URL(string: fileUrlString) {
+            newPhoto.fileUrl = fileUrl
+        }
+        
+        if let filePreviewString = photo.filePreview, let filePreview = URL(string: filePreviewString) {
+            newPhoto.filePreview = filePreview
+        }
         
         return newPhoto
     }
