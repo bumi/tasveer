@@ -25,6 +25,10 @@
 		B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4412280346900114ACC /* AppDelegateManager.swift */; };
 		B21CC4452280351800114ACC /* OpenCollectionDetailSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */; };
 		B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC446228048AD00114ACC /* UIView+firstResponder.swift */; };
+		B21DFE052296CACE0007A1B8 /* CreateAndSaveCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21DFE042296CACE0007A1B8 /* CreateAndSaveCollectionOperation.swift */; };
+		B21DFE072296CB470007A1B8 /* CreateNetworkCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21DFE062296CB470007A1B8 /* CreateNetworkCollectionOperation.swift */; };
+		B21DFE0A2296D1090007A1B8 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21DFE092296D1090007A1B8 /* NetworkConstants.swift */; };
+		B21DFE0C2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21DFE0B2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift */; };
 		B2361678228999E600B6AC3B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2361677228999E600B6AC3B /* Filter.swift */; };
 		B236167A2289C1E800B6AC3B /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23616792289C1E800B6AC3B /* AssetViewController.swift */; };
 		B236167C2289C29200B6AC3B /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236167B2289C29200B6AC3B /* GridViewCell.swift */; };
@@ -127,6 +131,10 @@
 		B21CC4412280346900114ACC /* AppDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateManager.swift; sourceTree = "<group>"; };
 		B21CC4442280351800114ACC /* OpenCollectionDetailSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCollectionDetailSceneOperation.swift; sourceTree = "<group>"; };
 		B21CC446228048AD00114ACC /* UIView+firstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+firstResponder.swift"; sourceTree = "<group>"; };
+		B21DFE042296CACE0007A1B8 /* CreateAndSaveCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndSaveCollectionOperation.swift; sourceTree = "<group>"; };
+		B21DFE062296CB470007A1B8 /* CreateNetworkCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNetworkCollectionOperation.swift; sourceTree = "<group>"; };
+		B21DFE092296D1090007A1B8 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		B21DFE0B2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCollectionResponseOperation.swift; sourceTree = "<group>"; };
 		B2361677228999E600B6AC3B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		B23616792289C1E800B6AC3B /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		B236167B2289C29200B6AC3B /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
@@ -295,10 +303,21 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
+		B21DFE082296D0F90007A1B8 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B21DFE092296D1090007A1B8 /* NetworkConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		B23FA0BA22844BD80079A0B5 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
 				B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */,
+				B21DFE042296CACE0007A1B8 /* CreateAndSaveCollectionOperation.swift */,
+				B21DFE062296CB470007A1B8 /* CreateNetworkCollectionOperation.swift */,
+				B21DFE0B2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -431,6 +450,7 @@
 		B2954B4F227C48A000B8D37C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B21DFE082296D0F90007A1B8 /* Constants */,
 				B2954BBD227C9DF900B8D37C /* CoreData */,
 				B2954BB3227C95F000B8D37C /* DataSource */,
 				B2954B69227C926100B8D37C /* Operations */,
@@ -829,6 +849,7 @@
 				B2954B9B227C926100B8D37C /* PassbookCondition.swift in Sources */,
 				B28159682281B3EC00F09F6F /* PersonCell.swift in Sources */,
 				B28159632281AA7100F09F6F /* CollectionPeopleModel.swift in Sources */,
+				B21DFE052296CACE0007A1B8 /* CreateAndSaveCollectionOperation.swift in Sources */,
 				B2604B7A228B7B01005CFEDF /* AuthManager.swift in Sources */,
 				B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */,
 				B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */,
@@ -840,6 +861,7 @@
 				B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */,
 				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
 				B2954B93227C926100B8D37C /* BlockOperation.swift in Sources */,
+				B21DFE072296CB470007A1B8 /* CreateNetworkCollectionOperation.swift in Sources */,
 				B26D9CA62292D3C7003B1133 /* UploadTask.swift in Sources */,
 				B2BE421922943C78008DA778 /* UploadWillTerminateObserver.swift in Sources */,
 				B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */,
@@ -885,6 +907,7 @@
 				B2954BAE227C926100B8D37C /* TimeoutObserver.swift in Sources */,
 				B2954B91227C926100B8D37C /* LocationOperation.swift in Sources */,
 				B2604B85228B8530005CFEDF /* ShowMainSceneOperation.swift in Sources */,
+				B21DFE0A2296D1090007A1B8 /* NetworkConstants.swift in Sources */,
 				B2954B9D227C926100B8D37C /* UserNotificationCondition.swift in Sources */,
 				B2954BAB227C926100B8D37C /* OperationObserver.swift in Sources */,
 				B21CC43A22802B2F00114ACC /* CollectionDetailViewController.swift in Sources */,
@@ -908,6 +931,7 @@
 				B281595B2281928800F09F6F /* FiltersModel.swift in Sources */,
 				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,
 				B2954B5A227C815D00B8D37C /* API.swift in Sources */,
+				B21DFE0C2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
