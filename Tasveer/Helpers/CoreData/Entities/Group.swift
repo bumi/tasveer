@@ -79,4 +79,14 @@ extension Group {
             moc?.delete(task)
         }
     }
+    
+    // Remove all localPhotos
+    func preFilterCleanup(forMoc moc: NSManagedObjectContext?) {
+        let cleanupPhotos = Array(photos ?? [])
+            .filter({ $0.typeValue == .local && $0.statusValue == .none })
+        
+        for cleanupPhoto in cleanupPhotos {
+            moc?.delete(cleanupPhoto)
+        }
+    }
 }

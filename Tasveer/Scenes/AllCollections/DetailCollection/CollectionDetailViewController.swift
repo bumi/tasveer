@@ -118,9 +118,6 @@ final class CollectionDetailViewController: UIViewController {
                 DispatchQueue.main.async {
                     if let fetchResult = operation.fetchResult {
                         self?.photos.fetchResult = fetchResult
-                        
-                        let op = UploadImageAssetToBackEndOperation(withPhoto: fetchResult.firstObject?.localIdentifier ?? "", parentProgress: Progress(totalUnitCount: 1))
-                        self?.queue.addOperation(op)
                     }
                 }
             }

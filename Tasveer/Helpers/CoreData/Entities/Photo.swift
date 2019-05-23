@@ -16,8 +16,8 @@ enum PhotoType: String {
 
 enum PhotoStatus: String {
     case none
-    case syncing
-    case synced
+    case success
+    case failed
 }
 
 final class Photo: NSManagedObject {
@@ -74,10 +74,10 @@ extension Photo {
         return newPhoto
     }
     
-    static func insertNewPhoto(into moc: NSManagedObjectContext, fromPhotoResponse photo: PhotoResponse, forCollection collection: Group) {
+    static func insertNewPhoto(into moc: NSManagedObjectContext, fromPhotoResponse photo: PhotoResponse, forCollection collection: Group) -> Photo {
         let newPhoto: Photo = moc.insertObject()
         newPhoto.typeValue = .global
-        newPhoto.statusValue = .synced
+        newPhoto.statusValue = .none
         newPhoto.identifier = photo.identifier
         newPhoto.caption = photo.caption
         newPhoto.userId = photo.userId
@@ -99,6 +99,14 @@ extension Photo {
             newPhoto.filePreview = filePreview
         }
         
+        newPhoto.group = collection
+        
         return newPhoto
+    }
+    
+    // After photo is uploaded update the properties
+    func postUploadProcess(status: PhotoStatus, photoResponse: PhotoResponse? = nil) {
+        self.statusValue = status
+        self.identifier = photoResponse?.identifier
     }
 }
