@@ -29,6 +29,7 @@
 		B21DFE072296CB470007A1B8 /* CreateNetworkCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21DFE062296CB470007A1B8 /* CreateNetworkCollectionOperation.swift */; };
 		B21DFE0A2296D1090007A1B8 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21DFE092296D1090007A1B8 /* NetworkConstants.swift */; };
 		B21DFE0C2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21DFE0B2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift */; };
+		B21DFE0E2297250D0007A1B8 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21DFE0D2297250D0007A1B8 /* CollectionViewDataSource.swift */; };
 		B2361678228999E600B6AC3B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2361677228999E600B6AC3B /* Filter.swift */; };
 		B236167A2289C1E800B6AC3B /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23616792289C1E800B6AC3B /* AssetViewController.swift */; };
 		B236167C2289C29200B6AC3B /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236167B2289C29200B6AC3B /* GridViewCell.swift */; };
@@ -135,6 +136,7 @@
 		B21DFE062296CB470007A1B8 /* CreateNetworkCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNetworkCollectionOperation.swift; sourceTree = "<group>"; };
 		B21DFE092296D1090007A1B8 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		B21DFE0B2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCollectionResponseOperation.swift; sourceTree = "<group>"; };
+		B21DFE0D2297250D0007A1B8 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		B2361677228999E600B6AC3B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		B23616792289C1E800B6AC3B /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		B236167B2289C29200B6AC3B /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				B2954BB4227C960300B8D37C /* TableViewDataSource.swift */,
+				B21DFE0D2297250D0007A1B8 /* CollectionViewDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				B2954BA4227C926100B8D37C /* CalendarCondition.swift in Sources */,
 				B2954B5D227C86A600B8D37C /* UserResponse.swift in Sources */,
 				B21CC42B228012EC00114ACC /* Migration.swift in Sources */,
+				B21DFE0E2297250D0007A1B8 /* CollectionViewDataSource.swift in Sources */,
 				B2954B98227C926100B8D37C /* ReachabilityCondition.swift in Sources */,
 				B2954B68227C8D1E00B8D37C /* DateFormatter+appStyle.swift in Sources */,
 				B2954B9C227C926100B8D37C /* NoCancelledDependencies.swift in Sources */,
