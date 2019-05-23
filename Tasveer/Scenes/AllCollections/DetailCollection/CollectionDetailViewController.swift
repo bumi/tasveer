@@ -33,20 +33,13 @@ final class CollectionDetailViewController: UIViewController {
         // Initial setup should be for photos
         setupChildViewController(forType: .photos)
         
-        applyFilter()
-        
-        // Observe filter updates
-        NotificationCenter.default.addObserver(self, selector: #selector(applyFilter), name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
+//        applyFilter()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         openFilterSceneIfNeeded()
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
     }
     
     @IBAction fileprivate func segmentSwitched(_ sender: UISegmentedControl) {
@@ -76,6 +69,7 @@ final class CollectionDetailViewController: UIViewController {
         let photos = CollectionPhotosViewController.init(collectionViewLayout: UICollectionViewFlowLayout())
         
         people.group = group
+        photos.group = group
         
         self.photos = photos
         self.people = people
@@ -114,13 +108,13 @@ final class CollectionDetailViewController: UIViewController {
     @objc private func applyFilter() {
         if let filter = group?.filter {
             let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
-            operation.addCompletionBlock { [weak self] in
-                DispatchQueue.main.async {
-                    if let fetchResult = operation.fetchResult {
-                        self?.photos.fetchResult = fetchResult
-                    }
-                }
-            }
+//            operation.addCompletionBlock { [weak self] in
+//                DispatchQueue.main.async {
+//                    if let fetchResult = operation.fetchResult {
+//                        self?.photos.fetchResult = fetchResult
+//                    }
+//                }
+//            }
             
             queue.addOperation(operation)
         }

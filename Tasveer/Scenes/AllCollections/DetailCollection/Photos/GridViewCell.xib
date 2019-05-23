@@ -13,14 +13,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridViewCell" id="dvc-xA-uKf" customClass="GridViewCell" customModule="Tasveer">
-            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="213" height="204"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="213" height="204"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cAr-Dd-9Sf">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="213" height="204"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hNL-yP-Tp4">
                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
@@ -40,10 +40,12 @@
                 <constraint firstItem="hNL-yP-Tp4" firstAttribute="leading" secondItem="dvc-xA-uKf" secondAttribute="leading" id="p0u-Hl-G9M"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="pzN-rw-IbC"/>
+            <size key="customSize" width="213" height="204"/>
             <connections>
                 <outlet property="imageView" destination="cAr-Dd-9Sf" id="28Q-01-9qe"/>
                 <outlet property="livePhotoBadgeImageView" destination="hNL-yP-Tp4" id="K60-8W-uuH"/>
             </connections>
+            <point key="canvasLocation" x="234.05797101449278" y="194.86607142857142"/>
         </collectionViewCell>
     </objects>
 </document>

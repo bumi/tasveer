@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class GridViewCell: UICollectionViewCell {
     
@@ -30,5 +31,32 @@ class GridViewCell: UICollectionViewCell {
         super.prepareForReuse()
         imageView.image = nil
         livePhotoBadgeImageView.image = nil
+    }
+    
+    func setup(withPhoto photo: Photo, imageManager: PHCachingImageManager, thumbnailSize: CGSize) {
+        if photo.typeValue == .local {
+            setupLocal(withPhoto: photo, imageManager: imageManager, thumbnailSize: thumbnailSize)
+        } else {
+            setupGlobal(withPhoto: photo)
+        }
+    }
+    
+    private func setupLocal(withPhoto photo: Photo, imageManager: PHCachingImageManager, thumbnailSize: CGSize) {
+        guard let asset = PHAsset.fetchAssets(withLocalIdentifiers: [photo.assetIdentifier!], options: nil).firstObject
+            else { return }
+        
+        // Request an image for the asset from the PHCachingImageManager.
+        representedAssetIdentifier = asset.localIdentifier
+        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { [weak self] image, _ in
+            // UIKit may have recycled this cell by the handler's activation time.
+            // Set the cell's thumbnail image only if it's still showing the same asset.
+            if self?.representedAssetIdentifier == asset.localIdentifier {
+                self?.thumbnailImage = image
+            }
+        })
+    }
+    
+    private func setupGlobal(withPhoto photo: Photo) {
+        
     }
 }

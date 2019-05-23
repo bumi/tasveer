@@ -56,11 +56,12 @@ final class Photo: NSManagedObject {
 
 extension Photo: Managed {
     static var defaultSortDescriptors: [NSSortDescriptor] {
-        return []
+        return [NSSortDescriptor(key: #keyPath(createdAt), ascending: false)]
     }
 }
 
 extension Photo {
+    @discardableResult
     static func insertNewPhoto(into moc: NSManagedObjectContext, fromAsset asset: PHAsset, forCollection collection: Group, userId: String? = AuthManager.shared.token) -> Photo {
         let newPhoto: Photo = moc.insertObject()
         newPhoto.typeValue = .local

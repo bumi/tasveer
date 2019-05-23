@@ -37,6 +37,18 @@ final class FetchPhotosByFilterOperation: Operation {
             }
         }
         
+        let moc = PersistentStoreManager.shared.moc
+        
+        self.groupFilter.group.preFilterCleanup(forMoc: moc)
+        
+        moc?.performChangesAndWait {
+            for i in 0..<(self.fetchResult?.count ?? 0) {
+                if let obj = self.fetchResult?.object(at: i) {
+                    Photo.insertNewPhoto(into: moc!, fromAsset: obj, forCollection: self.groupFilter.group)
+                }
+            }
+        }
+        
         finish()
     }
     
