@@ -18,6 +18,13 @@ struct API {
     }
 }
 
+// Collections
+extension API {
+    static func createCollection(_ params: Parameters) -> DataRequest {
+        return Alamofire.request(router.collections(.create(params: params)))
+    }
+}
+
 // Photos
 extension API {
     static func uploadPhoto(collectionId: String) -> URLRequestConvertible{
