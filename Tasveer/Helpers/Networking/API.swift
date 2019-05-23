@@ -47,6 +47,6 @@ private var router: Router.Type {
 }
 
 private var token: String? {
-    let token = "usr-50f629bf-a0d3-4150-986b-5172114"//AuthManager.shared.token ?? ""
+    let token = AuthManager.shared.token ?? ""
     return token
 }
