@@ -79,7 +79,6 @@ func ==(lhs: AlbumName, rhs: AlbumName) -> Bool {
     }
 }
 
-
 final class FiltersModel {
     var pickedAlbum: AlbumName
     var fromDate: Date?

@@ -28,18 +28,21 @@ final class CollectionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupCollection()
         setupTopBar()
         setupChildViewControllers()
         // Initial setup should be for photos
         setupChildViewController(forType: .photos)
         
-        filterIsUpdated()
-        
         applyFilter()
         
         // Observe filter updates
         NotificationCenter.default.addObserver(self, selector: #selector(applyFilter), name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        openFilterSceneIfNeeded()
     }
     
     deinit {
@@ -127,12 +130,19 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     @objc private func openFilterScene() {
-        let openScene = OpenFiltersSceneOperation(withGroup: group, filter: group!.filter)
+        let openScene = OpenFiltersSceneOperation(withGroup: group) { [weak self] newGroup in
+            if self?.group == nil {
+                self?.group = newGroup
+            }
+            
+            self?.applyFilter()
+        }
         queue.addOperation(openScene)
     }
     
-    @objc private func filterIsUpdated() {
-        let operation = FetchPhotosByFilterOperation(withGroupFilter: group!.filter)
-        queue.addOperation(operation)
+    @objc private func openFilterSceneIfNeeded() {
+        guard group == nil else { return }
+        
+        openFilterScene()
     }
 }
