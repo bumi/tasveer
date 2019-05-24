@@ -114,6 +114,8 @@
 		B2D67493229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D67492229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift */; };
 		B2D6749522982DA50039B17C /* StartUploadingCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6749422982DA50039B17C /* StartUploadingCollectionOperation.swift */; };
 		B2D67497229843E50039B17C /* AllCollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D67496229843E50039B17C /* AllCollectionsViewModel.swift */; };
+		B2D6749A22986BB90039B17C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6749922986BB90039B17C /* Colors.swift */; };
+		B2D6749C22986C040039B17C /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6749B22986C040039B17C /* UIColor+hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,6 +228,8 @@
 		B2D67492229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAllImageAssetsToBackEndOperation.swift; sourceTree = "<group>"; };
 		B2D6749422982DA50039B17C /* StartUploadingCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUploadingCollectionOperation.swift; sourceTree = "<group>"; };
 		B2D67496229843E50039B17C /* AllCollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionsViewModel.swift; sourceTree = "<group>"; };
+		B2D6749922986BB90039B17C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B2D6749B22986C040039B17C /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -519,6 +523,7 @@
 				B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */,
 				B21CC43422801A3F00114ACC /* NSManagedObjectContext+cache.swift */,
 				B21CC446228048AD00114ACC /* UIView+firstResponder.swift */,
+				B2D6749B22986C040039B17C /* UIColor+hex.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -647,6 +652,7 @@
 		B2954BBD227C9DF900B8D37C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B2D6749822986BA80039B17C /* Utils */,
 				B21CC425228012DB00114ACC /* Versioning */,
 				B21CC420228012A600114ACC /* Helper */,
 				B2954BBE227C9E0E00B8D37C /* Entities */,
@@ -676,6 +682,14 @@
 				B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */,
 			);
 			path = UploadOperations;
+			sourceTree = "<group>";
+		};
+		B2D6749822986BA80039B17C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B2D6749922986BB90039B17C /* Colors.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
@@ -904,6 +918,7 @@
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
 				B2D6749522982DA50039B17C /* StartUploadingCollectionOperation.swift in Sources */,
 				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
+				B2D6749C22986C040039B17C /* UIColor+hex.swift in Sources */,
 				B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */,
 				B21CC4332280175E00114ACC /* AppManager.swift in Sources */,
 				B2604B81228B7F26005CFEDF /* AuthOperation.swift in Sources */,
@@ -940,6 +955,7 @@
 				B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */,
 				B2954BB5227C960300B8D37C /* TableViewDataSource.swift in Sources */,
 				B2954BB2227C95C600B8D37C /* AllCollectionsViewController.swift in Sources */,
+				B2D6749A22986BB90039B17C /* Colors.swift in Sources */,
 				B2954B97227C926100B8D37C /* RemoteNotificationCondition.swift in Sources */,
 				B2954B9F227C926100B8D37C /* SilentCondition.swift in Sources */,
 				B2954B92227C926100B8D37C /* GroupOperation.swift in Sources */,

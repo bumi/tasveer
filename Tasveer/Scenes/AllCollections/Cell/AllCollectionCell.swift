@@ -37,7 +37,7 @@ final class AllCollectionCell: UITableViewCell {
     func setup(with group: Group) {
         collection = group
         
-        backgroundColor = group.syncStateValue == .synced ? UIColor.green : UIColor.white
+        backgroundColor = group.syncStateValue == .synced ? CollectionColors.green : UIColor.white
         
         if group.syncStateValue == .syncing {
             activity.isHidden = group.task?.isPaused ?? false

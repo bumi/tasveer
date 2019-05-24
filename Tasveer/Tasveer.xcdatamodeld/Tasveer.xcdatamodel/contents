@@ -17,8 +17,8 @@
         <attribute name="syncState" attributeType="String" syncable="YES"/>
         <attribute name="uploadProgress" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="filter" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Filter" inverseName="group" inverseEntity="Filter" syncable="YES"/>
-        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="group" inverseEntity="Photo" syncable="YES"/>
-        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UploadTask" inverseName="group" inverseEntity="UploadTask" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Photo" inverseName="group" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="UploadTask" inverseName="group" inverseEntity="UploadTask" syncable="YES"/>
         <relationship name="users" toMany="YES" deletionRule="Cascade" destinationEntity="User" inverseName="group" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Photo" representedClassName=".Photo" syncable="YES">
@@ -42,7 +42,7 @@
     </entity>
     <entity name="UploadTask" representedClassName=".UploadTask" syncable="YES">
         <attribute name="isPaused" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="assets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UploadAsset" inverseName="task" inverseEntity="UploadAsset" syncable="YES"/>
+        <relationship name="assets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="UploadAsset" inverseName="task" inverseEntity="UploadAsset" syncable="YES"/>
         <relationship name="group" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="task" inverseEntity="Group" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
