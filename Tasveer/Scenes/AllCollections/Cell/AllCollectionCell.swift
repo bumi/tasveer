@@ -35,6 +35,23 @@ final class AllCollectionCell: UITableViewCell {
     }
     
     func setup(with group: Group) {
+        collection = group
+        
+        backgroundColor = group.syncStateValue == .synced ? UIColor.green : UIColor.white
+        
+        if group.syncStateValue == .syncing {
+            activity.isHidden = group.task?.isPaused ?? false
+            activity.value = CGFloat(group.uploadProgress) * 100
+            resumeImage.isHidden = !(group.task?.isPaused ?? false)
+        } else {
+            activity.isHidden = true
+            resumeImage.isHidden = true
+        }
+        
+        let image = UIImage(named: (group.syncStateValue == .synced) ? "round_check" : "cloud_icon")
+        icon.image = image
+        icon.alpha = (group.syncStateValue == .syncing) ? 0.0 : 1.0
+        
         collectionName.text = group.name
         photoCount.text = String(group.photos?.count ?? 0)
         participantCount.text = String(group.users.count)

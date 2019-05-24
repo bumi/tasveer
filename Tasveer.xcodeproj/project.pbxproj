@@ -112,6 +112,7 @@
 		B2BE421922943C78008DA778 /* UploadWillTerminateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */; };
 		B2BE421B22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE421A22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift */; };
 		B2D67493229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D67492229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift */; };
+		B2D6749522982DA50039B17C /* StartUploadingCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6749422982DA50039B17C /* StartUploadingCollectionOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +223,7 @@
 		B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadWillTerminateObserver.swift; sourceTree = "<group>"; };
 		B2BE421A22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageAssetToBackEndOperatoin.swift; sourceTree = "<group>"; };
 		B2D67492229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAllImageAssetsToBackEndOperation.swift; sourceTree = "<group>"; };
+		B2D6749422982DA50039B17C /* StartUploadingCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUploadingCollectionOperation.swift; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -665,9 +667,10 @@
 		B2BE421722943C48008DA778 /* UploadOperations */ = {
 			isa = PBXGroup;
 			children = (
+				B2D6749422982DA50039B17C /* StartUploadingCollectionOperation.swift */,
+				B2D67492229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift */,
 				B2BE421A22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift */,
 				B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */,
-				B2D67492229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift */,
 			);
 			path = UploadOperations;
 			sourceTree = "<group>";
@@ -895,6 +898,7 @@
 				B2361678228999E600B6AC3B /* Filter.swift in Sources */,
 				B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
+				B2D6749522982DA50039B17C /* StartUploadingCollectionOperation.swift in Sources */,
 				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
 				B21CC447228048AD00114ACC /* UIView+firstResponder.swift in Sources */,
 				B21CC4332280175E00114ACC /* AppManager.swift in Sources */,

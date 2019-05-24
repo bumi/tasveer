@@ -20,6 +20,7 @@ final class Group: NSManagedObject {
     @NSManaged fileprivate(set) var descr: String?
     @NSManaged fileprivate(set) var createdAt: Date
     @NSManaged fileprivate(set) var syncState: String
+    @NSManaged fileprivate(set) var uploadProgress: Float
     
     @NSManaged fileprivate(set) var photos: Set<Photo>?
     @NSManaged fileprivate(set) var users: Set<User>
@@ -119,5 +120,10 @@ extension Group {
         for cleanupPhoto in cleanupPhotos {
             moc?.delete(cleanupPhoto)
         }
+    }
+    
+    // Update the progress of the Group while syncing
+    func updateProgress(value: Float) {
+        uploadProgress = value
     }
 }

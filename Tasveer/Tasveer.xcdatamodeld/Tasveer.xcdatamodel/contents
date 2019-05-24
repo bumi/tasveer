@@ -15,6 +15,7 @@
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="syncState" attributeType="String" syncable="YES"/>
+        <attribute name="uploadProgress" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="filter" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Filter" inverseName="group" inverseEntity="Filter" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="group" inverseEntity="Photo" syncable="YES"/>
         <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UploadTask" inverseName="group" inverseEntity="UploadTask" syncable="YES"/>
@@ -53,7 +54,7 @@
     </entity>
     <elements>
         <element name="Filter" positionX="-63" positionY="36" width="128" height="150"/>
-        <element name="Group" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="Group" positionX="-63" positionY="-18" width="128" height="195"/>
         <element name="Photo" positionX="-54" positionY="72" width="128" height="225"/>
         <element name="UploadAsset" positionX="-45" positionY="135" width="128" height="90"/>
         <element name="UploadTask" positionX="-54" positionY="126" width="128" height="90"/>
