@@ -49,7 +49,7 @@ final class Photo: NSManagedObject {
             status = newValue.rawValue
         }
         get {
-            return PhotoStatus(rawValue: type) ?? .none
+            return PhotoStatus(rawValue: status) ?? .none
         }
     }
 }
