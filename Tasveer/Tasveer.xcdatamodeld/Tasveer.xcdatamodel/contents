@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F108f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1">
     <entity name="Filter" representedClassName=".Filter" syncable="YES">
         <attribute name="albumIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="albumName" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,6 +14,7 @@
         <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="syncState" attributeType="String" syncable="YES"/>
         <relationship name="filter" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Filter" inverseName="group" inverseEntity="Filter" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="group" inverseEntity="Photo" syncable="YES"/>
         <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UploadTask" inverseName="group" inverseEntity="UploadTask" syncable="YES"/>
@@ -52,10 +53,10 @@
     </entity>
     <elements>
         <element name="Filter" positionX="-63" positionY="36" width="128" height="150"/>
-        <element name="Group" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Group" positionX="-63" positionY="-18" width="128" height="180"/>
         <element name="Photo" positionX="-54" positionY="72" width="128" height="225"/>
-        <element name="User" positionX="-54" positionY="-9" width="128" height="120"/>
-        <element name="UploadTask" positionX="-54" positionY="126" width="128" height="90"/>
         <element name="UploadAsset" positionX="-45" positionY="135" width="128" height="90"/>
+        <element name="UploadTask" positionX="-54" positionY="126" width="128" height="90"/>
+        <element name="User" positionX="-54" positionY="-9" width="128" height="120"/>
     </elements>
 </model>

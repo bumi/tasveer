@@ -8,16 +8,34 @@
 
 import CoreData
 
+enum GroupSyncState: String {
+    case none
+    case syncing
+    case synced
+}
+
 final class Group: NSManagedObject {
     @NSManaged fileprivate(set) var identifier: String
     @NSManaged fileprivate(set) var name: String
     @NSManaged fileprivate(set) var descr: String?
     @NSManaged fileprivate(set) var createdAt: Date
+    @NSManaged fileprivate(set) var syncState: String
     
     @NSManaged fileprivate(set) var photos: Set<Photo>?
     @NSManaged fileprivate(set) var users: Set<User>
     @NSManaged fileprivate(set) var filter: Filter
     @NSManaged fileprivate(set) var task: UploadTask?
+    
+    var syncStateValue: GroupSyncState {
+        get {
+            guard let c = GroupSyncState(rawValue: syncState) else { fatalError("Unknown state") }
+            return c
+        }
+        
+        set {
+            syncState = newValue.rawValue
+        }
+    }
 }
 
 extension Group: Managed {
@@ -38,6 +56,7 @@ extension Group {
         newGroup.name = collection.name
         newGroup.descr = collection.description
         newGroup.createdAt = Date()
+        newGroup.syncStateValue = .none
         
         newGroup.users = User.insertNewUsers(into: moc, users: collection.users)
         
@@ -46,19 +65,6 @@ extension Group {
         } else {
             newGroup.filter = Filter.insertNewFilter(into: moc)
         }
-        
-        return newGroup
-    }
-    
-    static func insertNew(into moc: NSManagedObjectContext) -> Group {
-        let newGroup: Group = moc.insertObject()
-        newGroup.identifier = ""
-        newGroup.name = ""
-        newGroup.descr = nil
-        newGroup.createdAt = Date()
-        
-        newGroup.users = Set<User>()
-        newGroup.filter = Filter.insertNewFilter(into: moc)
         
         return newGroup
     }
