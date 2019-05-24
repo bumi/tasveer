@@ -76,9 +76,7 @@ final class StartUploadingCollectionOperation: GroupOperation {
         
         let isNew = createNewTaskIfNeeded(inMoc: moc)
         
-        if let operation = uploadPhotosIsNeeded(isNewTask: isNew, inMoc: moc) {
-            addOperation(operation)
-            
+        if let _ = uploadPhotosIsNeeded(isNewTask: isNew, inMoc: moc) {
             let backgroundObserver = BackgroundObserver()
             addObserver(backgroundObserver)
             

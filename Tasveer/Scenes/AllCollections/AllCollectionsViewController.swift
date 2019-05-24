@@ -14,6 +14,7 @@ final class AllCollectionsViewController: UIViewController {
     private var dataSource: TableViewDataSource<AllCollectionsViewController>?
     private var floatingButton: MDCFloatingButton?
     private let queue = OperationQueue()
+    private let model = AllCollectionsViewModel()
     
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -24,6 +25,12 @@ final class AllCollectionsViewController: UIViewController {
         
         setupTableView()
         setupFloatingButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setupUploadsIfNeeded(forObjects: dataSource?.fetchedResultsController.fetchedObjects)
     }
     
     private func setupTableView() {
@@ -42,6 +49,11 @@ final class AllCollectionsViewController: UIViewController {
                                               cellIdentifier: AllCollectionCell.cellId,
                                               fetchedResultsController: frc,
                                               delegate: self)
+    }
+    
+    private func setupUploadsIfNeeded(forObjects objects: [Group]?) {
+        guard let objects = objects else { return }
+        model.startUploadIfNeeded(for: objects)
     }
     
     private func setupFloatingButton() {
@@ -84,6 +96,10 @@ extension AllCollectionsViewController: UITableViewDelegate {
 extension AllCollectionsViewController: TableViewDataSourceDelegate {
     func configure(_ cell: AllCollectionCell, for object: Group) {
         cell.setup(with: object)
+        
+        cell.didTapResume = { [weak self, weak object] in
+            self?.startUploading(for: object)
+        }
     }
     
     func notifyEmptyData(isEmpty: Bool) {
@@ -98,5 +114,11 @@ extension AllCollectionsViewController: TableViewDataSourceDelegate {
         else {
             tableView.backgroundView = nil
         }
+    }
+}
+
+extension AllCollectionsViewController {
+    private func startUploading(for collection: Group?) {
+        model.startUpload(for: collection)
     }
 }

@@ -42,7 +42,7 @@
     </entity>
     <entity name="UploadTask" representedClassName=".UploadTask" syncable="YES">
         <attribute name="isPaused" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="assets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UploadAsset" inverseName="task" inverseEntity="UploadAsset" syncable="YES"/>
+        <relationship name="assets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UploadAsset" inverseName="task" inverseEntity="UploadAsset" syncable="YES"/>
         <relationship name="group" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="task" inverseEntity="Group" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
