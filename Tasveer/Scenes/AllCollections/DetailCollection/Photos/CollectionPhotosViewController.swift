@@ -21,7 +21,12 @@ private extension UICollectionView {
 final class CollectionPhotosViewController: UICollectionViewController {
     var assetCollection: PHAssetCollection!
     var availableWidth: CGFloat = 0
-    var group: Group!
+    var group: Group! {
+        didSet {
+            setupDataSource()
+            collectionView.reloadData()
+        }
+    }
     
     fileprivate var dataSource: CollectionViewDataSource<CollectionPhotosViewController>?
     
@@ -51,13 +56,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
         flowLayout.minimumInteritemSpacing = 0
         
         // Setup Data Source
-        if let moc = PersistentStoreManager.shared.moc {
-            let request = Photo.sortedFetchRequest
-            request.predicate = NSPredicate(format: "group = %@", group)
-            request.returnsObjectsAsFaults = false
-            let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-            dataSource = CollectionViewDataSource.init(collectionView: collectionView, cellIdentifier: GridViewCell.cellId, fetchedResultsController: frc, delegate: self)
-        }
+        setupDataSource()
     }
     
     deinit {
@@ -97,6 +96,17 @@ final class CollectionPhotosViewController: UICollectionViewController {
         let indexPath = collectionView.indexPath(for: collectionViewCell)!
 //        destination.asset = fetchResult.object(at: indexPath.item)
         destination.assetCollection = assetCollection
+    }
+    
+    private func setupDataSource() {
+        // Setup Data Source
+        if let moc = PersistentStoreManager.shared.moc, group != nil {
+            let request = Photo.sortedFetchRequest
+            request.predicate = NSPredicate(format: "group = %@", group)
+            request.returnsObjectsAsFaults = false
+            let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+            dataSource = CollectionViewDataSource.init(collectionView: collectionView, cellIdentifier: GridViewCell.cellId, fetchedResultsController: frc, delegate: self)
+        }
     }
     
     // MARK: UIScrollView

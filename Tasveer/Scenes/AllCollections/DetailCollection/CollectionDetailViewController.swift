@@ -49,14 +49,6 @@ final class CollectionDetailViewController: UIViewController {
         setupChildViewController(forType: newType)
     }
     
-    private func setupCollection() {
-        if group == nil, let moc = PersistentStoreManager.shared.moc {
-            moc.performChangesAndWait { [unowned self] in
-                self.group = Group.insertNew(into: moc)
-            }
-        }
-    }
-    
     private func setupTopBar() {
         let filters = UIBarButtonItem.init(image: UIImage(named: "filter_icon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(openFilterScene))
         navigationItem.rightBarButtonItem = filters
@@ -108,14 +100,6 @@ final class CollectionDetailViewController: UIViewController {
     @objc private func applyFilter() {
         if let filter = group?.filter {
             let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
-//            operation.addCompletionBlock { [weak self] in
-//                DispatchQueue.main.async {
-//                    if let fetchResult = operation.fetchResult {
-//                        self?.photos.fetchResult = fetchResult
-//                    }
-//                }
-//            }
-            
             queue.addOperation(operation)
         }
     }
@@ -124,6 +108,10 @@ final class CollectionDetailViewController: UIViewController {
         let openScene = OpenFiltersSceneOperation(withGroup: group) { [weak self] newGroup in
             if self?.group == nil {
                 self?.group = newGroup
+                DispatchQueue.main.sync {
+                    self?.photos.group = newGroup
+                    self?.people.group = newGroup
+                }
             }
             
             self?.applyFilter()
