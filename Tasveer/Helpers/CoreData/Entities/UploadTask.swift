@@ -40,6 +40,14 @@ extension UploadTask {
         return newTask
     }
     
+    func  updateTask(assetUploaded assetIdentifier: String?) {
+        if let  assetIdentifier =  assetIdentifier {
+            for asset in assets ?? [] where asset.assetIdentifier ==  assetIdentifier {
+                asset.updateIsUploaded(true)
+            }
+        }
+    }
+    
     // Pause the task
     func pause() {
         self.isPaused = true

@@ -23,7 +23,7 @@
     <entity name="Photo" representedClassName=".Photo" syncable="YES">
         <attribute name="assetIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="filePreview" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="fileUrl" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>

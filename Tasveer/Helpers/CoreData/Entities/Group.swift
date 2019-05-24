@@ -36,6 +36,31 @@ final class Group: NSManagedObject {
             syncState = newValue.rawValue
         }
     }
+    
+    /// Total amount of all observable tasks which counts in total progress
+    var totalUnitsToBeUploaded: Int64 {
+        var totalUnits: Int64 = 0
+        
+        if let photos = photos, !photos.isEmpty {
+            // Add the amount of photos that needs to be uploaded
+            totalUnits += totalPhotosToBeUploaded
+        }
+        
+        return totalUnits
+    }
+    
+    /// Total units of images to be uploaded
+    var totalPhotosToBeUploaded: Int64 {
+        return Int64(task?.assets?.count ?? 0)
+    }
+    
+    /// Total units of images not have been uploaded from current task
+    var unfinishedPhotoUploads: Int64 {
+        let total = task?.assets?
+            .filter{ !$0.isUploaded }
+            .count ?? 0
+        return Int64(total)
+    }
 }
 
 extension Group: Managed {
