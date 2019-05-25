@@ -12,7 +12,8 @@ final class AllCollectionsViewModel {
     private let queue = OperationQueue()
     
     func startUploadIfNeeded(for objects: [Group?]) {
-        for obj in objects {
+        let groups = objects.compactMap{ $0 }
+        for obj in groups where obj.syncStateValue == .none || (obj.syncStateValue == .syncing && obj.task?.isPaused == true) {
             let operation = StartUploadingCollectionOperation(with: obj)
             queue.addOperation(operation)
         }

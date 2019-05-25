@@ -69,9 +69,9 @@ class CollectionViewDataSource<Delegate: CollectionViewDataSourceDelegate>: NSOb
                 switch update {
                 case .insert(let indexPath):
                     self.collectionView.insertItems(at: [indexPath])
-                case .update(let indexPath, let object):
-                    guard let cell = self.collectionView.cellForItem(at: indexPath) as? Cell else { fatalError("wrong cell type") }
-                    self.delegate.configure(cell, for: object)
+                case .update(let indexPath, let object): break;
+//                    guard let cell = self.collectionView.cellForItem(at: indexPath) as? Cell else { fatalError("wrong cell type") }
+//                    self.delegate.configure(cell, for: object)
                 case .move(let indexPath, let newIndexPath):
                     self.collectionView.deleteItems(at: [indexPath])
                     self.collectionView.insertItems(at: [newIndexPath])
