@@ -19,7 +19,10 @@ final class FiltersViewController: UITableViewController {
         }
     }
     
-    var filterModel: FiltersModel!
+    var filterModel = FiltersModel()
+    
+    // Callback to handle new collection created
+    var savedCallback: ((Group) -> Void)?
     
     @IBOutlet fileprivate weak var albumName: PickerTextField!
     @IBOutlet fileprivate weak var favoriteSwitch: UISwitch!
@@ -64,9 +67,11 @@ final class FiltersViewController: UITableViewController {
     }
     
     @IBAction fileprivate func save(_ sender: UIButton!) {
-        filterModel.save(intoFilter: group!.filter)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: GroupFilterValueIsChangedKey), object: nil)
-        navigationController?.popViewController(animated: true)
+        if group == nil {
+            saveNewFilter()
+        } else {
+            saveExistingFilter()
+        }
     }
     
     @IBAction fileprivate func switchFavorite(_ sender: UISwitch) {
@@ -74,7 +79,7 @@ final class FiltersViewController: UITableViewController {
     }
     
     private func setupUI() {
-        albumName.text = filterModel?.pickedAlbum.title
+        albumName.text = filterModel.pickedAlbum.title
         favoriteSwitch.isOn = filterModel.isFavorite
         
         if let fromDate = filterModel.fromDate {
@@ -138,6 +143,25 @@ final class FiltersViewController: UITableViewController {
         navigationItem.leftBarButtonItem = cancel
     }
     
+    // Save when Collection were existing already
+    private func saveExistingFilter() {
+        filterModel.save(intoFilter: group!.filter)
+        savedCallback?(group!) // This method is called only when group is defined
+        navigationController?.popViewController(animated: true)
+    }
+    
+    // Save when Collection is created now
+    private func saveNewFilter() {
+        let operation = CreateAndSaveCollectionOperation(filterModel: filterModel) { [weak self] (group) in
+            self?.savedCallback?(group)
+            DispatchQueue.main.async {
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        queue.addOperation(operation)
+    }
+    
     @objc private func doneAction(_ sender: UIBarButtonItem) {
         view.firstResponder?.resignFirstResponder()
     }
@@ -158,7 +182,12 @@ final class FiltersViewController: UITableViewController {
     }
     
     @objc private func cancel(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        /// If new collection is canceled, then pop to root vc
+        if group == nil {
+            navigationController?.popToRootViewController(animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -169,13 +198,6 @@ final class FiltersViewController: UITableViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-//    private func togglePickerAppearance(_ picker: UIPickerView) {
-//        guard let top = picker.constraints.filter({ $0.firstAnchor == picker.topAnchor }).first else { return }
-//        UIView.animate(withDuration: 0.3) {
-//            top.constant = top.constant == 0 ? -picker.frame.height : 0
-//        }
-//    }
 }
 
 extension FiltersViewController: UIPickerViewDataSource, UIPickerViewDelegate {

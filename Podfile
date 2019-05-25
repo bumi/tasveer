@@ -13,6 +13,9 @@ target 'Tasveer' do
   # Material components
   pod 'MaterialComponents'
   
+  # Pod for keeping track of progress
+  pod 'MBCircularProgressBar'
+  
   # Progress HUD
   pod 'MBProgressHUD'
 

@@ -67,7 +67,7 @@ enum Router: BaseRouter {
     
     enum Photo {
         case create(params: Parameters)
-        case createToCollection(collectionId: String, params: Parameters)
+        case createToCollection(collectionId: String)
         case edit(identifier: String, params: Parameters)
         case delete(identifier: String)
         case appendTo(identifier: String, params: Parameters)
@@ -131,18 +131,18 @@ enum Router: BaseRouter {
     }
     
     func asURLRequest() throws -> URLRequest {
-        guard let baseURLString = SessionRouter.baseURLString,
+        guard let baseURLString = Router.baseURLString,
             let url = Foundation.URL(string: baseURLString)
             else { throw RouterError.noBaseURL }
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
         
         if let token = Router.authToken {
-            let bearer = token
-            urlRequest.setValue(bearer, forHTTPHeaderField: "X-API-KEY")
+            urlRequest.setValue(token, forHTTPHeaderField: "X-API-KEY")
         }
         
         let jsonEncoding = JSONEncoding.default
+        let urlEncoding = URLEncoding.default
         
         switch self {
         case .users(.me),
@@ -157,10 +157,11 @@ enum Router: BaseRouter {
              .collections(.edit(_, let params)),
              .collections(.invite(_, let params)),
              .photos(.create(let params)),
-             .photos(.createToCollection(_, let params)),
              .photos(.edit(_, let params)),
              .photos(.appendTo(_, let params)):
             return try jsonEncoding.encode(urlRequest, with: params)
+        case .photos(.createToCollection):
+            return try urlEncoding.encode(urlRequest, with: nil)
         }
     }
 }

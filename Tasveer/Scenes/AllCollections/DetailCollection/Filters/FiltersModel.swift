@@ -79,7 +79,6 @@ func ==(lhs: AlbumName, rhs: AlbumName) -> Bool {
     }
 }
 
-
 final class FiltersModel {
     var pickedAlbum: AlbumName
     var fromDate: Date?
@@ -93,6 +92,13 @@ final class FiltersModel {
         self.toDate = filter.toTime
     }
     
+    init() {
+        self.pickedAlbum = AlbumName.allPhotos
+        self.isFavorite = false
+        self.fromDate = nil
+        self.toDate = nil
+    }
+    
     func save(intoFilter filter: Filter) {
         guard let moc = PersistentStoreManager.shared.moc
             else { return }
@@ -101,4 +107,5 @@ final class FiltersModel {
             filter.update(byFilterModel: self)
         }
     }
+    
 }

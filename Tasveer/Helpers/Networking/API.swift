@@ -12,6 +12,24 @@ struct API {
     static func signUp(_ params: Parameters) -> DataRequest {
         return Alamofire.request(sessionRouter.signUp(params: params))
     }
+    
+    static func signIn(deviceId: String, _ params: Parameters) -> DataRequest {
+        return Alamofire.request(router.users(.user(deviceId: deviceId)))
+    }
+}
+
+// Collections
+extension API {
+    static func createCollection(_ params: Parameters) -> DataRequest {
+        return Alamofire.request(router.collections(.create(params: params)))
+    }
+}
+
+// Photos
+extension API {
+    static func uploadPhoto(collectionId: String) -> URLRequestConvertible{
+        return router.photos(.createToCollection(collectionId: collectionId))
+    }
 }
 
 private let baseURLString = "https://kuvakehys-tasveer.herokuapp.com/"

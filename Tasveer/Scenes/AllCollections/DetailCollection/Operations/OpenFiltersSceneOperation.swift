@@ -11,11 +11,11 @@ import UIKit
 final class OpenFiltersSceneOperation: Operation {
     private var vc: FiltersViewController?
     private let group: Group?
-    private let filter: Filter
+    private let savedCallback: (Group) -> Void
     
-    init(withGroup group: Group?, filter: Filter) {
+    init(withGroup group: Group?, savedCallback: @escaping (Group) -> Void) {
         self.group = group
-        self.filter = filter
+        self.savedCallback = savedCallback
         
         super.init()
         
@@ -26,11 +26,18 @@ final class OpenFiltersSceneOperation: Operation {
         DispatchQueue.main.async {
             self.vc = UIStoryboard(name: "Collections", bundle: Bundle.main).instantiateViewController(withIdentifier: "FiltersViewController") as? FiltersViewController
             self.vc?.group = self.group
+            self.vc?.savedCallback = self.savedCallback
             
             guard let nextScene = self.vc else { return }
             
             AppDelegateManager.currentNavigationController?.pushViewController(nextScene, animated: true)
             self.finish()
         }
+    }
+    
+    override func finished(_ errors: [NSError]) {
+        debugPrint("COMPLETED: \(String(describing: name))")
+        
+        super.finished(errors)
     }
 }

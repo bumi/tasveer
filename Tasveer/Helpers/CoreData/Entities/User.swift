@@ -31,7 +31,7 @@ extension User {
             let newUser: User = moc.insertObject()
             newUser.name = user.name
             newUser.email = user.email
-            newUser.deviceId = user.deviceId
+            newUser.deviceId = user.deviceId ?? ""
             newUser.identifier = user.identifier
             
             newUsers.insert(newUser)

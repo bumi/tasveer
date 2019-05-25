@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Photos
 import PhotosUI
 
@@ -18,15 +19,16 @@ private extension UICollectionView {
 }
 
 final class CollectionPhotosViewController: UICollectionViewController {
-    var fetchResult: PHFetchResult<PHAsset>! {
+    var assetCollection: PHAssetCollection!
+    var availableWidth: CGFloat = 0
+    var group: Group! {
         didSet {
-            resetCachedAssets()
+            setupDataSource()
             collectionView.reloadData()
         }
     }
     
-    var assetCollection: PHAssetCollection!
-    var availableWidth: CGFloat = 0
+    fileprivate var dataSource: CollectionViewDataSource<CollectionPhotosViewController>?
     
     fileprivate var flowLayout: UICollectionViewFlowLayout!
     
@@ -44,7 +46,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
         collectionView.alwaysBounceVertical = true
         
         resetCachedAssets()
-        PHPhotoLibrary.shared().register(self)
+//        PHPhotoLibrary.shared().register(self)
         
         // FlowLayout
         flowLayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -53,18 +55,12 @@ final class CollectionPhotosViewController: UICollectionViewController {
         flowLayout.minimumLineSpacing = 1
         flowLayout.minimumInteritemSpacing = 0
         
-        // Reaching this point without a segue means that this AssetGridViewController
-        // became visible at app launch. As such, match the behavior of the segue from
-        // the default "All Photos" view.
-        if fetchResult == nil {
-            let allPhotosOptions = PHFetchOptions()
-            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-            fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
-        }
+        // Setup Data Source
+        setupDataSource()
     }
     
     deinit {
-        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+//        PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     
     override func viewWillLayoutSubviews() {
@@ -98,37 +94,19 @@ final class CollectionPhotosViewController: UICollectionViewController {
         guard let collectionViewCell = sender as? UICollectionViewCell else { fatalError("Unexpected sender for segue") }
         
         let indexPath = collectionView.indexPath(for: collectionViewCell)!
-        destination.asset = fetchResult.object(at: indexPath.item)
+//        destination.asset = fetchResult.object(at: indexPath.item)
         destination.assetCollection = assetCollection
     }
     
-    // MARK: UICollectionView
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchResult.count
-    }
-    /// - Tag: PopulateCell
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let asset = fetchResult.object(at: indexPath.item)
-        // Dequeue a GridViewCell.
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridViewCell", for: indexPath) as? GridViewCell
-            else { fatalError("Unexpected cell in collection view") }
-        
-        // Add a badge to the cell if the PHAsset represents a Live Photo.
-        if asset.mediaSubtypes.contains(.photoLive) {
-            cell.livePhotoBadgeImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
+    private func setupDataSource() {
+        // Setup Data Source
+        if let moc = PersistentStoreManager.shared.moc, group != nil {
+            let request = Photo.sortedFetchRequest
+            request.predicate = NSPredicate(format: "group = %@", group)
+            request.returnsObjectsAsFaults = false
+            let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+            dataSource = CollectionViewDataSource.init(collectionView: collectionView, cellIdentifier: GridViewCell.cellId, fetchedResultsController: frc, delegate: self)
         }
-        
-        // Request an image for the asset from the PHCachingImageManager.
-        cell.representedAssetIdentifier = asset.localIdentifier
-        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-            // UIKit may have recycled this cell by the handler's activation time.
-            // Set the cell's thumbnail image only if it's still showing the same asset.
-            if cell.representedAssetIdentifier == asset.localIdentifier {
-                cell.thumbnailImage = image
-            }
-        })
-        return cell
     }
     
     // MARK: UIScrollView
@@ -145,33 +123,33 @@ final class CollectionPhotosViewController: UICollectionViewController {
     }
     /// - Tag: UpdateAssets
     fileprivate func updateCachedAssets() {
-        // Update only if the view is visible.
-        guard isViewLoaded && view.window != nil else { return }
-        
-        // The window you prepare ahead of time is twice the height of the visible rect.
-        let visibleRect = CGRect(origin: collectionView!.contentOffset, size: collectionView!.bounds.size)
-        let preheatRect = visibleRect.insetBy(dx: 0, dy: -0.5 * visibleRect.height)
-        
-        // Update only if the visible area is significantly different from the last preheated area.
-        let delta = abs(preheatRect.midY - previousPreheatRect.midY)
-        guard delta > view.bounds.height / 3 else { return }
-        
-        // Compute the assets to start and stop caching.
-        let (addedRects, removedRects) = differencesBetweenRects(previousPreheatRect, preheatRect)
-        let addedAssets = addedRects
-            .flatMap { rect in collectionView!.indexPathsForElements(in: rect) }
-            .map { indexPath in fetchResult.object(at: indexPath.item) }
-        let removedAssets = removedRects
-            .flatMap { rect in collectionView!.indexPathsForElements(in: rect) }
-            .map { indexPath in fetchResult.object(at: indexPath.item) }
-        
-        // Update the assets the PHCachingImageManager is caching.
-        imageManager.startCachingImages(for: addedAssets,
-                                        targetSize: thumbnailSize, contentMode: .aspectFill, options: nil)
-        imageManager.stopCachingImages(for: removedAssets,
-                                       targetSize: thumbnailSize, contentMode: .aspectFill, options: nil)
-        // Store the computed rectangle for future comparison.
-        previousPreheatRect = preheatRect
+//        // Update only if the view is visible.
+//        guard isViewLoaded && view.window != nil else { return }
+//
+//        // The window you prepare ahead of time is twice the height of the visible rect.
+//        let visibleRect = CGRect(origin: collectionView!.contentOffset, size: collectionView!.bounds.size)
+//        let preheatRect = visibleRect.insetBy(dx: 0, dy: -0.5 * visibleRect.height)
+//
+//        // Update only if the visible area is significantly different from the last preheated area.
+//        let delta = abs(preheatRect.midY - previousPreheatRect.midY)
+//        guard delta > view.bounds.height / 3 else { return }
+//
+//        // Compute the assets to start and stop caching.
+//        let (addedRects, removedRects) = differencesBetweenRects(previousPreheatRect, preheatRect)
+//        let addedAssets = addedRects
+//            .flatMap { rect in collectionView!.indexPathsForElements(in: rect) }
+//            .map { indexPath in fetchResult.object(at: indexPath.item) }
+//        let removedAssets = removedRects
+//            .flatMap { rect in collectionView!.indexPathsForElements(in: rect) }
+//            .map { indexPath in fetchResult.object(at: indexPath.item) }
+//
+//        // Update the assets the PHCachingImageManager is caching.
+//        imageManager.startCachingImages(for: addedAssets,
+//                                        targetSize: thumbnailSize, contentMode: .aspectFill, options: nil)
+//        imageManager.stopCachingImages(for: removedAssets,
+//                                       targetSize: thumbnailSize, contentMode: .aspectFill, options: nil)
+//        // Store the computed rectangle for future comparison.
+//        previousPreheatRect = preheatRect
     }
     
     fileprivate func differencesBetweenRects(_ old: CGRect, _ new: CGRect) -> (added: [CGRect], removed: [CGRect]) {
@@ -228,45 +206,23 @@ final class CollectionPhotosViewController: UICollectionViewController {
     
 }
 
-// MARK: PHPhotoLibraryChangeObserver
-extension CollectionPhotosViewController: PHPhotoLibraryChangeObserver {
-    func photoLibraryDidChange(_ changeInstance: PHChange) {
-        
-        guard let changes = changeInstance.changeDetails(for: fetchResult)
-            else { return }
-        
-        // Change notifications may originate from a background queue.
-        // As such, re-dispatch execution to the main queue before acting
-        // on the change, so you can update the UI.
-        DispatchQueue.main.sync {
-            // Hang on to the new fetch result.
-            fetchResult = changes.fetchResultAfterChanges
-            // If we have incremental changes, animate them in the collection view.
-            if changes.hasIncrementalChanges {
-                guard let collectionView = self.collectionView else { fatalError() }
-                // Handle removals, insertions, and moves in a batch update.
-                collectionView.performBatchUpdates({
-                    if let removed = changes.removedIndexes, !removed.isEmpty {
-                        collectionView.deleteItems(at: removed.map({ IndexPath(item: $0, section: 0) }))
-                    }
-                    if let inserted = changes.insertedIndexes, !inserted.isEmpty {
-                        collectionView.insertItems(at: inserted.map({ IndexPath(item: $0, section: 0) }))
-                    }
-                    changes.enumerateMoves { fromIndex, toIndex in
-                        collectionView.moveItem(at: IndexPath(item: fromIndex, section: 0),
-                                                to: IndexPath(item: toIndex, section: 0))
-                    }
-                })
-                // We are reloading items after the batch update since `PHFetchResultChangeDetails.changedIndexes` refers to
-                // items in the *after* state and not the *before* state as expected by `performBatchUpdates(_:completion:)`.
-                if let changed = changes.changedIndexes, !changed.isEmpty {
-                    collectionView.reloadItems(at: changed.map({ IndexPath(item: $0, section: 0) }))
-                }
-            } else {
-                // Reload the collection view if incremental changes are not available.
-                collectionView.reloadData()
-            }
-            resetCachedAssets()
+extension CollectionPhotosViewController: CollectionViewDataSourceDelegate {
+    func configure(_ cell: GridViewCell, for object: Photo) {
+        cell.setup(withPhoto: object, imageManager: imageManager, thumbnailSize: thumbnailSize)
+    }
+    
+    func notifyEmptyData(isEmpty: Bool) {
+        if isEmpty {
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 14.0, weight: .medium)
+            label.text = "You have no photos."
+            label.textAlignment = .center
+            collectionView.backgroundView = label
+            label.sizeToFit()
+        }
+        else {
+            collectionView.backgroundView = nil
         }
     }
 }
+
