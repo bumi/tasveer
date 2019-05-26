@@ -25,6 +25,10 @@ final class CollectionDetailViewController: UIViewController {
     private var people: CollectionPeopleViewController!
     private var photos: CollectionPhotosViewController!
     
+    private var collectionObserver: CoreDataContextObserver<Group>!
+    
+    private var oldCollectionState: GroupSyncState = .synced // TODO: Add another case, like .preInit
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,13 +37,21 @@ final class CollectionDetailViewController: UIViewController {
         // Initial setup should be for photos
         setupChildViewController(forType: .photos)
         
-//        applyFilter()
+        // Setup observer of the collection
+        setupCollectionObserver()
+        
+        // Show title
+        updateTitle(collection: group)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         openFilterSceneIfNeeded()
+    }
+    
+    deinit {
+        collectionObserver.unobserveAllObjects()
     }
     
     @IBAction fileprivate func segmentSwitched(_ sender: UISegmentedControl) {
@@ -97,6 +109,62 @@ final class CollectionDetailViewController: UIViewController {
         vc.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
     }
     
+    private func setupCollectionObserver() {
+        if let group = group {
+            collectionObserver = CoreDataContextObserver<Group>.init(context: PersistentStoreManager.shared.moc!)
+            collectionObserver.observeObject(object: group, state: .updated) { [weak self] (updatedGroup, _) in
+                DispatchQueue.main.async {
+                    guard self?.oldCollectionState != updatedGroup.syncStateValue
+                        else { return }
+                    self?.oldCollectionState = updatedGroup.syncStateValue
+                    self?.updateTitle(collection: updatedGroup)
+                }
+            }
+        }
+    }
+    
+    private func updateTitle(collection: Group?) {
+        guard let collection = collection else { return }
+        
+        switch collection.syncStateValue {
+        case .none, .synced:
+            addTitle(withText: collection.name, showActivity: false)
+        case .syncing:
+            addTitle(withText: collection.name, showActivity: true)
+        }
+    }
+    
+    private func addTitle(withText text: String, showActivity: Bool) {
+        let activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        let activitySize: CGSize = showActivity ? CGSize(width: 14, height: 14) : .zero
+        activityIndicatorView.frame = CGRect(origin: .zero, size: activitySize)
+        activityIndicatorView.color = .black
+        activityIndicatorView.startAnimating()
+        
+        let titleLabel = UILabel()
+        titleLabel.text = text
+        titleLabel.font = UIFont.systemFont(ofSize: 18.0)
+        
+        let fittingSize = titleLabel.sizeThatFits(CGSize(width: 200.0, height: activityIndicatorView.frame.size.height))
+        titleLabel.frame = CGRect(x: activityIndicatorView.frame.origin.x + activityIndicatorView.frame.size.width + 8,
+                                  y: activityIndicatorView.frame.origin.y,
+                                  width: fittingSize.width,
+                                  height: fittingSize.height)
+        
+        let rect = CGRect(x: (activityIndicatorView.frame.size.width + 8 + titleLabel.frame.size.width) / 2,
+                          y: (activityIndicatorView.frame.size.height) / 2,
+                          width: activityIndicatorView.frame.size.width + 8 + titleLabel.frame.size.width,
+                          height: activityIndicatorView.frame.size.height)
+        let titleView = UIView(frame: rect)
+        if showActivity {
+            titleView.addSubview(activityIndicatorView)
+        }
+        titleView.addSubview(titleLabel)
+        titleLabel.sizeToFit()
+        
+        navigationItem.titleView = titleView
+    }
+    
     @objc private func applyFilter() {
         if let filter = group?.filter {
             let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
@@ -111,6 +179,7 @@ final class CollectionDetailViewController: UIViewController {
                 DispatchQueue.main.sync {
                     self?.photos.group = newGroup
                     self?.people.group = newGroup
+                    self?.setupCollectionObserver()
                 }
             }
             
