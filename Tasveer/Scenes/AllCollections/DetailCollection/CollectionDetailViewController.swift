@@ -29,6 +29,8 @@ final class CollectionDetailViewController: UIViewController {
     
     private var oldCollectionState: GroupSyncState = .synced // TODO: Add another case, like .preInit
     
+    private var filterButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,8 +64,9 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     private func setupTopBar() {
-        let filters = UIBarButtonItem.init(image: UIImage(named: "filter_icon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(openFilterScene))
-        navigationItem.rightBarButtonItem = filters
+        filterButton = UIBarButtonItem.init(image: UIImage(named: "filter_icon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(openFilterScene))
+        navigationItem.rightBarButtonItem = filterButton
+        filterButton.isEnabled = (group?.syncStateValue ?? .none) != .syncing
     }
     
     private func setupChildViewControllers() {
