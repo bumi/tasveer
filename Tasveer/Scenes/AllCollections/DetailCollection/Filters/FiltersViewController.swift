@@ -152,9 +152,12 @@ final class FiltersViewController: UITableViewController {
     
     // Save when Collection is created now
     private func saveNewFilter() {
+        MBProgressHUD.showAdded(to: view, animated: true)
+        
         let operation = CreateAndSaveCollectionOperation(filterModel: filterModel) { [weak self] (group) in
             self?.savedCallback?(group)
             DispatchQueue.main.async {
+                MBProgressHUD.hide(for: self!.view, animated: true)
                 self?.navigationController?.popViewController(animated: true)
             }
         }
