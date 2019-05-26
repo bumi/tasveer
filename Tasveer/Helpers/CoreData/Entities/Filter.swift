@@ -65,5 +65,9 @@ extension Filter {
         isFavorite = model.isFavorite
         fromTime = model.fromDate
         toTime = model.toDate
+        
+        // When changing the filter, we need to switch back the collection syncState to .none,
+        // to tell the app that we need to upload new photos
+        group.syncStateValue = .none
     }
 }

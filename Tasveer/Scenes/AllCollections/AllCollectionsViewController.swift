@@ -25,12 +25,24 @@ final class AllCollectionsViewController: UIViewController {
         
         setupTableView()
         setupFloatingButton()
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("NewCollectionInserted"), object: nil, queue: nil) { [weak self] (note) in
+            if let collection = note.userInfo?["insertedCollection"] as? Group {
+                DispatchQueue.main.async {
+                    self?.startUploading(for: collection)
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         setupUploadsIfNeeded(forObjects: dataSource?.fetchedResultsController.fetchedObjects)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("NewCollectionInserted"), object: nil)
     }
     
     private func setupTableView() {

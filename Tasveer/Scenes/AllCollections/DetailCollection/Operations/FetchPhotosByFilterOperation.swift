@@ -49,6 +49,9 @@ final class FetchPhotosByFilterOperation: Operation {
             }
         }
         
+        // new photos will be added
+        NotificationCenter.default.post(name: NSNotification.Name("NewCollectionInserted"), object: nil, userInfo: ["insertedCollection": groupFilter.group])
+        
         finish()
     }
     
