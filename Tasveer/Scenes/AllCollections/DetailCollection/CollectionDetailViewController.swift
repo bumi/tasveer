@@ -53,7 +53,7 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     deinit {
-        collectionObserver.unobserveAllObjects()
+        collectionObserver?.unobserveAllObjects()
     }
     
     @IBAction fileprivate func segmentSwitched(_ sender: UISegmentedControl) {
