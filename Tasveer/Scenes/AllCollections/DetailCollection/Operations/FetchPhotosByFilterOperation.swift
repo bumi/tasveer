@@ -41,11 +41,20 @@ final class FetchPhotosByFilterOperation: Operation {
         
         self.groupFilter.group.preFilterCleanup(forMoc: moc)
         
+        // Check if assets exist already locally
+        let existingPhotos = groupFilter.group.photos ?? []
+        
+        var phAssets: [PHAsset] = []
+        for i in 0..<(self.fetchResult?.count ?? 0) {
+            if let obj = self.fetchResult?.object(at: i),
+                !existingPhotos.contains(where: { $0.assetIdentifier == obj.localIdentifier }) {
+                phAssets.append(obj)
+            }
+        }
+        
         moc?.performChangesAndWait {
-            for i in 0..<(self.fetchResult?.count ?? 0) {
-                if let obj = self.fetchResult?.object(at: i) {
-                    Photo.insertNewPhoto(into: moc!, fromAsset: obj, forCollection: self.groupFilter.group)
-                }
+            for object in phAssets {
+                Photo.insertNewPhoto(into: moc!, fromAsset: object, forCollection: self.groupFilter.group)
             }
         }
         
