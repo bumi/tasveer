@@ -10,10 +10,10 @@ import UIKit
 
 final class OpenCollectionDetailSceneOperation: Operation {
     private var vc: CollectionDetailViewController?
-    private let group: Group?
+    private let collection: Collection?
     
-    init(withGroup group: Group?) {
-        self.group = group
+    init(withCollection collection: Collection?) {
+        self.collection = collection
         
         super.init()
         
@@ -23,7 +23,7 @@ final class OpenCollectionDetailSceneOperation: Operation {
     override func execute() {
         DispatchQueue.main.async {
             self.vc = UIStoryboard(name: "Collections", bundle: Bundle.main).instantiateViewController(withIdentifier: "CollectionDetailViewController") as? CollectionDetailViewController
-            self.vc?.group = self.group
+            self.vc?.collection = self.collection
             
             guard let nextScene = self.vc else { return }
             

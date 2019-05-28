@@ -8,7 +8,7 @@
 
 import Foundation
 
-let GroupFilterValueIsChangedKey = "GroupFilterValueIsChangedKey"
+let CollectionFilterValueIsChangedKey = "CollectionFilterValueIsChangedKey"
 
 enum AlbumName: Equatable {
     static let allPhotosType: String = "all_photos"

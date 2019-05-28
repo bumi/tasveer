@@ -22,7 +22,7 @@ final class AllCollectionCell: UITableViewCell {
     
     private var tapIconGesture: UITapGestureRecognizer!
     private var tapResumeGesture: UITapGestureRecognizer!
-    private var collection: Group!
+    private var collection: Collection!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,27 +34,27 @@ final class AllCollectionCell: UITableViewCell {
         resumeImage.addGestureRecognizer(tapResumeGesture)
     }
     
-    func setup(with group: Group) {
-        collection = group
+    func setup(with collection: Collection) {
+        self.collection = collection
         
-        backgroundColor = group.syncStateValue == .synced ? CollectionColors.green : UIColor.white
+        backgroundColor = collection.syncStateValue == .synced ? CollectionColors.green : UIColor.white
         
-        if group.syncStateValue == .syncing {
-            activity.isHidden = group.task?.isPaused ?? false
-            activity.value = CGFloat(group.uploadProgress) * 100
-            resumeImage.isHidden = !(group.task?.isPaused ?? false)
+        if collection.syncStateValue == .syncing {
+            activity.isHidden = collection.task?.isPaused ?? false
+            activity.value = CGFloat(collection.uploadProgress) * 100
+            resumeImage.isHidden = !(collection.task?.isPaused ?? false)
         } else {
             activity.isHidden = true
             resumeImage.isHidden = true
         }
         
-        let image = UIImage(named: (group.syncStateValue == .synced) ? "round_check" : "cloud_icon")
+        let image = UIImage(named: (collection.syncStateValue == .synced) ? "round_check" : "cloud_icon")
         icon.image = image
-        icon.alpha = (group.syncStateValue == .syncing) ? 0.0 : 1.0
+        icon.alpha = (collection.syncStateValue == .syncing) ? 0.0 : 1.0
         
-        collectionName.text = group.name
-        photoCount.text = String(group.photos?.count ?? 0)
-        participantCount.text = String(group.users.count)
+        collectionName.text = collection.name
+        photoCount.text = String(collection.photos?.count ?? 0)
+        participantCount.text = String(collection.users.count)
     }
     
     @objc private func iconTapped(_ sender: UITapGestureRecognizer) {

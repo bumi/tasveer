@@ -10,10 +10,10 @@ import Foundation
 
 final class CreateAndSaveCollectionOperation: GroupOperation {
     
-    init(filterModel: FiltersModel, createdCollection: @escaping (Group) -> Void) {
+    init(filterModel: FiltersModel, createdCollection: @escaping (Collection) -> Void) {
         let saveOperation = SaveCollectionResponseOperation(filterModel: filterModel, createdCollection: createdCollection)
         let createOperation = CreateNetworkCollectionOperation(withFilterModel: filterModel) { (resp) in
-            saveOperation.collection = resp
+            saveOperation.collectionResponse = resp
         }
         
         saveOperation.addDependency(createOperation)

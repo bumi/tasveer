@@ -33,7 +33,7 @@ final class Photo: NSManagedObject {
     @NSManaged fileprivate(set) var userId: String?
     @NSManaged fileprivate(set) var createdAt: Date
     
-    @NSManaged fileprivate(set) var group: Group
+    @NSManaged fileprivate(set) var collection: Collection
     
     var typeValue: PhotoType {
         set {
@@ -62,7 +62,7 @@ extension Photo: Managed {
 
 extension Photo {
     @discardableResult
-    static func insertNewPhoto(into moc: NSManagedObjectContext, fromAsset asset: PHAsset, forCollection collection: Group, userId: String? = AuthManager.shared.token) -> Photo {
+    static func insertNewPhoto(into moc: NSManagedObjectContext, fromAsset asset: PHAsset, forCollection collection: Collection, userId: String? = AuthManager.shared.token) -> Photo {
         let newPhoto: Photo = moc.insertObject()
         newPhoto.typeValue = .local
         newPhoto.statusValue = .none
@@ -70,12 +70,12 @@ extension Photo {
         newPhoto.userId = userId
         newPhoto.createdAt = Date()
         
-        newPhoto.group = collection
+        newPhoto.collection = collection
         
         return newPhoto
     }
     
-    static func insertNewPhoto(into moc: NSManagedObjectContext, fromPhotoResponse photo: PhotoResponse, forCollection collection: Group) -> Photo {
+    static func insertNewPhoto(into moc: NSManagedObjectContext, fromPhotoResponse photo: PhotoResponse, forCollection collection: Collection) -> Photo {
         let newPhoto: Photo = moc.insertObject()
         newPhoto.typeValue = .global
         newPhoto.statusValue = .none
@@ -100,7 +100,7 @@ extension Photo {
             newPhoto.filePreview = filePreview
         }
         
-        newPhoto.group = collection
+        newPhoto.collection = collection
         
         return newPhoto
     }

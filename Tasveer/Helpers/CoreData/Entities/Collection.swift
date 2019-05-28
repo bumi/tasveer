@@ -1,5 +1,5 @@
 //
-//  Group.swift
+//  Collection.swift
 //  Tasveer
 //
 //  Created by Haik Ampardjian on 5/3/19.
@@ -8,13 +8,13 @@
 
 import CoreData
 
-enum GroupSyncState: String {
+enum CollectionSyncState: String {
     case none
     case syncing
     case synced
 }
 
-final class Group: NSManagedObject {
+final class Collection: NSManagedObject {
     @NSManaged fileprivate(set) var identifier: String
     @NSManaged fileprivate(set) var name: String
     @NSManaged fileprivate(set) var descr: String?
@@ -27,9 +27,9 @@ final class Group: NSManagedObject {
     @NSManaged fileprivate(set) var filter: Filter
     @NSManaged fileprivate(set) var task: UploadTask?
     
-    var syncStateValue: GroupSyncState {
+    var syncStateValue: CollectionSyncState {
         get {
-            guard let c = GroupSyncState(rawValue: syncState) else { fatalError("Unknown state") }
+            guard let c = CollectionSyncState(rawValue: syncState) else { fatalError("Unknown state") }
             return c
         }
         
@@ -64,7 +64,7 @@ final class Group: NSManagedObject {
     }
 }
 
-extension Group: Managed {
+extension Collection: Managed {
     static var defaultSortDescriptors: [NSSortDescriptor] {
         return [NSSortDescriptor(key: #keyPath(createdAt), ascending: false)]
     }
@@ -74,25 +74,25 @@ extension Group: Managed {
     }
 }
 
-extension Group {
+extension Collection {
     @discardableResult
-    static func insertNew(into moc: NSManagedObjectContext, fromCollection collection: CollectionResponse, filter: FiltersModel?) -> Group {
-        let newGroup: Group = moc.insertObject()
-        newGroup.identifier = collection.identifier
-        newGroup.name = collection.name
-        newGroup.descr = collection.description
-        newGroup.createdAt = Date()
-        newGroup.syncStateValue = .none
+    static func insertNew(into moc: NSManagedObjectContext, fromCollection collection: CollectionResponse, filter: FiltersModel?) -> Collection {
+        let newCollection: Collection = moc.insertObject()
+        newCollection.identifier = collection.identifier
+        newCollection.name = collection.name
+        newCollection.descr = collection.description
+        newCollection.createdAt = Date()
+        newCollection.syncStateValue = .none
         
-        newGroup.users = User.insertNewUsers(into: moc, users: collection.users)
+        newCollection.users = User.insertNewUsers(into: moc, users: collection.users)
         
         if let filter = filter {
-            newGroup.filter = Filter.insertNewFilter(into: moc, fromFilterModel: filter)
+            newCollection.filter = Filter.insertNewFilter(into: moc, fromFilterModel: filter)
         } else {
-            newGroup.filter = Filter.insertNewFilter(into: moc)
+            newCollection.filter = Filter.insertNewFilter(into: moc)
         }
         
-        return newGroup
+        return newCollection
     }
     
     // Save state of upload when app is terminated
@@ -122,7 +122,7 @@ extension Group {
         }
     }
     
-    // Update the progress of the Group while syncing
+    // Update the progress of the Collection while syncing
     func updateProgress(value: Float) {
         uploadProgress = value
     }

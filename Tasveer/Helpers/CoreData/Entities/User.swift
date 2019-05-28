@@ -14,7 +14,7 @@ final class User: NSManagedObject {
     @NSManaged fileprivate(set) var deviceId: String
     @NSManaged fileprivate(set) var identifier: String
     
-    @NSManaged fileprivate(set) var group: Group
+    @NSManaged fileprivate(set) var collection: Collection
 }
 
 extension User: Managed {

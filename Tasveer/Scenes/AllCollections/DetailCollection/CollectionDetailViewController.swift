@@ -15,7 +15,7 @@ enum CollectionDetailType: Int {
 }
 
 final class CollectionDetailViewController: UIViewController {
-    var group: Group?
+    var collection: Collection?
     
     @IBOutlet fileprivate weak var segmentPicker: UISegmentedControl!
     @IBOutlet fileprivate weak var containerView: UIView!
@@ -25,9 +25,9 @@ final class CollectionDetailViewController: UIViewController {
     private var people: CollectionPeopleViewController!
     private var photos: CollectionPhotosViewController!
     
-    private var collectionObserver: CoreDataContextObserver<Group>!
+    private var collectionObserver: CoreDataContextObserver<Collection>!
     
-    private var oldCollectionState: GroupSyncState = .synced // TODO: Add another case, like .preInit
+    private var oldCollectionState: CollectionSyncState = .synced // TODO: Add another case, like .preInit
     
     private var filterButton: UIBarButtonItem!
     
@@ -43,7 +43,7 @@ final class CollectionDetailViewController: UIViewController {
         setupCollectionObserver()
         
         // Show title
-        updateTitle(collection: group)
+        updateTitle(collection: collection)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,7 +66,7 @@ final class CollectionDetailViewController: UIViewController {
     private func setupTopBar() {
         filterButton = UIBarButtonItem.init(image: UIImage(named: "filter_icon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(openFilterScene))
         navigationItem.rightBarButtonItem = filterButton
-        filterButton.isEnabled = (group?.syncStateValue ?? .none) != .syncing
+        filterButton.isEnabled = (collection?.syncStateValue ?? .none) != .syncing
     }
     
     private func setupChildViewControllers() {
@@ -75,8 +75,8 @@ final class CollectionDetailViewController: UIViewController {
         
         let photos = CollectionPhotosViewController.init(collectionViewLayout: UICollectionViewFlowLayout())
         
-        people.group = group
-        photos.group = group
+        people.collection = collection
+        photos.collection = collection
         
         self.photos = photos
         self.people = people
@@ -113,20 +113,20 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     private func setupCollectionObserver() {
-        if let group = group {
-            collectionObserver = CoreDataContextObserver<Group>.init(context: PersistentStoreManager.shared.moc!)
-            collectionObserver.observeObject(object: group, state: .updated) { [weak self] (updatedGroup, _) in
+        if let collection = collection {
+            collectionObserver = CoreDataContextObserver<Collection>.init(context: PersistentStoreManager.shared.moc!)
+            collectionObserver.observeObject(object: collection, state: .updated) { [weak self] (updatedCollection, _) in
                 DispatchQueue.main.async {
-                    guard self?.oldCollectionState != updatedGroup.syncStateValue
+                    guard self?.oldCollectionState != updatedCollection.syncStateValue
                         else { return }
-                    self?.oldCollectionState = updatedGroup.syncStateValue
-                    self?.updateTitle(collection: updatedGroup)
+                    self?.oldCollectionState = updatedCollection.syncStateValue
+                    self?.updateTitle(collection: updatedCollection)
                 }
             }
         }
     }
     
-    private func updateTitle(collection: Group?) {
+    private func updateTitle(collection: Collection?) {
         guard let collection = collection else { return }
         
         switch collection.syncStateValue {
@@ -169,19 +169,19 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     @objc private func applyFilter() {
-        if let filter = group?.filter {
-            let operation = FetchPhotosByFilterOperation(withGroupFilter: filter)
+        if let filter = collection?.filter {
+            let operation = FetchPhotosByFilterOperation(withCollectionFilter: filter)
             queue.addOperation(operation)
         }
     }
     
     @objc private func openFilterScene() {
-        let openScene = OpenFiltersSceneOperation(withGroup: group) { [weak self] newGroup in
-            if self?.group == nil {
-                self?.group = newGroup
+        let openScene = OpenFiltersSceneOperation(withCollection: collection) { [weak self] newCollection in
+            if self?.collection == nil {
+                self?.collection = newCollection
                 DispatchQueue.main.sync {
-                    self?.photos.group = newGroup
-                    self?.people.group = newGroup
+                    self?.photos.collection = newCollection
+                    self?.people.collection = newCollection
                     self?.setupCollectionObserver()
                 }
             }
@@ -192,7 +192,7 @@ final class CollectionDetailViewController: UIViewController {
     }
     
     @objc private func openFilterSceneIfNeeded() {
-        guard group == nil else { return }
+        guard collection == nil else { return }
         
         openFilterScene()
     }

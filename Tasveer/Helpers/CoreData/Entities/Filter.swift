@@ -16,7 +16,7 @@ final class Filter: NSManagedObject {
     @NSManaged fileprivate(set) var fromTime: Date?
     @NSManaged fileprivate(set) var toTime: Date?
     
-    @NSManaged fileprivate(set) var group: Group
+    @NSManaged fileprivate(set) var collection: Collection
     
     var albumValue: AlbumName {
         set {
@@ -68,6 +68,6 @@ extension Filter {
         
         // When changing the filter, we need to switch back the collection syncState to .none,
         // to tell the app that we need to upload new photos
-        group.syncStateValue = .none
+        collection.syncStateValue = .none
     }
 }

@@ -10,11 +10,11 @@ import UIKit
 
 final class OpenFiltersSceneOperation: Operation {
     private var vc: FiltersViewController?
-    private let group: Group?
-    private let savedCallback: (Group) -> Void
+    private let collection: Collection?
+    private let savedCallback: (Collection) -> Void
     
-    init(withGroup group: Group?, savedCallback: @escaping (Group) -> Void) {
-        self.group = group
+    init(withCollection collection: Collection?, savedCallback: @escaping (Collection) -> Void) {
+        self.collection = collection
         self.savedCallback = savedCallback
         
         super.init()
@@ -25,7 +25,7 @@ final class OpenFiltersSceneOperation: Operation {
     override func execute() {
         DispatchQueue.main.async {
             self.vc = UIStoryboard(name: "Collections", bundle: Bundle.main).instantiateViewController(withIdentifier: "FiltersViewController") as? FiltersViewController
-            self.vc?.group = self.group
+            self.vc?.collection = self.collection
             self.vc?.savedCallback = self.savedCallback
             
             guard let nextScene = self.vc else { return }

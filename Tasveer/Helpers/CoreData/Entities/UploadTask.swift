@@ -11,7 +11,7 @@ import CoreData
 final class UploadTask: NSManagedObject {
     @NSManaged fileprivate(set) var isPaused: Bool
     
-    @NSManaged fileprivate(set) var group: Group
+    @NSManaged fileprivate(set) var collection: Collection
     @NSManaged fileprivate(set) var assets: Set<UploadAsset>?
 }
 
@@ -22,13 +22,13 @@ extension UploadTask: Managed {
 }
 
 extension UploadTask {
-    static func insertNewTask(into moc: NSManagedObjectContext, for group: Group) -> UploadTask {
+    static func insertNewTask(into moc: NSManagedObjectContext, for collection: Collection) -> UploadTask {
         let newTask: UploadTask = moc.insertObject()
         newTask.isPaused = false
-        newTask.group = group
+        newTask.collection = collection
         
         newTask.assets = Set()
-        if let assets = group.photos?
+        if let assets = collection.photos?
             .compactMap({ $0 })
             .filter({ $0.assetIdentifier != nil }) {
             for asset in assets {

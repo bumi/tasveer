@@ -21,7 +21,7 @@ private extension UICollectionView {
 final class CollectionPhotosViewController: UICollectionViewController {
     var assetCollection: PHAssetCollection!
     var availableWidth: CGFloat = 0
-    var group: Group! {
+    var collection: Collection! {
         didSet {
             setupDataSource()
             collectionView.reloadData()
@@ -100,9 +100,9 @@ final class CollectionPhotosViewController: UICollectionViewController {
     
     private func setupDataSource() {
         // Setup Data Source
-        if let moc = PersistentStoreManager.shared.moc, group != nil {
+        if let moc = PersistentStoreManager.shared.moc, collection != nil {
             let request = Photo.sortedFetchRequest
-            request.predicate = NSPredicate(format: "group = %@", group)
+            request.predicate = NSPredicate(format: "collection = %@", collection)
             request.returnsObjectsAsFaults = false
             let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
             dataSource = CollectionViewDataSource.init(collectionView: collectionView, cellIdentifier: GridViewCell.cellId, fetchedResultsController: frc, delegate: self)

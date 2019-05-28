@@ -14,11 +14,10 @@ import UIKit
  */
 class UploadWillTerminateObserver: NSObject, OperationObserver {
     // MARK: Properties
+    private var collection: Collection?
     
-    private var group: Group?
-    
-    init(withGroup group: Group?) {
-        self.group = group
+    init(withCollection collection: Collection?) {
+        self.collection = collection
         
         super.init()
         
@@ -39,7 +38,7 @@ class UploadWillTerminateObserver: NSObject, OperationObserver {
             else { return }
         
         moc.performChangesAndWait { [weak self] in
-            self?.group?.saveState()
+            self?.collection?.saveState()
         }
     }
     

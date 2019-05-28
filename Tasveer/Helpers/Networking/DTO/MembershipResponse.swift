@@ -9,12 +9,12 @@
 import Foundation
 
 struct MembershipResponse: Codable {
-    let groupId: Int
+    let collectionId: Int
     let userId: Int
     let createdAt: Date
     
     enum CodingKeys: String, CodingKey {
-        case groupId = "group_id"
+        case collectionId = "collection_id"
         case userId = "user_id"
         case createdAt = "created_at"
     }
