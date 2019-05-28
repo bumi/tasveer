@@ -99,6 +99,24 @@ This includes the collection details and the user specific filter details.
   }
 ```
 
+## Invitations
+
+### Object
+```
+  {
+    "identifier": "inv-xxx",
+    "email": "recipient@example.com",
+    "collection_id": "cln-xxx",
+    "sender_id": "usr-xxx",
+    "accepted_at": "2019-05-11T14:41:30.408Z",
+    "user_id": "usr-xxx-invited-xxx"
+  }
+```
+
+### PUT /invitations/[id]/accept
+Accepts the invitation by the current authenticated user and a new membership for the current user is created to join the collection.
+
+
 ## Photos
 
 ### Object
