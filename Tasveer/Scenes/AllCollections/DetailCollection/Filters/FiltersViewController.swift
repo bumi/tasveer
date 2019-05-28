@@ -58,6 +58,7 @@ final class FiltersViewController: UITableViewController {
         fetchAlbums()
         setupPickModel()
         setupCancel()
+        validateNewFilter()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,8 +144,17 @@ final class FiltersViewController: UITableViewController {
         navigationItem.leftBarButtonItem = cancel
     }
     
+    private func validateNewFilter() {
+        guard collection == nil
+            else { return }
+        
+        saveTimeframe(forPicker: fromPicker, dueDate: Date())
+    }
+    
     // Save when Collection were existing already
     private func saveExistingFilter() {
+        guard preSaveValidate() else { return }
+        
         filterModel.save(intoFilter: collection!.filter)
         savedCallback?(collection!) // This method is called only when collection is defined
         navigationController?.popViewController(animated: true)
@@ -152,6 +162,8 @@ final class FiltersViewController: UITableViewController {
     
     // Save when Collection is created now
     private func saveNewFilter() {
+        guard preSaveValidate() else { return }
+        
         MBProgressHUD.showAdded(to: view, animated: true)
         
         let operation = CreateAndSaveCollectionOperation(filterModel: filterModel) { [weak self] (collection) in
@@ -165,23 +177,39 @@ final class FiltersViewController: UITableViewController {
         queue.addOperation(operation)
     }
     
+    private func preSaveValidate() -> Bool {
+        if let error = filterModel.validate() {
+            let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            navigationController?.present(alert, animated: true, completion: nil)
+            return false
+        }
+        
+        return true
+    }
+    
+    // Call this either initially on load or when datePicker is picked
+    private func saveTimeframe(forPicker picker: UIDatePicker, dueDate date: Date) {
+        let formatter = DateFormatter.filterStyle
+        
+        switch picker {
+        case fromPicker:
+            fromTimeframe.text = formatter.string(from: date)
+            filterModel.fromDate = date
+        case toPicker:
+            toTimeframe.text = formatter.string(from: date)
+            filterModel.toDate = date
+        default:
+            break
+        }
+    }
+    
     @objc private func doneAction(_ sender: UIBarButtonItem) {
         view.firstResponder?.resignFirstResponder()
     }
     
     @objc private func dateIsPicked(_ sender: UIDatePicker) {
-        let formatter = DateFormatter.filterStyle
-        
-        switch sender {
-        case fromPicker:
-            fromTimeframe.text = formatter.string(from: sender.date)
-            filterModel.fromDate = sender.date
-        case toPicker:
-            toTimeframe.text = formatter.string(from: sender.date)
-            filterModel.toDate = sender.date
-        default:
-            break
-        }
+        saveTimeframe(forPicker: sender, dueDate: sender.date)
     }
     
     @objc private func cancel(_ sender: UIBarButtonItem) {

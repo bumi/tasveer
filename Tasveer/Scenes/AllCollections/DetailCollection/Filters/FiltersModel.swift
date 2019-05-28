@@ -85,6 +85,10 @@ final class FiltersModel {
     var toDate: Date?
     var isFavorite: Bool
     
+    private var isEmpty: Bool {
+        return fromDate == nil && toDate == nil && !isFavorite
+    }
+    
     init(with filter: Filter) {
         self.pickedAlbum = filter.albumValue
         self.isFavorite = filter.isFavorite
@@ -108,4 +112,13 @@ final class FiltersModel {
         }
     }
     
+    // If any error occurs, it will be returned as String.
+    // If no errors available, nil will be returned
+    func validate() -> String? {
+        if pickedAlbum == .allPhotos, isEmpty {
+            return "Can't add filter for All Photos without any defined properties."
+        }
+        
+        return nil
+    }
 }
