@@ -103,6 +103,45 @@ extension AllCollectionsViewController: UITableViewDelegate {
         let collection = dataSource?.objectAtIndexPath(indexPath)
         showCollection(collection: collection)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, handler in
+            DispatchQueue.main.async {
+                self?.delete(at: indexPath) { deleted in
+                    handler(deleted)
+                }
+            }
+        }
+        delete.backgroundColor = CollectionColors.red
+        
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    private func delete(at indexPath: IndexPath, completion: @escaping (_ deleted: Bool) -> Void) {
+        let title = "Are you sure you want to delete this collection?"
+        let message = "All photos will be permanently deleted."
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            completion(false)
+        }))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            guard let collection = self?.dataSource?.objectAtIndexPath(indexPath),
+                collection.syncStateValue != .syncing,
+                let moc = PersistentStoreManager.shared.moc
+                else {
+                    completion(false)
+                    return
+            }
+            
+            moc.performChanges {
+                moc.delete(collection)
+                completion(true)
+            }
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension AllCollectionsViewController: TableViewDataSourceDelegate {
