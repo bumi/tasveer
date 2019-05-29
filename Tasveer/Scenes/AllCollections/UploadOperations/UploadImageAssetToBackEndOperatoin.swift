@@ -47,7 +47,6 @@ final class UploadImageAssetToBackEndOperation: Operation {
         let request = API.uploadPhoto(collectionId: asset?.group.identifier ?? "")
         Alamofire.upload(multipartFormData: { (formData) in
             formData.append(data, withName: "photo[file]", fileName: "image.png", mimeType: "image/png")
-            // formData.append("Test Caption".data(using: .utf8)!, withName: "photo[caption]")
         }, with: request) { [weak self] (encodingResult) in
             switch encodingResult {
             case .success(let uploadRequest, _, _):
