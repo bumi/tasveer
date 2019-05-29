@@ -108,7 +108,7 @@
 		B2954BB9227C993200B8D37C /* AllCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2954BB8227C993200B8D37C /* AllCollectionCell.xib */; };
 		B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */; };
 		B2954BC0227C9E2A00B8D37C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BBF227C9E2A00B8D37C /* User.swift */; };
-		B2954BC2227C9F6100B8D37C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BC1227C9F6100B8D37C /* Group.swift */; };
+		B2954BC2227C9F6100B8D37C /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954BC1227C9F6100B8D37C /* Collection.swift */; };
 		B2BE421922943C78008DA778 /* UploadWillTerminateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */; };
 		B2BE421B22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE421A22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift */; };
 		B2D67493229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D67492229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift */; };
@@ -222,7 +222,7 @@
 		B2954BB8227C993200B8D37C /* AllCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllCollectionCell.xib; sourceTree = "<group>"; };
 		B2954BBB227C9B5100B8D37C /* UIView+identificators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+identificators.swift"; sourceTree = "<group>"; };
 		B2954BBF227C9E2A00B8D37C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B2954BC1227C9F6100B8D37C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		B2954BC1227C9F6100B8D37C /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		B2BE421822943C78008DA778 /* UploadWillTerminateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadWillTerminateObserver.swift; sourceTree = "<group>"; };
 		B2BE421A22943E8C008DA778 /* UploadImageAssetToBackEndOperatoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageAssetToBackEndOperatoin.swift; sourceTree = "<group>"; };
 		B2D67492229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAllImageAssetsToBackEndOperation.swift; sourceTree = "<group>"; };
@@ -664,7 +664,7 @@
 			isa = PBXGroup;
 			children = (
 				B2954BBF227C9E2A00B8D37C /* User.swift */,
-				B2954BC1227C9F6100B8D37C /* Group.swift */,
+				B2954BC1227C9F6100B8D37C /* Collection.swift */,
 				B2361677228999E600B6AC3B /* Filter.swift */,
 				B237ABD1228C49DA00191FDC /* Photo.swift */,
 				B26D9CA52292D3C7003B1133 /* UploadTask.swift */,
@@ -869,7 +869,7 @@
 			files = (
 				B237ABD2228C49DA00191FDC /* Photo.swift in Sources */,
 				B21CC4312280147C00114ACC /* PersistentStoreManager.swift in Sources */,
-				B2954BC2227C9F6100B8D37C /* Group.swift in Sources */,
+				B2954BC2227C9F6100B8D37C /* Collection.swift in Sources */,
 				B21CC4422280346900114ACC /* AppDelegateManager.swift in Sources */,
 				B23FA0C22284A1B00079A0B5 /* PickAlbumViewController.swift in Sources */,
 				B28159612281A9FC00F09F6F /* CollectionPeopleViewController.swift in Sources */,

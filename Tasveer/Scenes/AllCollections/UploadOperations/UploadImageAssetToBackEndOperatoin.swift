@@ -44,7 +44,7 @@ final class UploadImageAssetToBackEndOperation: Operation {
     }
     
     private func buildRequest(fileData data: Data) {
-        let request = API.uploadPhoto(collectionId: asset?.group.identifier ?? "")
+        let request = API.uploadPhoto(collectionId: asset?.collection.identifier ?? "")
         Alamofire.upload(multipartFormData: { (formData) in
             formData.append(data, withName: "photo[file]", fileName: "image.png", mimeType: "image/png")
             formData.append("Test Caption".data(using: .utf8)!, withName: "photo[caption]")

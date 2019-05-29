@@ -10,11 +10,11 @@ import Foundation
 import CoreData
 
 final class StartUploadingCollectionOperation: GroupOperation {
-    let collection: Group?
+    let collection: Collection?
     
     @objc dynamic let progress: Progress
     
-    init(with collection: Group?) {
+    init(with collection: Collection?) {
         self.collection = collection
         self.progress = Progress(totalUnitCount: collection?.totalUnitsToBeUploaded ?? 0)
         
@@ -22,7 +22,7 @@ final class StartUploadingCollectionOperation: GroupOperation {
         
         startOrResume()
         
-        name = "Start Uploading Group"
+        name = "Start Uploading Collection"
         
         progress.addObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted), options: [.new], context: nil)
     }
@@ -46,7 +46,7 @@ final class StartUploadingCollectionOperation: GroupOperation {
             else { fatalError() }
         
         moc.performChanges {
-            self.collection?.syncStateValue = GroupSyncState.syncing
+            self.collection?.syncStateValue = CollectionSyncState.syncing
         }
         
         super.execute()
@@ -80,7 +80,7 @@ final class StartUploadingCollectionOperation: GroupOperation {
             let backgroundObserver = BackgroundObserver()
             addObserver(backgroundObserver)
             
-            let terminateObserver = UploadWillTerminateObserver(withGroup: collection)
+            let terminateObserver = UploadWillTerminateObserver(withCollection: collection)
             addObserver(terminateObserver)
         }
     }

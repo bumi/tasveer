@@ -9,20 +9,20 @@
 import Foundation
 
 final class UploadAllImageAssetsToBackEndOperation: GroupOperation {
-    private let group: Group?
+    private let collection: Collection?
     private var uploadOperations: [UploadImageAssetToBackEndOperation]
     
-    init(with group: Group?, withProgress parentProgress: Progress) {
-        self.group = group
+    init(with collection: Collection?, withProgress parentProgress: Progress) {
+        self.collection = collection
         
-        let totalPhotos = group?.unfinishedPhotoUploads ?? 0
+        let totalPhotos = collection?.unfinishedPhotoUploads ?? 0
         let childProgress = Progress(totalUnitCount: totalPhotos,
                                      parent: parentProgress,
                                      pendingUnitCount: totalPhotos)
         
         var operations: [UploadImageAssetToBackEndOperation] = []
         
-        let images = (group?.photos ?? []).sorted(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending })
+        let images = (collection?.photos ?? []).sorted(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending })
         for image in images where image.statusValue != .success {
             let operation = UploadImageAssetToBackEndOperation(withPhoto: image, parentProgress: childProgress)
             operations.append(operation)
@@ -30,7 +30,7 @@ final class UploadAllImageAssetsToBackEndOperation: GroupOperation {
             operation.addCompletionBlock {
                 let moc = PersistentStoreManager.shared.moc
                 moc?.performChanges {
-                    group?.task?.updateTask(assetUploaded: image.assetIdentifier)
+                    collection?.task?.updateTask(assetUploaded: image.assetIdentifier)
                 }
             }
         }

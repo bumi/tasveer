@@ -9,18 +9,18 @@
 import Foundation
 
 final class CollectionPeopleModel {
-    let group: Group?
+    let collection: Collection?
     var emails: [String] = []
     
-    init(withGroup group: Group?) {
-        self.group = group
+    init(withCollection collection: Collection?) {
+        self.collection = collection
         populate()
     }
     
     private func populate() {
-        guard let group = group else { return }
+        guard let collection = collection else { return }
         
-        let users = Array(group.users)
+        let users = Array(collection.users)
         emails = users.compactMap({ $0.email })
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 final class CollectionPeopleViewController: UIViewController {
-    var group: Group?
+    var collection: Collection?
     
     @IBOutlet fileprivate weak var tableView: UITableView!
     
@@ -18,7 +18,7 @@ final class CollectionPeopleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = CollectionPeopleModel(withGroup: group)
+        model = CollectionPeopleModel(withCollection: collection)
         setupTableView()
     }
     

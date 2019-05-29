@@ -9,14 +9,14 @@
 import Photos
 
 final class FetchPhotosByFilterOperation: Operation {
-    private let groupFilter: Filter
+    private let collectionFilter: Filter
     
     private let manager = PHImageManager.default()
     
     var fetchResult: PHFetchResult<PHAsset>?
     
-    init(withGroupFilter groupFilter: Filter) {
-        self.groupFilter = groupFilter
+    init(withCollectionFilter collectionFilter: Filter) {
+        self.collectionFilter = collectionFilter
         
         super.init()
         
@@ -26,7 +26,7 @@ final class FetchPhotosByFilterOperation: Operation {
     }
     
     override func execute() {
-        let album = groupFilter.albumValue
+        let album = collectionFilter.albumValue
         switch album {
         case .allPhotos:
             fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions())
@@ -39,18 +39,17 @@ final class FetchPhotosByFilterOperation: Operation {
         
         let moc = PersistentStoreManager.shared.moc
         
-        self.groupFilter.group.preFilterCleanup(forMoc: moc)
+        self.collectionFilter.collection.preFilterCleanup(forMoc: moc)
         
         moc?.performChangesAndWait {
             for i in 0..<(self.fetchResult?.count ?? 0) {
                 if let obj = self.fetchResult?.object(at: i) {
-                    Photo.insertNewPhoto(into: moc!, fromAsset: obj, forCollection: self.groupFilter.group)
+                    Photo.insertNewPhoto(into: moc!, fromAsset: obj, forCollection: self.collectionFilter.collection)
                 }
             }
         }
-        
         // new photos will be added
-        NotificationCenter.default.post(name: NSNotification.Name("NewCollectionInserted"), object: nil, userInfo: ["insertedCollection": groupFilter.group])
+        NotificationCenter.default.post(name: NSNotification.Name("NewCollectionInserted"), object: nil, userInfo: ["insertedCollection": collectionFilter.collection])
         
         finish()
     }
@@ -78,13 +77,13 @@ final class FetchPhotosByFilterOperation: Operation {
     private func compoundedPredicates() -> NSPredicate? {
         var predicates: [NSPredicate] = []
         
-        if groupFilter.isFavorite {
+        if collectionFilter.isFavorite {
             predicates.append(NSPredicate(format: "favorite == YES"))
         }
-        if let fromTime = groupFilter.fromTime {
+        if let fromTime = collectionFilter.fromTime {
             predicates.append(NSPredicate(format: "creationDate >= %@", fromTime as CVarArg))
         }
-        if let toTime = groupFilter.toTime {
+        if let toTime = collectionFilter.toTime {
             predicates.append(NSPredicate(format: "creationDate <= %@", toTime as CVarArg))
         }
         

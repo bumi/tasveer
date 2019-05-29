@@ -9,13 +9,13 @@
 import Foundation
 
 final class SaveCollectionResponseOperation: Operation {
-    var collection: CollectionResponse!
+    var collectionResponse: CollectionResponse!
     
     private let filterModel: FiltersModel
-    private var group: Group!
-    private let createdCollection: (Group) -> Void
+    private var collection: Collection!
+    private let createdCollection: (Collection) -> Void
     
-    init(filterModel: FiltersModel, createdCollection: @escaping (Group) -> Void) {
+    init(filterModel: FiltersModel, createdCollection: @escaping (Collection) -> Void) {
         self.filterModel = filterModel
         self.createdCollection = createdCollection
         
@@ -29,11 +29,11 @@ final class SaveCollectionResponseOperation: Operation {
             else { finishWithError(NSError(code: .executionFailed)); return }
         
         moc.performChangesAndWait {
-            self.group = Group.insertNew(into: moc, fromCollection: self.collection, filter: self.filterModel)
+            self.collection = Collection.insertNew(into: moc, fromCollection: self.collectionResponse, filter: self.filterModel)
         }
         
         // Throw back created collection
-        createdCollection(group)
+        createdCollection(collection)
         
         finish()
     }

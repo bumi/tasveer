@@ -27,7 +27,7 @@ final class AllCollectionsViewController: UIViewController {
         setupFloatingButton()
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name("NewCollectionInserted"), object: nil, queue: nil) { [weak self] (note) in
-            if let collection = note.userInfo?["insertedCollection"] as? Group {
+            if let collection = note.userInfo?["insertedCollection"] as? Collection {
                 DispatchQueue.main.async {
                     self?.startUploading(for: collection)
                 }
@@ -53,7 +53,7 @@ final class AllCollectionsViewController: UIViewController {
         
         guard let moc = PersistentStoreManager.shared.moc
             else { return }
-        let request = Group.sortedFetchRequest
+        let request = Collection.sortedFetchRequest
         request.fetchBatchSize = 20
         request.returnsObjectsAsFaults = false
         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
@@ -63,7 +63,7 @@ final class AllCollectionsViewController: UIViewController {
                                               delegate: self)
     }
     
-    private func setupUploadsIfNeeded(forObjects objects: [Group]?) {
+    private func setupUploadsIfNeeded(forObjects objects: [Collection]?) {
         guard let objects = objects else { return }
         model.startUploadIfNeeded(for: objects)
     }
@@ -74,7 +74,7 @@ final class AllCollectionsViewController: UIViewController {
         floatingButton?.setImage(plusImage, for: .normal)
         floatingButton?.backgroundColor = UIColor.darkGray
         floatingButton?.translatesAutoresizingMaskIntoConstraints = false
-        floatingButton?.addTarget(self, action: #selector(showCreateNewGroup), for: .touchUpInside)
+        floatingButton?.addTarget(self, action: #selector(showCreateNewCollection), for: .touchUpInside)
         
         view.addSubview(floatingButton!)
         
@@ -82,13 +82,13 @@ final class AllCollectionsViewController: UIViewController {
         floatingButton?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
     }
     
-    private func showCollection(group: Group?) {
-        let openScene = OpenCollectionDetailSceneOperation(withGroup: group)
+    private func showCollection(collection: Collection?) {
+        let openScene = OpenCollectionDetailSceneOperation(withCollection: collection)
         queue.addOperation(openScene)
     }
     
-    @objc private func showCreateNewGroup() {
-        showCollection(group: nil)
+    @objc private func showCreateNewCollection() {
+        showCollection(collection: nil)
     }
 }
 
@@ -100,13 +100,13 @@ extension AllCollectionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let group = dataSource?.objectAtIndexPath(indexPath)
-        showCollection(group: group)
+        let collection = dataSource?.objectAtIndexPath(indexPath)
+        showCollection(collection: collection)
     }
 }
 
 extension AllCollectionsViewController: TableViewDataSourceDelegate {
-    func configure(_ cell: AllCollectionCell, for object: Group) {
+    func configure(_ cell: AllCollectionCell, for object: Collection) {
         cell.setup(with: object)
         
         cell.didTapResume = { [weak self, weak object] in
@@ -130,7 +130,7 @@ extension AllCollectionsViewController: TableViewDataSourceDelegate {
 }
 
 extension AllCollectionsViewController {
-    private func startUploading(for collection: Group?) {
+    private func startUploading(for collection: Collection?) {
         model.startUpload(for: collection)
     }
 }

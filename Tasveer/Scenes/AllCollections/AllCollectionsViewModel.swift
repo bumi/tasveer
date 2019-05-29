@@ -11,15 +11,15 @@ import Foundation
 final class AllCollectionsViewModel {
     private let queue = OperationQueue()
     
-    func startUploadIfNeeded(for objects: [Group?]) {
-        let groups = objects.compactMap{ $0 }
-        for obj in groups where obj.syncStateValue == .none || (obj.syncStateValue == .syncing && obj.task?.isPaused == true) {
+    func startUploadIfNeeded(for objects: [Collection?]) {
+        let collections = objects.compactMap{ $0 }
+        for obj in collections where obj.syncStateValue == .none || (obj.syncStateValue == .syncing && obj.task?.isPaused == true) {
             let operation = StartUploadingCollectionOperation(with: obj)
             queue.addOperation(operation)
         }
     }
     
-    func startUpload(for object: Group?) {
+    func startUpload(for object: Collection?) {
         let operation = StartUploadingCollectionOperation(with: object)
         queue.addOperation(operation)
     }

@@ -1,5 +1,5 @@
 //
-//  GroupResponse.swift
+//  CollectionResponse.swift
 //  Tasveer
 //
 //  Created by Haik Ampardjian on 5/3/19.
