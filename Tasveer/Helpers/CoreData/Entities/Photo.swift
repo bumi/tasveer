@@ -68,7 +68,7 @@ extension Photo {
         newPhoto.statusValue = .none
         newPhoto.assetIdentifier = asset.localIdentifier
         newPhoto.userId = userId
-        newPhoto.createdAt = Date()
+        newPhoto.createdAt = asset.creationDate ?? Date()
         
         newPhoto.collection = collection
         
