@@ -170,7 +170,7 @@ final class CollectionDetailViewController: UIViewController {
     
     @objc private func applyFilter() {
         if let filter = collection?.filter {
-            let operation = FetchPhotosByFilterOperation(withCollectionFilter: filter)
+            let operation = ApplyFilterOperation(withCollectionFilter: filter)
             queue.addOperation(operation)
         }
     }

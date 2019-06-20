@@ -13,10 +13,13 @@ final class FetchPhotosByFilterOperation: Operation {
     
     private let manager = PHImageManager.default()
     
+    private var resultFetched: ((PHFetchResult<PHAsset>?) -> Void)?
+    
     var fetchResult: PHFetchResult<PHAsset>?
     
-    init(withCollectionFilter collectionFilter: Filter) {
+    init(withCollectionFilter collectionFilter: Filter, resultFetched: ((PHFetchResult<PHAsset>?) -> Void)?) {
         self.collectionFilter = collectionFilter
+        self.resultFetched = resultFetched
         
         super.init()
         
@@ -37,19 +40,7 @@ final class FetchPhotosByFilterOperation: Operation {
             }
         }
         
-        let moc = PersistentStoreManager.shared.moc
-        
-        self.collectionFilter.collection.preFilterCleanup(forMoc: moc)
-        
-        moc?.performChangesAndWait {
-            for i in 0..<(self.fetchResult?.count ?? 0) {
-                if let obj = self.fetchResult?.object(at: i) {
-                    Photo.insertNewPhoto(into: moc!, fromAsset: obj, forCollection: self.collectionFilter.collection)
-                }
-            }
-        }
-        // new photos will be added
-        NotificationCenter.default.post(name: NSNotification.Name("NewCollectionInserted"), object: nil, userInfo: ["insertedCollection": collectionFilter.collection])
+        resultFetched?(fetchResult)
         
         finish()
     }

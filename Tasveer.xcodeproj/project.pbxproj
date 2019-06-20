@@ -39,6 +39,8 @@
 		B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */; };
 		B23FA0BF228453FD0079A0B5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0BE228453FD0079A0B5 /* TextField.swift */; };
 		B23FA0C22284A1B00079A0B5 /* PickAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */; };
+		B25EB8C522BC294300F508F0 /* ApplyFilterOpertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EB8C422BC294300F508F0 /* ApplyFilterOpertion.swift */; };
+		B25EB8C722BC29B900F508F0 /* StoreNewPhotosIntoDatabaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EB8C622BC29B900F508F0 /* StoreNewPhotosIntoDatabaseOperation.swift */; };
 		B2604B7A228B7B01005CFEDF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B79228B7B01005CFEDF /* AuthManager.swift */; };
 		B2604B7D228B7EB7005CFEDF /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2604B7C228B7EB7005CFEDF /* Auth.storyboard */; };
 		B2604B7F228B7ED7005CFEDF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */; };
@@ -151,6 +153,8 @@
 		B23FA0BB22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAlbumNamesOperation.swift; sourceTree = "<group>"; };
 		B23FA0BE228453FD0079A0B5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		B23FA0C12284A1B00079A0B5 /* PickAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAlbumViewController.swift; sourceTree = "<group>"; };
+		B25EB8C422BC294300F508F0 /* ApplyFilterOpertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFilterOpertion.swift; sourceTree = "<group>"; };
+		B25EB8C622BC29B900F508F0 /* StoreNewPhotosIntoDatabaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreNewPhotosIntoDatabaseOperation.swift; sourceTree = "<group>"; };
 		B2604B79228B7B01005CFEDF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B2604B7C228B7EB7005CFEDF /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		B2604B7E228B7ED7005CFEDF /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -291,7 +295,9 @@
 			isa = PBXGroup;
 			children = (
 				B21CC43C22802ED700114ACC /* OpenFiltersSceneOperation.swift */,
+				B25EB8C422BC294300F508F0 /* ApplyFilterOpertion.swift */,
 				B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */,
+				B25EB8C622BC29B900F508F0 /* StoreNewPhotosIntoDatabaseOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -885,6 +891,7 @@
 				B2954BA6227C926100B8D37C /* NSLock+Operations.swift in Sources */,
 				B2954B8F227C926100B8D37C /* ExclusivityController.swift in Sources */,
 				B21CC4402280303E00114ACC /* FiltersViewController.swift in Sources */,
+				B25EB8C722BC29B900F508F0 /* StoreNewPhotosIntoDatabaseOperation.swift in Sources */,
 				B281596E2281B4C900F09F6F /* ButtonCell.swift in Sources */,
 				B21CC43D22802ED700114ACC /* OpenFiltersSceneOperation.swift in Sources */,
 				B2954B95227C926100B8D37C /* DelayOperation.swift in Sources */,
@@ -923,6 +930,7 @@
 				B21CC4332280175E00114ACC /* AppManager.swift in Sources */,
 				B2604B81228B7F26005CFEDF /* AuthOperation.swift in Sources */,
 				B2954B5F227C895200B8D37C /* CollectionResponse.swift in Sources */,
+				B25EB8C522BC294300F508F0 /* ApplyFilterOpertion.swift in Sources */,
 				B2954BA5227C926100B8D37C /* OperationErrors.swift in Sources */,
 				B21CC423228012C300114ACC /* CoreDataContextObserver.swift in Sources */,
 				B21CC43522801A3F00114ACC /* NSManagedObjectContext+cache.swift in Sources */,
