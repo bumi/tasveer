@@ -26,6 +26,9 @@ final class AllCollectionsViewController: UIViewController {
         setupTableView()
         setupFloatingButton()
         
+        // Fetch new photos on launch if needed
+        fetchNewPhotosIfNeeded(forObjects: dataSource?.fetchedResultsController.fetchedObjects)
+        
         NotificationCenter.default.addObserver(forName: NSNotification.Name("NewCollectionInserted"), object: nil, queue: nil) { [weak self] (note) in
             if let collection = note.userInfo?["insertedCollection"] as? Collection {
                 DispatchQueue.main.async {
@@ -61,6 +64,11 @@ final class AllCollectionsViewController: UIViewController {
                                               cellIdentifier: AllCollectionCell.cellId,
                                               fetchedResultsController: frc,
                                               delegate: self)
+    }
+    
+    private func fetchNewPhotosIfNeeded(forObjects objects: [Collection]?) {
+        guard let objects = objects else { return }
+        model.fetchNewPhotosIfNeeded(for: objects)
     }
     
     private func setupUploadsIfNeeded(forObjects objects: [Collection]?) {

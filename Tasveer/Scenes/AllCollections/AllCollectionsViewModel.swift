@@ -11,12 +11,27 @@ import Foundation
 final class AllCollectionsViewModel {
     private let queue = OperationQueue()
     
-    func startUploadIfNeeded(for objects: [Collection?]) {
+    func fetchNewPhotosIfNeeded(for objects: [Collection?]) {
         let collections = objects.compactMap{ $0 }
-        for obj in collections where obj.syncStateValue == .none || (obj.syncStateValue == .syncing && obj.task?.isPaused == true) {
-            let operation = StartUploadingCollectionOperation(with: obj)
-            queue.addOperation(operation)
+        
+        let fetch = FetchNewPhotosForAllCollectionsOperation(withCollections: collections)
+        let upload = StartUploadingCollectionsOperation(withCollections: collections)
+        upload.addDependency(fetch)
+        
+        fetch.addCompletionBlock {
+            debugPrint("Fetch is completed")
         }
+        
+        queue.addOperation(fetch)
+        queue.addOperation(upload)
+    }
+    
+    func startUploadIfNeeded(for objects: [Collection?]) {
+        guard queue.operationCount <= 0 else { return }
+        
+        let collections = objects.compactMap{ $0 }
+        let operation = StartUploadingCollectionsOperation(withCollections: collections)
+        queue.addOperation(operation)
     }
     
     func startUpload(for object: Collection?) {

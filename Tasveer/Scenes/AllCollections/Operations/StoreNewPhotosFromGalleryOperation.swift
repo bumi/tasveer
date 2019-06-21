@@ -32,9 +32,9 @@ final class StoreNewPhotosFromGalleryOperation: Operation {
                 .sorted(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending })
                 .last?.createdAt ?? Date(timeIntervalSince1970: 0)
             
-            for i in 0..<fetchResult.count {
+            for i in (0..<fetchResult.count).reversed() {
                 let phAsset = fetchResult.object(at: i)
-                if phAsset.creationDate!.compare(lastPhotoDate) == .orderedAscending {
+                if phAsset.creationDate!.compare(lastPhotoDate) == .orderedDescending {
                     assets.append(phAsset)
                 } else {
                     break
@@ -44,12 +44,18 @@ final class StoreNewPhotosFromGalleryOperation: Operation {
             let moc = PersistentStoreManager.shared.moc
             
             moc?.performChangesAndWait {
+                if !assets.isEmpty {
+                    self.collection.syncStateValue = .none
+                }
+                
                 for phAsset in assets {
                     Photo.insertNewPhoto(into: moc!, fromAsset: phAsset, forCollection: self.collection)
                 }
+                
+                self.finish()
             }
+        } else {
+            finish()
         }
-        
-        finish()
     }
 }
