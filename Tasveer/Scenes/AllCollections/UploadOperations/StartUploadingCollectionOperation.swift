@@ -77,7 +77,7 @@ final class StartUploadingCollectionOperation: GroupOperation {
         let isNew = createNewTaskIfNeeded(inMoc: moc)
         
         if let _ = uploadPhotosIsNeeded(isNewTask: isNew, inMoc: moc) {
-            DispatchQueue.main.sync {
+            runOnMain {
                 let backgroundObserver = BackgroundObserver()
                 self.addObserver(backgroundObserver)
             }
