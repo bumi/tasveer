@@ -43,9 +43,10 @@ final class StoreNewPhotosFromGalleryOperation: Operation {
             
             let moc = PersistentStoreManager.shared.moc
             
-            moc?.performChangesAndWait {
+            moc?.performChanges {
                 if !assets.isEmpty {
                     self.collection.syncStateValue = .none
+                    self.collection.removeTask(forMoc: moc)
                 }
                 
                 for phAsset in assets {
