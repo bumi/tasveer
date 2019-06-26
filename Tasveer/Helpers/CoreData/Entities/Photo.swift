@@ -25,6 +25,7 @@ final class Photo: NSManagedObject {
     @NSManaged fileprivate(set) var status: String
     @NSManaged fileprivate(set) var assetIdentifier: String?
     @NSManaged fileprivate(set) var identifier: String?
+    @NSManaged fileprivate(set) var collectionId: String
     @NSManaged fileprivate(set) var caption: String?
     @NSManaged fileprivate(set) var width: NSNumber?
     @NSManaged fileprivate(set) var height: NSNumber?
@@ -67,8 +68,9 @@ extension Photo {
         newPhoto.typeValue = .local
         newPhoto.statusValue = .none
         newPhoto.assetIdentifier = asset.localIdentifier
+        newPhoto.collectionId = collection.identifier
         newPhoto.userId = userId
-        newPhoto.createdAt = Date()
+        newPhoto.createdAt = asset.creationDate ?? Date()
         
         newPhoto.collection = collection
         
@@ -80,6 +82,7 @@ extension Photo {
         newPhoto.typeValue = .global
         newPhoto.statusValue = .none
         newPhoto.identifier = photo.identifier
+        newPhoto.collectionId = collection.identifier
         newPhoto.caption = photo.caption
         newPhoto.userId = photo.userId
         newPhoto.createdAt = Date()

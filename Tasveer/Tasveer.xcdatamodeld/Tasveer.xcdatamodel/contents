@@ -24,6 +24,7 @@
     <entity name="Photo" representedClassName=".Photo" syncable="YES">
         <attribute name="assetIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="collectionId" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="filePreview" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="fileUrl" optional="YES" attributeType="URI" syncable="YES"/>
@@ -37,6 +38,7 @@
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="assetIdentifier"/>
+                <constraint value="collectionId"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
@@ -60,7 +62,7 @@
     <elements>
         <element name="Collection" positionX="-63" positionY="-18" width="128" height="195"/>
         <element name="Filter" positionX="-63" positionY="36" width="128" height="150"/>
-        <element name="Photo" positionX="-54" positionY="72" width="128" height="225"/>
+        <element name="Photo" positionX="-54" positionY="72" width="128" height="240"/>
         <element name="UploadAsset" positionX="-45" positionY="135" width="128" height="90"/>
         <element name="UploadTask" positionX="-54" positionY="126" width="128" height="90"/>
         <element name="User" positionX="-54" positionY="-9" width="128" height="120"/>

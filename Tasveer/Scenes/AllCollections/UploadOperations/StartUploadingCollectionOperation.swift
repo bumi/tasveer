@@ -77,8 +77,10 @@ final class StartUploadingCollectionOperation: GroupOperation {
         let isNew = createNewTaskIfNeeded(inMoc: moc)
         
         if let _ = uploadPhotosIsNeeded(isNewTask: isNew, inMoc: moc) {
-            let backgroundObserver = BackgroundObserver()
-            addObserver(backgroundObserver)
+            runOnMain {
+                let backgroundObserver = BackgroundObserver()
+                self.addObserver(backgroundObserver)
+            }
             
             let terminateObserver = UploadWillTerminateObserver(withCollection: collection)
             addObserver(terminateObserver)
