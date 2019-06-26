@@ -48,6 +48,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rq1-uo-2c4" id="k2C-jj-DR1"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
