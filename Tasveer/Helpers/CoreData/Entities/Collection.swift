@@ -126,4 +126,9 @@ extension Collection {
     func updateProgress(value: Float) {
         uploadProgress = value
     }
+    
+    // Update the name
+    func updateName(text: String) {
+        name = text
+    }
 }
