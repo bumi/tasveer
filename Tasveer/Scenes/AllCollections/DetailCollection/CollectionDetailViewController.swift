@@ -19,6 +19,7 @@ final class CollectionDetailViewController: UIViewController {
     
     @IBOutlet fileprivate weak var segmentPicker: UISegmentedControl!
     @IBOutlet fileprivate weak var containerView: UIView!
+    @IBOutlet fileprivate weak var collectionName: UITextField!
     
     private let queue = OperationQueue()
     
