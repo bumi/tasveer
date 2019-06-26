@@ -136,6 +136,7 @@ final class CollectionDetailViewController: UIViewController {
                         else { return }
                     self?.oldCollectionState = updatedCollection.syncStateValue
                     self?.updateTitle(collection: updatedCollection)
+                    self?.collectionName.text = updatedCollection.name
                 }
             }
         }
