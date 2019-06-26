@@ -21,6 +21,9 @@ final class CollectionDetailViewController: UIViewController {
     @IBOutlet fileprivate weak var containerView: UIView!
     @IBOutlet fileprivate weak var collectionName: UITextField!
     
+    // Constant title
+    private let collectionDetailTitle = "Collection"
+    
     private let queue = OperationQueue()
     
     private var people: CollectionPeopleViewController!
@@ -46,8 +49,8 @@ final class CollectionDetailViewController: UIViewController {
         // Setup textfield
         setupNameTextField()
         
-        // Show title
-        updateTitle(collection: collection)
+        // Setup title
+        addTitle(showActivity: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -143,13 +146,13 @@ final class CollectionDetailViewController: UIViewController {
         
         switch collection.syncStateValue {
         case .none, .synced:
-            addTitle(withText: collection.name, showActivity: false)
+            addTitle(showActivity: false)
         case .syncing:
-            addTitle(withText: collection.name, showActivity: true)
+            addTitle(showActivity: true)
         }
     }
     
-    private func addTitle(withText text: String, showActivity: Bool) {
+    private func addTitle(showActivity: Bool) {
         let activityIndicatorView = UIActivityIndicatorView(style: .gray)
         let activitySize: CGSize = showActivity ? CGSize(width: 14, height: 14) : .zero
         activityIndicatorView.frame = CGRect(origin: .zero, size: activitySize)
@@ -157,7 +160,7 @@ final class CollectionDetailViewController: UIViewController {
         activityIndicatorView.startAnimating()
         
         let titleLabel = UILabel()
-        titleLabel.text = text
+        titleLabel.text = collectionDetailTitle
         titleLabel.font = UIFont.systemFont(ofSize: 18.0)
         
         let fittingSize = titleLabel.sizeThatFits(CGSize(width: 200.0, height: activityIndicatorView.frame.size.height))
