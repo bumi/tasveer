@@ -23,6 +23,10 @@ extension API {
     static func createCollection(_ params: Parameters) -> DataRequest {
         return Alamofire.request(router.collections(.create(params: params)))
     }
+    
+    static func editCollection(_ params: Parameters, identifier: String) -> DataRequest {
+        return Alamofire.request(router.collections(.edit(identifier: identifier, params: params)))
+    }
 }
 
 // Photos

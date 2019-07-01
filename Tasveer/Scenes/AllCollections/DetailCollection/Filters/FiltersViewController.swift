@@ -163,9 +163,18 @@ final class FiltersViewController: UITableViewController {
     private func saveExistingFilter() {
         guard preSaveValidate() else { return }
         
-        filterModel.save(intoFilter: collection!.filter)
-        savedCallback?(collection!) // This method is called only when collection is defined
-        navigationController?.popViewController(animated: true)
+        MBProgressHUD.showAdded(to: view, animated: true)
+        
+        let operation = SaveAndUpdateExistingFilterOperation(filterModel: filterModel, and: collection!)
+        operation.addCompletionBlock { [weak self] in
+            self?.savedCallback?(self!.collection!)
+            DispatchQueue.main.async {
+                MBProgressHUD.hide(for: self!.view, animated: true)
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        queue.addOperation(operation)
     }
     
     // Save when Collection is created now
