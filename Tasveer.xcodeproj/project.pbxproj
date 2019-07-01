@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2EE8026DD1CDCAD57918D0B2 /* Pods_Tasveer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */; };
+		B214147E22C9DC67001FF3CC /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214147D22C9DC67001FF3CC /* ShareViewController.swift */; };
+		B214148122C9DC67001FF3CC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B214147F22C9DC67001FF3CC /* MainInterface.storyboard */; };
+		B214148522C9DC67001FF3CC /* TasveerShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B214147B22C9DC67001FF3CC /* TasveerShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B21CC423228012C300114ACC /* CoreDataContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC421228012C200114ACC /* CoreDataContextObserver.swift */; };
 		B21CC424228012C300114ACC /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC422228012C200114ACC /* Managed.swift */; };
 		B21CC42B228012EC00114ACC /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC426228012EC00114ACC /* Migration.swift */; };
@@ -125,8 +128,37 @@
 		B2D6749C22986C040039B17C /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6749B22986C040039B17C /* UIColor+hex.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B214148322C9DC67001FF3CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2954B2E227C405700B8D37C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B214147A22C9DC67001FF3CC;
+			remoteInfo = TasveerShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B214148922C9DC67001FF3CC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B214148522C9DC67001FF3CC /* TasveerShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.release.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.release.xcconfig"; sourceTree = "<group>"; };
+		B214147B22C9DC67001FF3CC /* TasveerShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TasveerShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B214147D22C9DC67001FF3CC /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		B214148022C9DC67001FF3CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B214148222C9DC67001FF3CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B214148A22C9DCB6001FF3CC /* Tasveer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tasveer.entitlements; sourceTree = "<group>"; };
 		B21CC421228012C200114ACC /* CoreDataContextObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataContextObserver.swift; sourceTree = "<group>"; };
 		B21CC422228012C200114ACC /* Managed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
 		B21CC426228012EC00114ACC /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
@@ -249,6 +281,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B214147822C9DC67001FF3CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2954B33227C405700B8D37C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +305,16 @@
 				BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B214147C22C9DC67001FF3CC /* TasveerShare */ = {
+			isa = PBXGroup;
+			children = (
+				B214147D22C9DC67001FF3CC /* ShareViewController.swift */,
+				B214147F22C9DC67001FF3CC /* MainInterface.storyboard */,
+				B214148222C9DC67001FF3CC /* Info.plist */,
+			);
+			path = TasveerShare;
 			sourceTree = "<group>";
 		};
 		B21CC420228012A600114ACC /* Helper */ = {
@@ -449,6 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				B2954B38227C405700B8D37C /* Tasveer */,
+				B214147C22C9DC67001FF3CC /* TasveerShare */,
 				B2954B37227C405700B8D37C /* Products */,
 				CDDA481C3F0A6E50D2F053B7 /* Pods */,
 				8A5B783D104170B5131F987D /* Frameworks */,
@@ -459,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				B2954B36227C405700B8D37C /* Tasveer.app */,
+				B214147B22C9DC67001FF3CC /* TasveerShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -466,6 +517,7 @@
 		B2954B38227C405700B8D37C /* Tasveer */ = {
 			isa = PBXGroup;
 			children = (
+				B214148A22C9DCB6001FF3CC /* Tasveer.entitlements */,
 				B2954BAF227C95AF00B8D37C /* Scenes */,
 				B2954B4F227C48A000B8D37C /* Helpers */,
 				B2954B39227C405700B8D37C /* AppDelegate.swift */,
@@ -725,6 +777,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B214147A22C9DC67001FF3CC /* TasveerShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B214148822C9DC67001FF3CC /* Build configuration list for PBXNativeTarget "TasveerShare" */;
+			buildPhases = (
+				B214147722C9DC67001FF3CC /* Sources */,
+				B214147822C9DC67001FF3CC /* Frameworks */,
+				B214147922C9DC67001FF3CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TasveerShare;
+			productName = TasveerShare;
+			productReference = B214147B22C9DC67001FF3CC /* TasveerShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B2954B35227C405700B8D37C /* Tasveer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2954B4B227C405800B8D37C /* Build configuration list for PBXNativeTarget "Tasveer" */;
@@ -735,10 +804,12 @@
 				B2954B34227C405700B8D37C /* Resources */,
 				C242D325383CB1E109749A12 /* [CP] Embed Pods Frameworks */,
 				B2954B4E227C456A00B8D37C /* ShellScript */,
+				B214148922C9DC67001FF3CC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B214148422C9DC67001FF3CC /* PBXTargetDependency */,
 			);
 			name = Tasveer;
 			productName = Tasveer;
@@ -755,8 +826,16 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Haik Ampardjian";
 				TargetAttributes = {
+					B214147A22C9DC67001FF3CC = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					B2954B35227C405700B8D37C = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -774,11 +853,20 @@
 			projectRoot = "";
 			targets = (
 				B2954B35227C405700B8D37C /* Tasveer */,
+				B214147A22C9DC67001FF3CC /* TasveerShare */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B214147922C9DC67001FF3CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B214148122C9DC67001FF3CC /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2954B34227C405700B8D37C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -884,6 +972,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B214147722C9DC67001FF3CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B214147E22C9DC67001FF3CC /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2954B32227C405700B8D37C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -999,7 +1095,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B214148422C9DC67001FF3CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B214147A22C9DC67001FF3CC /* TasveerShare */;
+			targetProxy = B214148322C9DC67001FF3CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		B214147F22C9DC67001FF3CC /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B214148022C9DC67001FF3CC /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		B2954B3D227C405700B8D37C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1019,6 +1131,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B214148622C9DC67001FF3CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JRU28287L;
+				INFOPLIST_FILE = TasveerShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bumi.Tasveer.TasveerShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B214148722C9DC67001FF3CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JRU28287L;
+				INFOPLIST_FILE = TasveerShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bumi.Tasveer.TasveerShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B2954B49227C405800B8D37C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1139,7 +1289,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tasveer/Tasveer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2JRU28287L;
@@ -1159,7 +1311,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tasveer/Tasveer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2JRU28287L;
 				INFOPLIST_FILE = Tasveer/Info.plist;
@@ -1177,6 +1331,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B214148822C9DC67001FF3CC /* Build configuration list for PBXNativeTarget "TasveerShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B214148622C9DC67001FF3CC /* Debug */,
+				B214148722C9DC67001FF3CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B2954B31227C405700B8D37C /* Build configuration list for PBXProject "Tasveer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
