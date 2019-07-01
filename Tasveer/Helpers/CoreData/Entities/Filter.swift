@@ -69,5 +69,8 @@ extension Filter {
         // When changing the filter, we need to switch back the collection syncState to .none,
         // to tell the app that we need to upload new photos
         collection.syncStateValue = .none
+        
+        // Update collection's name
+        collection.updateName(text: model.name)
     }
 }
