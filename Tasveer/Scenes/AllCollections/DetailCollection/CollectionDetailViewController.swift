@@ -72,8 +72,11 @@ final class CollectionDetailViewController: UIViewController {
     
     private func setupTopBar() {
         filterButton = UIBarButtonItem.init(image: UIImage(named: "filter_icon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(openFilterScene))
-        navigationItem.rightBarButtonItem = filterButton
         filterButton.isEnabled = (collection?.syncStateValue ?? .none) != .syncing
+        
+        let addPhoto = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addPhotoToCollection))
+        navigationItem.rightBarButtonItems = [filterButton, addPhoto]
+        
     }
     
     private func setupNameTextField() {
@@ -221,6 +224,16 @@ final class CollectionDetailViewController: UIViewController {
         moc?.performChanges { [weak self] in
             self?.collection?.updateName(text: collectionName)
         }
+    }
+    
+    @objc private func addPhotoToCollection() {
+        guard collection != nil else { return }
+        
+        let pickPhoto = PickPhotoOperation(collection: collection!) { [unowned self] in
+            let up = StartUploadingCollectionOperation(with: self.collection)
+            self.queue.addOperation(up)
+        }
+        queue.addOperation(pickPhoto)
     }
 }
 
