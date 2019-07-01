@@ -24,6 +24,7 @@ final class FiltersViewController: UITableViewController {
     // Callback to handle new collection created
     var savedCallback: ((Collection) -> Void)?
     
+    @IBOutlet fileprivate weak var collectionName: UITextField!
     @IBOutlet fileprivate weak var albumName: PickerTextField!
     @IBOutlet fileprivate weak var favoriteSwitch: UISwitch!
     @IBOutlet fileprivate weak var fromTimeframe: PickerTextField!
@@ -58,6 +59,7 @@ final class FiltersViewController: UITableViewController {
         fetchAlbums()
         setupPickModel()
         setupCancel()
+        setupNameTextField()
         validateNewFilter()
     }
     
@@ -99,6 +101,12 @@ final class FiltersViewController: UITableViewController {
         setupPicker(albumPicker, forTextfield: albumName)
         setupDatePicker(fromPicker, forTextfield: fromTimeframe)
         setupDatePicker(toPicker, forTextfield: toTimeframe)
+    }
+    
+    private func setupNameTextField() {
+        collectionName.returnKeyType = .done
+        collectionName.clearButtonMode = .whileEditing
+        collectionName.text = collection?.name
     }
     
     private func setupPicker(_ picker: UIPickerView, forTextfield textfield: UITextField) {
@@ -221,8 +229,18 @@ final class FiltersViewController: UITableViewController {
         }
     }
     
+    @objc private func collectionNameIsSet(_ textfield: UITextField) {
+        guard let collectionName = textfield.text, !collectionName.isEmpty
+            else { return }
+        
+        let moc = PersistentStoreManager.shared.moc
+        moc?.performChanges { [weak self] in
+            self?.collection?.updateName(text: collectionName)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 && indexPath.row == 0 {
+        if indexPath.section == 1 && indexPath.row == 0 {
             let vc = PickAlbumViewController(style: .plain)
             vc.pickModel = pickModel
             vc.filtersModel = filterModel
@@ -259,6 +277,22 @@ extension FiltersViewController: UITextFieldDelegate {
         default:
             break
         }
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard string.count > 0 else {
+            return true
+        }
+        
+        let currentText = textField.text ?? ""
+        let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        filterModel.name = prospectiveText
         
         return true
     }
