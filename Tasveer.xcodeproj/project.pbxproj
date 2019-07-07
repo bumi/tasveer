@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2EE8026DD1CDCAD57918D0B2 /* Pods_Tasveer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */; };
+		B214147022C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214146F22C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift */; };
+		B214147222C9BEC1001FF3CC /* SaveExistingFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214147122C9BEC1001FF3CC /* SaveExistingFilterOperation.swift */; };
+		B214147422C9C05A001FF3CC /* EditCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214147322C9C05A001FF3CC /* EditCollectionOperation.swift */; };
 		B21CC423228012C300114ACC /* CoreDataContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC421228012C200114ACC /* CoreDataContextObserver.swift */; };
 		B21CC424228012C300114ACC /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC422228012C200114ACC /* Managed.swift */; };
 		B21CC42B228012EC00114ACC /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC426228012EC00114ACC /* Migration.swift */; };
@@ -127,6 +130,9 @@
 
 /* Begin PBXFileReference section */
 		A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.release.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.release.xcconfig"; sourceTree = "<group>"; };
+		B214146F22C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndUpdateExistingFilterOperation.swift; sourceTree = "<group>"; };
+		B214147122C9BEC1001FF3CC /* SaveExistingFilterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveExistingFilterOperation.swift; sourceTree = "<group>"; };
+		B214147322C9C05A001FF3CC /* EditCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCollectionOperation.swift; sourceTree = "<group>"; };
 		B21CC421228012C200114ACC /* CoreDataContextObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataContextObserver.swift; sourceTree = "<group>"; };
 		B21CC422228012C200114ACC /* Managed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
 		B21CC426228012EC00114ACC /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
@@ -349,6 +355,9 @@
 				B21DFE042296CACE0007A1B8 /* CreateAndSaveCollectionOperation.swift */,
 				B21DFE062296CB470007A1B8 /* CreateNetworkCollectionOperation.swift */,
 				B21DFE0B2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift */,
+				B214146F22C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift */,
+				B214147122C9BEC1001FF3CC /* SaveExistingFilterOperation.swift */,
+				B214147322C9C05A001FF3CC /* EditCollectionOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -903,6 +912,7 @@
 				B2604B7A228B7B01005CFEDF /* AuthManager.swift in Sources */,
 				B2954BA3227C926100B8D37C /* OperationCondition.swift in Sources */,
 				B25EB8CF22BCB8DE00F508F0 /* StartUploadingCollectionsOperation.swift in Sources */,
+				B214147222C9BEC1001FF3CC /* SaveExistingFilterOperation.swift in Sources */,
 				B23FA0BC22844BFB0079A0B5 /* FetchAlbumNamesOperation.swift in Sources */,
 				B21CC42C228012EC00114ACC /* NSPersistenStoreCoordinator+Extensions.swift in Sources */,
 				B2954BA6227C926100B8D37C /* NSLock+Operations.swift in Sources */,
@@ -985,10 +995,12 @@
 				B2954BB2227C95C600B8D37C /* AllCollectionsViewController.swift in Sources */,
 				B2D6749A22986BB90039B17C /* Colors.swift in Sources */,
 				B2954B97227C926100B8D37C /* RemoteNotificationCondition.swift in Sources */,
+				B214147422C9C05A001FF3CC /* EditCollectionOperation.swift in Sources */,
 				B2954B9F227C926100B8D37C /* SilentCondition.swift in Sources */,
 				B2954B92227C926100B8D37C /* GroupOperation.swift in Sources */,
 				B21CC42E228012EC00114ACC /* ModelVersions.swift in Sources */,
 				B2954BAA227C926100B8D37C /* UIUserNotifications+Operations.swift in Sources */,
+				B214147022C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift in Sources */,
 				B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */,
 				B281595B2281928800F09F6F /* FiltersModel.swift in Sources */,
 				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,

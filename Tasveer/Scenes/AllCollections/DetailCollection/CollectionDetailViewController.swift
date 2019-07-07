@@ -19,7 +19,6 @@ final class CollectionDetailViewController: UIViewController {
     
     @IBOutlet fileprivate weak var segmentPicker: UISegmentedControl!
     @IBOutlet fileprivate weak var containerView: UIView!
-    @IBOutlet fileprivate weak var collectionName: UITextField!
     
     // Constant title
     private let collectionDetailTitle = "Collection"
@@ -46,9 +45,6 @@ final class CollectionDetailViewController: UIViewController {
         // Setup observer of the collection
         setupCollectionObserver()
         
-        // Setup textfield
-        setupNameTextField()
-        
         // Setup title
         addTitle(showActivity: false)
     }
@@ -74,14 +70,6 @@ final class CollectionDetailViewController: UIViewController {
         filterButton = UIBarButtonItem.init(image: UIImage(named: "filter_icon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(openFilterScene))
         navigationItem.rightBarButtonItem = filterButton
         filterButton.isEnabled = (collection?.syncStateValue ?? .none) != .syncing
-    }
-    
-    private func setupNameTextField() {
-        collectionName.addTarget(self, action: #selector(collectionNameIsSet(_:)), for: .editingDidEnd)
-        collectionName.addTarget(self, action: #selector(collectionNameIsSet(_:)), for: .editingDidEndOnExit)
-        collectionName.returnKeyType = .done
-        collectionName.clearButtonMode = .whileEditing
-        collectionName.text = collection?.name
     }
     
     private func setupChildViewControllers() {
@@ -136,7 +124,6 @@ final class CollectionDetailViewController: UIViewController {
                         else { return }
                     self?.oldCollectionState = updatedCollection.syncStateValue
                     self?.updateTitle(collection: updatedCollection)
-                    self?.collectionName.text = updatedCollection.name
                 }
             }
         }
@@ -211,21 +198,5 @@ final class CollectionDetailViewController: UIViewController {
         guard collection == nil else { return }
         
         openFilterScene()
-    }
-    
-    @objc private func collectionNameIsSet(_ textfield: UITextField) {
-        guard let collectionName = textfield.text, !collectionName.isEmpty
-            else { return }
-        
-        let moc = PersistentStoreManager.shared.moc
-        moc?.performChanges { [weak self] in
-            self?.collection?.updateName(text: collectionName)
-        }
-    }
-}
-
-extension CollectionDetailViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
     }
 }
