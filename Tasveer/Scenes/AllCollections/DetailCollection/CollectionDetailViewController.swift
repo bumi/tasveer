@@ -19,7 +19,6 @@ final class CollectionDetailViewController: UIViewController {
     
     @IBOutlet fileprivate weak var segmentPicker: UISegmentedControl!
     @IBOutlet fileprivate weak var containerView: UIView!
-    @IBOutlet fileprivate weak var collectionName: UITextField!
     
     // Constant title
     private let collectionDetailTitle = "Collection"
@@ -45,9 +44,6 @@ final class CollectionDetailViewController: UIViewController {
         
         // Setup observer of the collection
         setupCollectionObserver()
-        
-        // Setup textfield
-        setupNameTextField()
         
         // Setup title
         addTitle(showActivity: false)
@@ -77,14 +73,6 @@ final class CollectionDetailViewController: UIViewController {
         let addPhoto = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addPhotoToCollection))
         navigationItem.rightBarButtonItems = [filterButton, addPhoto]
         
-    }
-    
-    private func setupNameTextField() {
-        collectionName.addTarget(self, action: #selector(collectionNameIsSet(_:)), for: .editingDidEnd)
-        collectionName.addTarget(self, action: #selector(collectionNameIsSet(_:)), for: .editingDidEndOnExit)
-        collectionName.returnKeyType = .done
-        collectionName.clearButtonMode = .whileEditing
-        collectionName.text = collection?.name
     }
     
     private func setupChildViewControllers() {
@@ -139,7 +127,6 @@ final class CollectionDetailViewController: UIViewController {
                         else { return }
                     self?.oldCollectionState = updatedCollection.syncStateValue
                     self?.updateTitle(collection: updatedCollection)
-                    self?.collectionName.text = updatedCollection.name
                 }
             }
         }

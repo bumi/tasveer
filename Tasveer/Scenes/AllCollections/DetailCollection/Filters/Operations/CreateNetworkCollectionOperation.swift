@@ -27,10 +27,8 @@ final class CreateNetworkCollectionOperation: Operation {
             NetworkParamsKey.toTime: toDate as Any
         ]
         
-        let collectionName = filterModel.pickedAlbum.title + " " + DateFormatter.filterStyle.string(from: Date())
-        
         let params: [String : Any] = [
-            NetworkParamsKey.name: collectionName,
+            NetworkParamsKey.name: filterModel.name,
             NetworkParamsKey.filter: filter
         ]
         

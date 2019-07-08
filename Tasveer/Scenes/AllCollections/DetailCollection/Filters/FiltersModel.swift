@@ -84,6 +84,7 @@ final class FiltersModel {
     var fromDate: Date?
     var toDate: Date?
     var isFavorite: Bool
+    var name: String = ""
     
     private var isEmpty: Bool {
         return fromDate == nil && toDate == nil && !isFavorite
@@ -117,6 +118,9 @@ final class FiltersModel {
     func validate() -> String? {
         if pickedAlbum == .allPhotos, isEmpty {
             return "Can't add filter for All Photos without any defined properties."
+        }
+        if name.isEmpty {
+            return "Can't save album with empty name. Please enter the album's name"
         }
         
         return nil
