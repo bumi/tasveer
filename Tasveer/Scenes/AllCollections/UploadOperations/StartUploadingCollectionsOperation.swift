@@ -24,6 +24,11 @@ final class StartUploadingCollectionsOperation: GroupOperation {
             .filter({ $0.syncStateValue == .none || ($0.syncStateValue == .syncing && $0.task?.isPaused == true) })
             .map(StartUploadingCollectionOperation.init)
         
+        guard !operations.isEmpty else {
+            finish()
+            return
+        }
+        
         for operation in operations {
             addOperation(operation)
         }
