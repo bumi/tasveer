@@ -36,6 +36,10 @@ final class AllCollectionsViewController: UIViewController {
                 }
             }
         }
+        
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] (note) in
+            self?.fetchNewPhotosIfNeeded(forObjects: self?.dataSource?.fetchedResultsController.fetchedObjects)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,6 +50,7 @@ final class AllCollectionsViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("NewCollectionInserted"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     private func setupTableView() {
