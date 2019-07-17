@@ -27,6 +27,10 @@ extension API {
     static func editCollection(_ params: Parameters, identifier: String) -> DataRequest {
         return Alamofire.request(router.collections(.edit(identifier: identifier, params: params)))
     }
+    
+    static func invitePerson(_ params: Parameters, identifier: String) -> DataRequest {
+        return Alamofire.request(router.collections(.invite(identifier: identifier, params: params)))
+    }
 }
 
 // Photos
