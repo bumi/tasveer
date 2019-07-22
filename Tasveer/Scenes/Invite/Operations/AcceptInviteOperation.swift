@@ -20,6 +20,8 @@ final class AcceptInviteOperation: Operation {
     }
     
     override func execute() {
-//        API.acceptInvite(for: inviteId).responseParsed(callback: <#T##(Result<Decodable & Encodable, ResponseError>) -> Void#>)
+        API.acceptInvite(for: inviteId).responseParsed { [weak self] (_: Result<InviteResponse, ResponseError>) in
+            self?.finish()
+        }
     }
 }
