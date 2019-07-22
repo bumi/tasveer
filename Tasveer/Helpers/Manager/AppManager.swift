@@ -32,8 +32,9 @@ final class AppManager {
     }
     
     // Accept invite
-    func launchedFromUniversalLink(inviteId: String) {
-        
+    func launchedFromUniversalLink(inviteId: String, collectionId: String) {
+        let showInvite = ShowInviteSceneOperation(forCollectionId: collectionId, inviteId: inviteId)
+        queue.addOperation(showInvite)
     }
     
     private func replace(viewController vc: UIViewController?, inWindow window: UIWindow?) {

@@ -26,8 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb,
             let url = userActivity.webpageURL,
             let comps = URLComponents(url: url, resolvingAgainstBaseURL: true),
+            let collectionId = comps.queryItems?.last?.value,
             let inviteId = comps.path.components(separatedBy: "/").last {
-            
+            AppManager.shared.launchedFromUniversalLink(inviteId: inviteId,
+                                                        collectionId: collectionId)
         }
         return true
     }

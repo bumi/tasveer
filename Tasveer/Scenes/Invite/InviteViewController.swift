@@ -9,9 +9,15 @@
 import UIKit
 import MBProgressHUD
 
+protocol InviteViewControllerDelegate: class {
+    func shouldDismiss()
+}
+
 final class InviteViewController: UITableViewController {
     var collectionId: String?
     var inviteId: String?
+    
+    weak var delegate: InviteViewControllerDelegate?
     
     private let queue = OperationQueue()
     
@@ -38,7 +44,7 @@ final class InviteViewController: UITableViewController {
     }
     
     @IBAction fileprivate func cancelInvite() {
-        dismiss(animated: true, completion: nil)
+        delegate?.shouldDismiss()
     }
     
     override func viewDidLoad() {
