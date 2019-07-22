@@ -65,6 +65,10 @@ enum Router: BaseRouter {
         case photos(identifier: String)
     }
     
+    enum Invitation {
+        case accept(identifier: String) // Invite identifier
+    }
+    
     enum Photo {
         case create(params: Parameters)
         case createToCollection(collectionId: String)
@@ -75,6 +79,7 @@ enum Router: BaseRouter {
     
     case users(User)
     case collections(Collection)
+    case invitations(Invitation)
     case photos(Photo)
     
     var method: Alamofire.HTTPMethod {
@@ -92,6 +97,7 @@ enum Router: BaseRouter {
              .collections(.photos):
             return .get
         case .collections(.edit),
+             .invitations(.accept),
              .photos(.edit):
             return .put
         case .photos(.delete):
@@ -116,6 +122,9 @@ enum Router: BaseRouter {
             return "collections/\(identifier)/invitations"
         case .collections(.photos(let identifier)):
             return "collections/\(identifier)/photos"
+            
+        case .invitations(.accept(let identifier)):
+            return "/invitations/\(identifier)/accept"
             
         case .photos(.create):
             return "photos"
@@ -150,6 +159,7 @@ enum Router: BaseRouter {
              .collections(.collection),
              .collections(.all),
              .collections(.photos),
+             .invitations(.accept),
              .photos(.delete):
             return try jsonEncoding.encode(urlRequest)
             

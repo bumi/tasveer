@@ -33,6 +33,13 @@ extension API {
     }
 }
 
+// Invitations
+extension API {
+    static func acceptInvite(for identifier: String) -> DataRequest {
+        return Alamofire.request(router.invitations(.accept(identifier: identifier)))
+    }
+}
+
 // Photos
 extension API {
     static func uploadPhoto(collectionId: String) -> URLRequestConvertible{
