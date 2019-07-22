@@ -31,6 +31,11 @@ final class AppManager {
         }
     }
     
+    // Accept invite
+    func launchedFromUniversalLink(inviteId: String) {
+        
+    }
+    
     private func replace(viewController vc: UIViewController?, inWindow window: UIWindow?) {
         UIView.transition(with: window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
             DispatchQueue.main.async {

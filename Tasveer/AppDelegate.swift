@@ -23,12 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
-            let url = userActivity.webpageURL!
-            let comps = URLComponents(url: url, resolvingAgainstBaseURL: true)
-            print(comps?.queryItems ?? [])
+        if userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let url = userActivity.webpageURL,
+            let comps = URLComponents(url: url, resolvingAgainstBaseURL: true),
+            let inviteId = comps.path.components(separatedBy: "/").last {
             
-            //handle url and open whatever page you want to open.
         }
         return true
     }
