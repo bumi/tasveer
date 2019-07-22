@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 final class CollectionPeopleViewController: UIViewController {
     var collection: Collection?
@@ -14,6 +15,7 @@ final class CollectionPeopleViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!
     
     private var model: CollectionPeopleModel!
+    private let queue = OperationQueue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +90,15 @@ extension CollectionPeopleViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     private func invitePerson(withEmail email: String) {
+        MBProgressHUD.showAdded(to: view, animated: true)
+        let sendOperation = SendInviteOperation(withEmail: email,
+                                                collectionId: collection?.identifier ?? "")
+        sendOperation.addCompletionBlock { [unowned self] in
+            DispatchQueue.main.async {
+                MBProgressHUD.hide(for: self.view, animated: true)
+            }
+        }
         
+        queue.addOperation(sendOperation)
     }
 }
