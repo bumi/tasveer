@@ -69,6 +69,7 @@
 		B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */; };
 		B28AE4E722E6565900FCB26F /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4E622E6565900FCB26F /* InviteViewController.swift */; };
 		B28AE4EA22E6575F00FCB26F /* AcceptInviteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4E922E6575F00FCB26F /* AcceptInviteOperation.swift */; };
+		B28AE4EC22E6596300FCB26F /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4EB22E6596300FCB26F /* InviteResponse.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -196,6 +197,7 @@
 		B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPhotosByFilterOperation.swift; sourceTree = "<group>"; };
 		B28AE4E622E6565900FCB26F /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		B28AE4E922E6575F00FCB26F /* AcceptInviteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInviteOperation.swift; sourceTree = "<group>"; };
+		B28AE4EB22E6596300FCB26F /* InviteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteResponse.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 				B2954B5E227C895200B8D37C /* CollectionResponse.swift */,
 				B2954B60227C89ED00B8D37C /* MembershipResponse.swift */,
 				B237ABD3228CAC1A00191FDC /* PhotoResponse.swift */,
+				B28AE4EB22E6596300FCB26F /* InviteResponse.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -1024,6 +1027,7 @@
 				B2954BA7227C926100B8D37C /* Dictionary+Operations.swift in Sources */,
 				B2954BA8227C926100B8D37C /* CKContainer+Operations.swift in Sources */,
 				B2954BA9227C926100B8D37C /* NSOperation+Operations.swift in Sources */,
+				B28AE4EC22E6596300FCB26F /* InviteResponse.swift in Sources */,
 				B2954BAC227C926100B8D37C /* BackgroundObserver.swift in Sources */,
 				B28159712282C93300F09F6F /* PhotoAccessCondition.swift in Sources */,
 				B2954B94227C926100B8D37C /* URLSessionTaskOperation.swift in Sources */,
