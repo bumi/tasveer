@@ -25,15 +25,16 @@ final class ShowInviteSceneOperation: Operation {
     
     override func execute() {
         DispatchQueue.main.async {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            guard let appDelegate = AppDelegateManager.currentViewController
                 else { return }
             
-            self.vc = UIStoryboard.init(name: "Invite", bundle: Bundle.main).instantiateInitialViewController() as? InviteViewController
+            let nc = UIStoryboard.init(name: "Invite", bundle: Bundle.main).instantiateInitialViewController() as? UINavigationController
+            self.vc = nc?.viewControllers.first as? InviteViewController
             self.vc?.delegate = self
             self.vc?.collectionId = self.collectionId
             self.vc?.inviteId = self.inviteId
             
-            appDelegate.window?.rootViewController = self.vc
+            appDelegate.present(nc!, animated: true, completion: nil)
         }
     }
 }

@@ -148,6 +148,7 @@ enum Router: BaseRouter {
         
         if let token = Router.authToken {
             urlRequest.setValue(token, forHTTPHeaderField: "X-API-KEY")
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         }
         
         let jsonEncoding = JSONEncoding.default
