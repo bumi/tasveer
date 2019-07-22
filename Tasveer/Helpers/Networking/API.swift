@@ -31,6 +31,10 @@ extension API {
     static func invitePerson(_ params: Parameters, identifier: String) -> DataRequest {
         return Alamofire.request(router.collections(.invite(identifier: identifier, params: params)))
     }
+    
+    static func fetchCollection(for identifier: String) -> DataRequest {
+        return Alamofire.request(router.collections(.collection(identifier: identifier)))
+    }
 }
 
 // Invitations

@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-693" y="171"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Invite-->
         <scene sceneID="4kV-Ri-Pbm">
             <objects>
-                <tableViewController id="fmh-ul-kt8" sceneMemberID="viewController">
+                <tableViewController id="fmh-ul-kt8" customClass="InviteViewController" customModule="Tasveer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="EFH-AB-dng">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,7 +55,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt7-et-Z28">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt7-et-Z28">
                                                             <rect key="frame" x="120" y="0.0" width="261" height="59.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -91,7 +91,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-8W-VYx">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-8W-VYx">
                                                             <rect key="frame" x="120" y="0.0" width="261" height="59.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -127,7 +127,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACu-KG-koE">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACu-KG-koE">
                                                             <rect key="frame" x="120" y="0.0" width="261" height="59.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -155,10 +155,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5m-cS-HC1">
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5m-cS-HC1">
                                                     <rect key="frame" x="15" y="5" width="384" height="49.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <state key="normal" title="Accept Invite"/>
+                                                    <connections>
+                                                        <action selector="acceptInvite" destination="fmh-ul-kt8" eventType="touchUpInside" id="wxh-pE-grx"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -177,9 +180,20 @@
                             <outlet property="delegate" destination="fmh-ul-kt8" id="1QC-3c-mGh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xNq-Lb-HqX">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nrm-RG-JTr"/>
+                    <navigationItem key="navigationItem" title="Invite" id="xNq-Lb-HqX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nrm-RG-JTr">
+                            <connections>
+                                <action selector="cancelInvite" destination="fmh-ul-kt8" id="WoM-l0-P1j"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="acceptButton" destination="i5m-cS-HC1" id="4yT-gO-ld7"/>
+                        <outlet property="cancelButton" destination="nrm-RG-JTr" id="I4D-n5-wgZ"/>
+                        <outlet property="name" destination="Tt7-et-Z28" id="8di-EQ-ec3"/>
+                        <outlet property="photoNumber" destination="ACu-KG-koE" id="59E-vA-06n"/>
+                        <outlet property="users" destination="hIw-8W-VYx" id="2x2-MT-eIe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOk-6U-X4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

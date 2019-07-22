@@ -70,6 +70,7 @@
 		B28AE4E722E6565900FCB26F /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4E622E6565900FCB26F /* InviteViewController.swift */; };
 		B28AE4EA22E6575F00FCB26F /* AcceptInviteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4E922E6575F00FCB26F /* AcceptInviteOperation.swift */; };
 		B28AE4EC22E6596300FCB26F /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4EB22E6596300FCB26F /* InviteResponse.swift */; };
+		B28AE4EE22E663DE00FCB26F /* FetchCollectionByIdOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4ED22E663DE00FCB26F /* FetchCollectionByIdOperation.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -198,6 +199,7 @@
 		B28AE4E622E6565900FCB26F /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		B28AE4E922E6575F00FCB26F /* AcceptInviteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInviteOperation.swift; sourceTree = "<group>"; };
 		B28AE4EB22E6596300FCB26F /* InviteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteResponse.swift; sourceTree = "<group>"; };
+		B28AE4ED22E663DE00FCB26F /* FetchCollectionByIdOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCollectionByIdOperation.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				B28159702282C93300F09F6F /* PhotoAccessCondition.swift */,
+				B28AE4ED22E663DE00FCB26F /* FetchCollectionByIdOperation.swift */,
 			);
 			path = Operation;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */,
 				B28AE4EA22E6575F00FCB26F /* AcceptInviteOperation.swift in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
+				B28AE4EE22E663DE00FCB26F /* FetchCollectionByIdOperation.swift in Sources */,
 				B2D6749522982DA50039B17C /* StartUploadingCollectionOperation.swift in Sources */,
 				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
 				B2D6749C22986C040039B17C /* UIColor+hex.swift in Sources */,
