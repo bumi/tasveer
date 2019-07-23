@@ -81,7 +81,7 @@ extension Collection {
         newCollection.identifier = collection.identifier
         newCollection.name = collection.name
         newCollection.descr = collection.description
-        newCollection.createdAt = Date()
+        newCollection.createdAt = collection.createdAt
         newCollection.syncStateValue = .none
         
         newCollection.users = User.insertNewUsers(into: moc, users: collection.users)

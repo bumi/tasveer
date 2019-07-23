@@ -19,6 +19,7 @@ final class InviteViewController: UITableViewController {
     
     weak var delegate: InviteViewControllerDelegate?
     
+    private var collectionResponse: CollectionResponse?
     private let queue = OperationQueue()
     
     @IBOutlet fileprivate weak var name: UILabel!
@@ -28,11 +29,11 @@ final class InviteViewController: UITableViewController {
     @IBOutlet fileprivate weak var cancelButton: UIBarButtonItem!
     
     @IBAction fileprivate func acceptInvite() {
-        if let inviteId = inviteId {
+        if let inviteId = inviteId, let collectionResponse = collectionResponse {
             cancelButton.isEnabled = false // So user can't cancel while invite is being accepted
             MBProgressHUD.showAdded(to: view, animated: true)
             
-            let acceptOperation = AcceptInviteOperation(with: inviteId)
+            let acceptOperation = AcceptInviteSaveCollectionOperation(forCollectionResponse: collectionResponse, inviteId: inviteId)
             acceptOperation.addCompletionBlock { [unowned self] in
                 DispatchQueue.main.async {
                     MBProgressHUD.hide(for: self.view, animated: true)
@@ -55,6 +56,7 @@ final class InviteViewController: UITableViewController {
             
             let fetchOperation = FetchCollectionByIdOperation(forCollectionId: collectionId) { [unowned self] (resp) in
                 DispatchQueue.main.async {
+                    self.collectionResponse = resp
                     self.updateLayout(from: resp)
                 }
             }

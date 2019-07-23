@@ -73,6 +73,7 @@
 		B28AE4EE22E663DE00FCB26F /* FetchCollectionByIdOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4ED22E663DE00FCB26F /* FetchCollectionByIdOperation.swift */; };
 		B28AE4F022E66C6A00FCB26F /* ShowInviteSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4EF22E66C6A00FCB26F /* ShowInviteSceneOperation.swift */; };
 		B28AE4F322E66F7400FCB26F /* SendInviteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4F222E66F7400FCB26F /* SendInviteOperation.swift */; };
+		B28AE4F522E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4F422E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -204,6 +205,7 @@
 		B28AE4ED22E663DE00FCB26F /* FetchCollectionByIdOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCollectionByIdOperation.swift; sourceTree = "<group>"; };
 		B28AE4EF22E66C6A00FCB26F /* ShowInviteSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInviteSceneOperation.swift; sourceTree = "<group>"; };
 		B28AE4F222E66F7400FCB26F /* SendInviteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInviteOperation.swift; sourceTree = "<group>"; };
+		B28AE4F422E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInviteSaveCollectionOperation.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 			children = (
 				B28AE4E922E6575F00FCB26F /* AcceptInviteOperation.swift */,
 				B28AE4EF22E66C6A00FCB26F /* ShowInviteSceneOperation.swift */,
+				B28AE4F422E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -1062,6 +1065,7 @@
 				B2954B92227C926100B8D37C /* GroupOperation.swift in Sources */,
 				B21CC42E228012EC00114ACC /* ModelVersions.swift in Sources */,
 				B2954BAA227C926100B8D37C /* UIUserNotifications+Operations.swift in Sources */,
+				B28AE4F522E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift in Sources */,
 				B214147022C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift in Sources */,
 				B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */,
 				B281595B2281928800F09F6F /* FiltersModel.swift in Sources */,
