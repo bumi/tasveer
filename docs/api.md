@@ -99,6 +99,13 @@ This includes the collection details and the user specific filter details.
   }
 ```
 
+### PUT /memberships/[id]
+Updates the membership details. 
+Currently only sets the `filter` for the current user.
+
+#### Request
+* membership[filter] : Object
+
 ## Invitations
 
 ### Object
@@ -107,6 +114,7 @@ This includes the collection details and the user specific filter details.
     "identifier": "inv-xxx",
     "email": "recipient@example.com",
     "collection_id": "cln-xxx",
+    "filter_suggestion": {},
     "sender_id": "usr-xxx",
     "accepted_at": "2019-05-11T14:41:30.408Z",
     "user_id": "usr-xxx-invited-xxx"
@@ -116,6 +124,8 @@ This includes the collection details and the user specific filter details.
 ### PUT /invitations/[id]/accept
 Accepts the invitation by the current authenticated user and a new membership for the current user is created to join the collection.
 
+#### Request
+* membership[filter] : Object
 
 ## Photos
 
