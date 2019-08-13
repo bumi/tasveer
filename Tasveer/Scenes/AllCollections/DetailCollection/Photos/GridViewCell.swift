@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import Nuke
 
 class GridViewCell: UICollectionViewCell {
     
@@ -57,6 +58,8 @@ class GridViewCell: UICollectionViewCell {
     }
     
     private func setupGlobal(withPhoto photo: Photo) {
-        
+        if let url = photo.filePreview {
+            Nuke.loadImage(with: url, into: imageView)
+        }
     }
 }
