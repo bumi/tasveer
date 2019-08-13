@@ -81,10 +81,11 @@ extension Collection {
         newCollection.identifier = collection.identifier
         newCollection.name = collection.name
         newCollection.descr = collection.description
-        newCollection.createdAt = Date()
+        newCollection.createdAt = collection.createdAt
         newCollection.syncStateValue = .none
         
         newCollection.users = User.insertNewUsers(into: moc, users: collection.users)
+        newCollection.photos = Set(collection.photos.map({ Photo.insertNewPhoto(into: moc, fromPhotoResponse: $0, forCollection: newCollection) }))
         
         if let filter = filter {
             newCollection.filter = Filter.insertNewFilter(into: moc, fromFilterModel: filter)

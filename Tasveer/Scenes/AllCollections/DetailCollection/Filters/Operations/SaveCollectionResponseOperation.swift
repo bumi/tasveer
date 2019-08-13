@@ -11,11 +11,11 @@ import Foundation
 final class SaveCollectionResponseOperation: Operation {
     var collectionResponse: CollectionResponse!
     
-    private let filterModel: FiltersModel
+    private let filterModel: FiltersModel?
     private var collection: Collection!
     private let createdCollection: (Collection) -> Void
     
-    init(filterModel: FiltersModel, createdCollection: @escaping (Collection) -> Void) {
+    init(filterModel: FiltersModel?, createdCollection: @escaping (Collection) -> Void) {
         self.filterModel = filterModel
         self.createdCollection = createdCollection
         

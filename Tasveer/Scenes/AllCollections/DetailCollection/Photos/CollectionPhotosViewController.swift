@@ -104,7 +104,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
             let request = Photo.sortedFetchRequest
             request.predicate = NSPredicate(format: "collection = %@", collection)
             request.returnsObjectsAsFaults = false
-            let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+            let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: "type", cacheName: nil)
             dataSource = CollectionViewDataSource.init(collectionView: collectionView, cellIdentifier: GridViewCell.cellId, fetchedResultsController: frc, delegate: self)
         }
     }

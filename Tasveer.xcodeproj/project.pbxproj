@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2EE8026DD1CDCAD57918D0B2 /* Pods_Tasveer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */; };
-		B214147622C9D108001FF3CC /* PickPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214147522C9D108001FF3CC /* PickPhotoOperation.swift */; };
 		B214147022C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214146F22C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift */; };
 		B214147222C9BEC1001FF3CC /* SaveExistingFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214147122C9BEC1001FF3CC /* SaveExistingFilterOperation.swift */; };
 		B214147422C9C05A001FF3CC /* EditCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214147322C9C05A001FF3CC /* EditCollectionOperation.swift */; };
+		B214147622C9D108001FF3CC /* PickPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214147522C9D108001FF3CC /* PickPhotoOperation.swift */; };
 		B21CC423228012C300114ACC /* CoreDataContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC421228012C200114ACC /* CoreDataContextObserver.swift */; };
 		B21CC424228012C300114ACC /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC422228012C200114ACC /* Managed.swift */; };
 		B21CC42B228012EC00114ACC /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CC426228012EC00114ACC /* Migration.swift */; };
@@ -67,6 +67,13 @@
 		B281596E2281B4C900F09F6F /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281596D2281B4C900F09F6F /* ButtonCell.swift */; };
 		B28159712282C93300F09F6F /* PhotoAccessCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159702282C93300F09F6F /* PhotoAccessCondition.swift */; };
 		B28159752282D5C800F09F6F /* FetchPhotosByFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */; };
+		B28AE4E722E6565900FCB26F /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4E622E6565900FCB26F /* InviteViewController.swift */; };
+		B28AE4EA22E6575F00FCB26F /* AcceptInviteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4E922E6575F00FCB26F /* AcceptInviteOperation.swift */; };
+		B28AE4EC22E6596300FCB26F /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4EB22E6596300FCB26F /* InviteResponse.swift */; };
+		B28AE4EE22E663DE00FCB26F /* FetchCollectionByIdOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4ED22E663DE00FCB26F /* FetchCollectionByIdOperation.swift */; };
+		B28AE4F022E66C6A00FCB26F /* ShowInviteSceneOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4EF22E66C6A00FCB26F /* ShowInviteSceneOperation.swift */; };
+		B28AE4F322E66F7400FCB26F /* SendInviteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4F222E66F7400FCB26F /* SendInviteOperation.swift */; };
+		B28AE4F522E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28AE4F422E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift */; };
 		B2954B3A227C405700B8D37C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2954B39227C405700B8D37C /* AppDelegate.swift */; };
 		B2954B3F227C405700B8D37C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2954B3D227C405700B8D37C /* Main.storyboard */; };
 		B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2954B40227C405700B8D37C /* Tasveer.xcdatamodeld */; };
@@ -127,14 +134,15 @@
 		B2D67497229843E50039B17C /* AllCollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D67496229843E50039B17C /* AllCollectionsViewModel.swift */; };
 		B2D6749A22986BB90039B17C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6749922986BB90039B17C /* Colors.swift */; };
 		B2D6749C22986C040039B17C /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6749B22986C040039B17C /* UIColor+hex.swift */; };
+		B2E5D5A422E62C4B006144C0 /* Invite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E5D5A322E62C4B006144C0 /* Invite.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.release.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.release.xcconfig"; sourceTree = "<group>"; };
-		B214147522C9D108001FF3CC /* PickPhotoOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPhotoOperation.swift; sourceTree = "<group>"; };
 		B214146F22C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndUpdateExistingFilterOperation.swift; sourceTree = "<group>"; };
 		B214147122C9BEC1001FF3CC /* SaveExistingFilterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveExistingFilterOperation.swift; sourceTree = "<group>"; };
 		B214147322C9C05A001FF3CC /* EditCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCollectionOperation.swift; sourceTree = "<group>"; };
+		B214147522C9D108001FF3CC /* PickPhotoOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPhotoOperation.swift; sourceTree = "<group>"; };
 		B21CC421228012C200114ACC /* CoreDataContextObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataContextObserver.swift; sourceTree = "<group>"; };
 		B21CC422228012C200114ACC /* Managed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
 		B21CC426228012EC00114ACC /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 		B21DFE092296D1090007A1B8 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		B21DFE0B2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCollectionResponseOperation.swift; sourceTree = "<group>"; };
 		B21DFE0D2297250D0007A1B8 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
+		B224A9EB22E0A9FA0051FB18 /* Tasveer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tasveer.entitlements; sourceTree = "<group>"; };
 		B2361677228999E600B6AC3B /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		B23616792289C1E800B6AC3B /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		B236167B2289C29200B6AC3B /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
@@ -190,6 +199,13 @@
 		B281596D2281B4C900F09F6F /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		B28159702282C93300F09F6F /* PhotoAccessCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAccessCondition.swift; sourceTree = "<group>"; };
 		B28159742282D5C800F09F6F /* FetchPhotosByFilterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPhotosByFilterOperation.swift; sourceTree = "<group>"; };
+		B28AE4E622E6565900FCB26F /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		B28AE4E922E6575F00FCB26F /* AcceptInviteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInviteOperation.swift; sourceTree = "<group>"; };
+		B28AE4EB22E6596300FCB26F /* InviteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteResponse.swift; sourceTree = "<group>"; };
+		B28AE4ED22E663DE00FCB26F /* FetchCollectionByIdOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCollectionByIdOperation.swift; sourceTree = "<group>"; };
+		B28AE4EF22E66C6A00FCB26F /* ShowInviteSceneOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInviteSceneOperation.swift; sourceTree = "<group>"; };
+		B28AE4F222E66F7400FCB26F /* SendInviteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInviteOperation.swift; sourceTree = "<group>"; };
+		B28AE4F422E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInviteSaveCollectionOperation.swift; sourceTree = "<group>"; };
 		B2954B36227C405700B8D37C /* Tasveer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasveer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2954B39227C405700B8D37C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2954B3E227C405700B8D37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -252,6 +268,7 @@
 		B2D67496229843E50039B17C /* AllCollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionsViewModel.swift; sourceTree = "<group>"; };
 		B2D6749922986BB90039B17C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B2D6749B22986C040039B17C /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		B2E5D5A322E62C4B006144C0 /* Invite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invite.storyboard; sourceTree = "<group>"; };
 		BDD6DB779EF3AD402240BA83 /* Pods_Tasveer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasveer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasveer.debug.xcconfig"; path = "Target Support Files/Pods-Tasveer/Pods-Tasveer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -414,6 +431,7 @@
 		B281595F2281A9E600F09F6F /* People */ = {
 			isa = PBXGroup;
 			children = (
+				B28AE4F122E66F6200FCB26F /* Operations */,
 				B28159642281B33F00F09F6F /* Cell */,
 				B28159602281A9FC00F09F6F /* CollectionPeopleViewController.swift */,
 				B28159622281AA7100F09F6F /* CollectionPeopleModel.swift */,
@@ -453,8 +471,27 @@
 			isa = PBXGroup;
 			children = (
 				B28159702282C93300F09F6F /* PhotoAccessCondition.swift */,
+				B28AE4ED22E663DE00FCB26F /* FetchCollectionByIdOperation.swift */,
 			);
 			path = Operation;
+			sourceTree = "<group>";
+		};
+		B28AE4E822E6570B00FCB26F /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B28AE4E922E6575F00FCB26F /* AcceptInviteOperation.swift */,
+				B28AE4EF22E66C6A00FCB26F /* ShowInviteSceneOperation.swift */,
+				B28AE4F422E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		B28AE4F122E66F6200FCB26F /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B28AE4F222E66F7400FCB26F /* SendInviteOperation.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		B2954B2D227C405700B8D37C = {
@@ -478,6 +515,7 @@
 		B2954B38227C405700B8D37C /* Tasveer */ = {
 			isa = PBXGroup;
 			children = (
+				B224A9EB22E0A9FA0051FB18 /* Tasveer.entitlements */,
 				B2954BAF227C95AF00B8D37C /* Scenes */,
 				B2954B4F227C48A000B8D37C /* Helpers */,
 				B2954B39227C405700B8D37C /* AppDelegate.swift */,
@@ -543,6 +581,7 @@
 				B2954B5E227C895200B8D37C /* CollectionResponse.swift */,
 				B2954B60227C89ED00B8D37C /* MembershipResponse.swift */,
 				B237ABD3228CAC1A00191FDC /* PhotoResponse.swift */,
+				B28AE4EB22E6596300FCB26F /* InviteResponse.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -643,6 +682,7 @@
 			isa = PBXGroup;
 			children = (
 				B28159692281B47800F09F6F /* Shared */,
+				B2E5D5A222E62C13006144C0 /* Invite */,
 				B2604B7B228B7EA4005CFEDF /* Auth */,
 				B2954BB0227C95B500B8D37C /* AllCollections */,
 			);
@@ -725,6 +765,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B2E5D5A222E62C13006144C0 /* Invite */ = {
+			isa = PBXGroup;
+			children = (
+				B28AE4E822E6570B00FCB26F /* Operations */,
+				B2E5D5A322E62C4B006144C0 /* Invite.storyboard */,
+				B28AE4E622E6565900FCB26F /* InviteViewController.swift */,
+			);
+			path = Invite;
+			sourceTree = "<group>";
+		};
 		CDDA481C3F0A6E50D2F053B7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -769,6 +819,11 @@
 				TargetAttributes = {
 					B2954B35227C405700B8D37C = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -800,6 +855,7 @@
 				B2954B44227C405800B8D37C /* Assets.xcassets in Resources */,
 				B236167E2289C2AF00B6AC3B /* GridViewCell.xib in Resources */,
 				B28159662281B37A00F09F6F /* PersonCell.xib in Resources */,
+				B2E5D5A422E62C4B006144C0 /* Invite.storyboard in Resources */,
 				B21CC4372280214D00114ACC /* Collections.storyboard in Resources */,
 				B281596C2281B48D00F09F6F /* ButtonCell.xib in Resources */,
 				B2954B3F227C405700B8D37C /* Main.storyboard in Resources */,
@@ -950,11 +1006,14 @@
 				B2954B52227C48BA00B8D37C /* FabricsManager.swift in Sources */,
 				B2954B64227C8B6C00B8D37C /* DataRequest+NetResponse.swift in Sources */,
 				B2954B42227C405700B8D37C /* Tasveer.xcdatamodeld in Sources */,
+				B28AE4F322E66F7400FCB26F /* SendInviteOperation.swift in Sources */,
 				B2D67493229828E00039B17C /* UploadAllImageAssetsToBackEndOperation.swift in Sources */,
 				B2954BA1227C926100B8D37C /* LocationCondition.swift in Sources */,
 				B2361678228999E600B6AC3B /* Filter.swift in Sources */,
 				B281595E2281A99C00F09F6F /* CollectionPhotosViewController.swift in Sources */,
+				B28AE4EA22E6575F00FCB26F /* AcceptInviteOperation.swift in Sources */,
 				B2954B55227C4A2A00B8D37C /* Router.swift in Sources */,
+				B28AE4EE22E663DE00FCB26F /* FetchCollectionByIdOperation.swift in Sources */,
 				B2D6749522982DA50039B17C /* StartUploadingCollectionOperation.swift in Sources */,
 				B2954BC0227C9E2A00B8D37C /* User.swift in Sources */,
 				B2D6749C22986C040039B17C /* UIColor+hex.swift in Sources */,
@@ -981,6 +1040,7 @@
 				B237ABD4228CAC1A00191FDC /* PhotoResponse.swift in Sources */,
 				B2954BAE227C926100B8D37C /* TimeoutObserver.swift in Sources */,
 				B2954B91227C926100B8D37C /* LocationOperation.swift in Sources */,
+				B28AE4E722E6565900FCB26F /* InviteViewController.swift in Sources */,
 				B2604B85228B8530005CFEDF /* ShowMainSceneOperation.swift in Sources */,
 				B21DFE0A2296D1090007A1B8 /* NetworkConstants.swift in Sources */,
 				B2954B9D227C926100B8D37C /* UserNotificationCondition.swift in Sources */,
@@ -989,6 +1049,7 @@
 				B2954BA7227C926100B8D37C /* Dictionary+Operations.swift in Sources */,
 				B2954BA8227C926100B8D37C /* CKContainer+Operations.swift in Sources */,
 				B2954BA9227C926100B8D37C /* NSOperation+Operations.swift in Sources */,
+				B28AE4EC22E6596300FCB26F /* InviteResponse.swift in Sources */,
 				B2954BAC227C926100B8D37C /* BackgroundObserver.swift in Sources */,
 				B28159712282C93300F09F6F /* PhotoAccessCondition.swift in Sources */,
 				B2954B94227C926100B8D37C /* URLSessionTaskOperation.swift in Sources */,
@@ -1004,11 +1065,13 @@
 				B2954B92227C926100B8D37C /* GroupOperation.swift in Sources */,
 				B21CC42E228012EC00114ACC /* ModelVersions.swift in Sources */,
 				B2954BAA227C926100B8D37C /* UIUserNotifications+Operations.swift in Sources */,
+				B28AE4F522E73C3800FCB26F /* AcceptInviteSaveCollectionOperation.swift in Sources */,
 				B214147022C9BE66001FF3CC /* SaveAndUpdateExistingFilterOperation.swift in Sources */,
 				B2954BBC227C9B5100B8D37C /* UIView+identificators.swift in Sources */,
 				B281595B2281928800F09F6F /* FiltersModel.swift in Sources */,
 				B2954B58227C7D6000B8D37C /* RouterErrors.swift in Sources */,
 				B2954B5A227C815D00B8D37C /* API.swift in Sources */,
+				B28AE4F022E66C6A00FCB26F /* ShowInviteSceneOperation.swift in Sources */,
 				B21DFE0C2296D74F0007A1B8 /* SaveCollectionResponseOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1156,6 +1219,7 @@
 			baseConfigurationReference = FE2BF7CA5F1EF5D8619F2543 /* Pods-Tasveer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tasveer/Tasveer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2JRU28287L;
@@ -1176,6 +1240,7 @@
 			baseConfigurationReference = A894A9C79A642E5D3B8CC975 /* Pods-Tasveer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tasveer/Tasveer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2JRU28287L;
 				INFOPLIST_FILE = Tasveer/Info.plist;
